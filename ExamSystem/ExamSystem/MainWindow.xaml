@@ -1,0 +1,32 @@
+﻿<Window x:Class="ExamSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="战（现）场急救技术模拟训练系统" Height="752" Width="1280" WindowState="Maximized" WindowStyle="None" KeyDown="Window_KeyDown">
+    <Window.Background>
+        <ImageBrush ImageSource="resources/img/main_bg.png" />
+    </Window.Background>
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+        <!-- static layout -->
+        <Line X1="0" X2="2000" Y1="100" Y2="100" Stroke="Black" StrokeThickness="4" Grid.Row="0" />
+        <Line X1="0" X2="2000" Y1="0" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="2" />
+
+        <Image Grid.Row="0" Source="resources/img/head_title.png" />
+
+        <Grid Name="body"></Grid>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Name="mainPage" Content="首页" Margin="20" />
+            <Button Name="return" Content="退出" />
+        </StackPanel>
+        <!-- end of static layout -->
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        </StackPanel>
+    </Grid>
+</Window>
