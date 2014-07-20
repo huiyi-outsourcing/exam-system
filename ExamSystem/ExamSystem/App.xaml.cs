@@ -9,12 +9,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using log4net;
+using log4net.Config;
+
 namespace ExamSystem {
     /// <summary>
     /// App.xaml 的交互逻辑
     /// </summary>
     public partial class App : Application {
+
         protected override void OnStartup(StartupEventArgs e) {
+            // setup log4net
+
             // Get reference to the current Process
             Process thisProc = Process.GetCurrentProcess();
             // Check how many total processes have the same name as the current one

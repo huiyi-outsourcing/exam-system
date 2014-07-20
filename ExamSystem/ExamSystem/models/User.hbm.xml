@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="ExamSystem"
+                   assembly="ExamSystem">
+
+    <!-- Mappings for class 'Customer' -->
+    <class name="User" table="USERS" lazy="true">
+
+        <!-- Identity mapping -->
+        <id name="ID">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+
+        <!-- Simple mappings -->
+        <property name="Name" />
+        <property name="Username" />
+        <property name="Password" />
+        
+        <!-- enum type -->
+        <property name="Occupation" />
+
+    </class>
+
+</hibernate-mapping>
+

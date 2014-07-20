@@ -12,13 +12,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using log4net;
+using log4net.Config;
+
 namespace ExamSystem.controls {
     /// <summary>
     /// LoginControl.xaml 的交互逻辑
     /// </summary>
     public partial class LoginControl : UserControl {
+        private static readonly ILog log = LogManager.GetLogger(typeof(LoginControl));
+
         public LoginControl() {
             InitializeComponent();
+            log.Info("Enter LoginControl..");
         }
 
         private void login_Click(object sender, RoutedEventArgs e) {
