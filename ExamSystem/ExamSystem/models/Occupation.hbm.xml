@@ -4,22 +4,16 @@
                    assembly="ExamSystem">
 
     <!-- Mappings for class 'Customer' -->
-    <class name="User" table="users">
+    <class name="Occupation" table="occupation">
 
         <!-- Identity mapping -->
         <id name="ID">
             <column name="id" />
             <generator class="native" />
         </id>
-
-        <!-- Simple mappings -->
-        <property name="Name" column="name" />
-        <property name="Username" column="username" />
-        <property name="Password" column="password" />
         
         <!-- enum type -->
-        <property name="Occupation" column="occupation" sql-type="int" not-null="true" />
+        <property name="Status" column="status" sql-type="varchar(10)" not-null="true" />
     </class>
 
 </hibernate-mapping>
-
