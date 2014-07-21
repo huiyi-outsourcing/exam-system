@@ -9,11 +9,11 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="用户名：" />
-                <TextBox Name="machine_code" Width="300" IsReadOnly="True" />
+                <TextBox Name="username" Width="300" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20">
                 <Label Content="密    码：" />
-                <TextBox Name="auth_code" Width="300" />
+                <TextBox Name="password" Width="300" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Button Content="登陆" Name="login" Margin="20 0 20 0" Click="login_Click"></Button>

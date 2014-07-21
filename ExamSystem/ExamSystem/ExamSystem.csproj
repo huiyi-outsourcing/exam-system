@@ -38,6 +38,19 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\..\..\libs\NHibernate-3.3.3.SP1-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\libs\log4net-1.2.13\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\MySql.Data\v4.0_6.8.3.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\..\..\libs\NHibernate-3.3.3.SP1-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -71,7 +84,17 @@
     <Compile Include="HelperWindow.xaml.cs">
       <DependentUpon>HelperWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\Category.cs" />
+    <Compile Include="models\ClassificationOption.cs" />
+    <Compile Include="models\ClinicalCase.cs" />
+    <Compile Include="models\Degree.cs" />
+    <Compile Include="models\ExamResult.cs" />
+    <Compile Include="models\InjuredArea.cs" />
+    <Compile Include="models\MedicalOption.cs" />
+    <Compile Include="models\Occupation.cs" />
+    <Compile Include="models\User.cs" />
     <Compile Include="utils\AuthHelper.cs" />
+    <Compile Include="utils\DBHelper.cs" />
     <Compile Include="utils\SettingsHelper.cs" />
     <Page Include="controls\AuthControl.xaml">
       <SubType>Designer</SubType>
@@ -131,10 +154,14 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="conf\" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="models\User.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="conf\hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\img\bg_button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
