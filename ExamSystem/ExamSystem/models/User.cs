@@ -10,7 +10,7 @@ namespace ExamSystem.models {
         private String name;
         private String username;
         private String password;
-        private Occupation occupation;
+        //private Occupation occupation;
         #endregion
 
         #region Constructor
@@ -38,9 +38,13 @@ namespace ExamSystem.models {
             set { password = value; }
         }
 
-        public virtual Occupation Occupation {
-            get { return occupation; }
-            set { occupation = value; }
+        //public virtual Occupation Occupation {
+        //    get { return occupation; }
+        //    set { occupation = value; }
+        //}
+
+        public override String ToString() {
+            return String.Format("User name: {0}, username: {1}, password: {2}", name, username, password);
         }
         #endregion
     }

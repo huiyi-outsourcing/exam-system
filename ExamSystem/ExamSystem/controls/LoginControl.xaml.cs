@@ -12,8 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExamSystem.models;
+
 using log4net;
 using log4net.Config;
+using NHibernate;
 
 namespace ExamSystem.controls {
     /// <summary>
@@ -28,7 +31,22 @@ namespace ExamSystem.controls {
         }
 
         private void login_Click(object sender, RoutedEventArgs e) {
+            String name = username.Text.Trim();
+            String pwd = password.Text.Trim();
+            System.Collections.IList siteList;
+            ISessionFactory factory =
+            new NHibernate.Cfg.Configuration().Configure("conf/hibernate.cfg.xml").BuildSessionFactory(); 
 
+            using (ISession session = factory.OpenSession()) 
+            { 
+                ICriteria sc = session.CreateCriteria(typeof(User)); 
+                siteList = sc.List();
+                for (int i = 0; i < siteList.Count; ++i) {
+                    User u = siteList[i] as User;
+                    MessageBox.Show(u.ToString());
+                }
+                session.Close(); 
+            }
         }
 
         private void register_Click(object sender, RoutedEventArgs e) {

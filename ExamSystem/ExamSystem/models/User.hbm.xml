@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   namespace="ExamSystem"
+                   namespace="ExamSystem.models"
                    assembly="ExamSystem">
 
     <!-- Mappings for class 'Customer' -->
-    <class name="User" table="USERS" lazy="true">
+    <class name="User" table="users">
 
         <!-- Identity mapping -->
         <id name="ID">
@@ -13,13 +13,14 @@
         </id>
 
         <!-- Simple mappings -->
-        <property name="Name" />
-        <property name="Username" />
-        <property name="Password" />
+        <property name="Name" column="name" />
+        <property name="Username" column="username" />
+        <property name="Password" column="password" />
         
         <!-- enum type -->
+        <!--
         <property name="Occupation" />
-
+        -->
     </class>
 
 </hibernate-mapping>
