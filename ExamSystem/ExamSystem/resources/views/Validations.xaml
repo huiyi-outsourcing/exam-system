@@ -6,5 +6,6 @@
     Validations
     ***************************************************************************
     -->
-    <validations:NotNullValidationRule x:Key="NotNullValidationRule" />
+    <validations:UsernameValidationRule x:Key="UsernameValidationRule" />
+    <validations:PasswordValidationRule x:Key="PasswordValidationRule" />
 </ResourceDictionary>

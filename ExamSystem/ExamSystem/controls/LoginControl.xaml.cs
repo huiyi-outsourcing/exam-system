@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 
 using ExamSystem.models;
+using ExamSystem.utils;
 
 using log4net;
 using log4net.Config;
@@ -27,31 +29,61 @@ namespace ExamSystem.controls {
         // logger
         private static readonly ILog log = LogManager.GetLogger(typeof(LoginControl));
 
-        // view model for data context
-        private viewmodel.LoginViewModel viewModel = null;
-
         public LoginControl() {
             InitializeComponent();
-
-            this.viewModel = new viewmodel.LoginViewModel();
-            this.DataContext = this.viewModel;
         }
 
         private void login_Click(object sender, RoutedEventArgs e) {
-            System.Collections.IList siteList;
-            ISessionFactory factory =
-            new NHibernate.Cfg.Configuration().Configure("conf/hibernate.cfg.xml").BuildSessionFactory(); 
-
-            using (ISession session = factory.OpenSession()) 
-            { 
-                ICriteria sc = session.CreateCriteria(typeof(User)); 
-                siteList = sc.List();
-                for (int i = 0; i < siteList.Count; ++i) {
-                    User u = siteList[i] as User;
-                    MessageBox.Show(u.ToString());
-                }
-                session.Close(); 
+            String message = validateInput();
+            if (message.Length != 0) {
+                MessageBox.Show(message);
+                return;
             }
+
+            if (authenticate(tb_username.Text.Trim(), pb_password.Password)) {
+                MainWindow main = new MainWindow();
+                main.setBody(new MainControl());
+                main.Show();
+                Window parent = Window.GetWindow(this);
+                parent.Close();
+            } else {
+                MessageBox.Show("用户名或密码错误");
+            }
+        }
+
+        private bool authenticate(String username, String password) {
+            IList<User> user = PersistenceHelper.RetrieveByProperty<User>("username", tb_username.Text);
+            if (user.Count == 0) {
+                return false;
+            }
+
+            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
+            byte[] source = System.Text.Encoding.UTF8.GetBytes(password);
+            byte[] target = provider.ComputeHash(source);
+
+            String MD5Password = Convert.ToBase64String(target);
+
+            if (MD5Password.Equals(user[0].Password)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        private String validateInput() {
+            String username = tb_username.Text.Trim();
+            String password = pb_password.Password.Trim();
+
+            StringBuilder builder = new StringBuilder();
+            if (username.Length < 4 || username.Length > 10) {
+                builder.Append("用户名应在4-10个字符之间\n");
+            }
+
+            if (password.Contains('\'') || password.Contains('*') || password.Contains('_') || password.Contains('(') || password.Contains(')')) {
+                builder.Append("密码不能包含以下特殊字符：', *, _, (, ), 空格");
+            }
+
+            return builder.ToString();
         }
 
         private void register_Click(object sender, RoutedEventArgs e) {

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:validations="clr-namespace:ExamSystem.utils.validations"
+             xmlns:viewmodels="clr-namespace:ExamSystem.controls.viewmodel"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="1280">
     <Grid>
@@ -11,13 +12,6 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="用户名：" />
                 <TextBox x:Name="tb_username" Width="300">
-                    <TextBox.Text>
-                        <Binding Path="Username" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <validations:NotNullValidationRule/>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20">
@@ -25,9 +19,9 @@
                 <PasswordBox Name="pb_password" Width="300" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Content="登陆" Name="login" Margin="20 0 20 0" Click="login_Click"></Button>
-                <Button Content="注册" Name="register" Margin="0 0 20 0" Click="register_Click"></Button>
-                <Button Content="退出" Name="exit" Click="exit_Click"></Button>
+                <Button Content="登陆" Name="login" Margin="20 0 10 0" Click="login_Click"></Button>
+                <Button Content="注册" Name="register" Margin="0 0 10 0" Click="register_Click"></Button>
+                <Button Content="退出" Name="exit" Margin="0 0 10 0" Click="exit_Click"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>

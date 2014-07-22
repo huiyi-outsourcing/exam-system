@@ -78,6 +78,9 @@
     <Compile Include="controls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\MainControl.xaml.cs">
+      <DependentUpon>MainControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\RegisterControl.xaml.cs">
       <DependentUpon>RegisterControl.xaml</DependentUpon>
     </Compile>
@@ -96,13 +99,16 @@
     <Compile Include="models\User.cs" />
     <Compile Include="utils\AuthHelper.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
-    <Compile Include="utils\SettingsHelper.cs" />
     <Compile Include="utils\validations\ValidationRules.cs" />
     <Page Include="controls\AuthControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\LoginControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\MainControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
