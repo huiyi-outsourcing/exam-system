@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
 
-using ExamSystem.models;
+using ExamSystem.entities;
 using ExamSystem.utils;
 
 using log4net;
@@ -52,17 +52,12 @@ namespace ExamSystem.controls {
         }
 
         private bool authenticate(String username, String password) {
-            IList<User> user = PersistenceHelper.RetrieveByProperty<User>("username", tb_username.Text);
+            IList<User> user = PersistenceHelper.RetrieveByProperty<User>("Username", tb_username.Text);
             if (user.Count == 0) {
                 return false;
             }
 
-            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
-            byte[] source = System.Text.Encoding.UTF8.GetBytes(password);
-            byte[] target = provider.ComputeHash(source);
-
-            String MD5Password = Convert.ToBase64String(target);
-
+            String MD5Password = EncryptHelper.encrypt(password);
             if (MD5Password.Equals(user[0].Password)) {
                 return true;
             } else {

@@ -7,23 +7,7 @@
                     <BulletDecorator Background="Transparent" Cursor="Hand">
                         <BulletDecorator.Bullet>
                             <Grid Height="30" Width="30">
-                                <!--Define size of the Bullet-->
-
-                                <!--The two borders-->
-
-                                <!--
-                                    <Border CornerRadius="0" Margin="4" Name="RadioMark" Background="OrangeRed" Visibility="Hidden" />
-                                    -->
-                                <!--
-                                    <Polygon Name="TickMark"
-                                        Points="4,9 8,15 15,3 8,11 4,9"
-                                        Stroke="#FF0092B2"
-                                        StrokeThickness="1"
-                                        Visibility="Hidden"
-                                        Fill="#FF00092B2">
-                                    </Polygon>
-                                    -->
-                                <Image Name="check" Source="resources/img/check.png" Visibility="Hidden"/>
+                                <Image Name="check" Source="../../img/check.png" Visibility="Hidden"/>
                                 <Border Name="RadioOuter" Background="Transparent" BorderBrush="Gainsboro" BorderThickness="2" CornerRadius="2" />
                             </Grid>
                         </BulletDecorator.Bullet>
