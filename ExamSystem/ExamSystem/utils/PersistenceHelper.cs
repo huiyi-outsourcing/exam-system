@@ -24,7 +24,7 @@ namespace ExamSystem.utils {
                 .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
                 .Where(type => type.Namespace == "ExamSystem.entities")))
             .BuildSessionFactory();
-        private static ISession session = sessionFactory.OpenSession();
+        private static ISession session = null;
         #endregion
 
         #region Constructor
@@ -33,6 +33,7 @@ namespace ExamSystem.utils {
 
         #region Public Methods
         public static ISession OpenSession() {
+            session = sessionFactory.OpenSession();
             return session;
         }
 

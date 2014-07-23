@@ -92,7 +92,6 @@ namespace ExamSystem.controls {
             }
         }
     }
-
     
     public class NotNullValidationRule : ValidationRule {
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo) {
