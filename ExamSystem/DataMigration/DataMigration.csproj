@@ -77,6 +77,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="entities\Category.cs" />
+    <Compile Include="entities\ClassificationOption.cs" />
+    <Compile Include="entities\ClinicalCase.cs" />
+    <Compile Include="entities\InjuredArea.cs" />
+    <Compile Include="entities\InjuredDegree.cs" />
+    <Compile Include="entities\MedicalOption.cs" />
     <Compile Include="entities\Occupation.cs" />
     <Compile Include="entities\User.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -85,6 +91,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mappings\CategoryMap.cs" />
+    <Compile Include="mappings\ClassificationOptionMap.cs" />
+    <Compile Include="mappings\ClinicalCaseMap.cs" />
+    <Compile Include="mappings\InjuredAreaMap.cs" />
+    <Compile Include="mappings\InjuredDegreeMap.cs" />
+    <Compile Include="mappings\MedicalOptionMap.cs" />
     <Compile Include="mappings\OccupationMap.cs" />
     <Compile Include="mappings\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

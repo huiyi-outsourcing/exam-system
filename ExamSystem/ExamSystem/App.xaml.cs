@@ -32,25 +32,25 @@ namespace ExamSystem {
 
             try {
                 PersistenceHelper.OpenSession();
-            } catch (Exception ex) {
+            } catch (Exception) {
                 MessageBox.Show("无法连接数据库，请检查网络连接或联系管理员。");
                 Application.Current.Shutdown();
                 return;
             }
 
-            HelperWindow window = new HelperWindow();
-            if (confirmAuthorization()) {
-                controls.LoginControl login = new controls.LoginControl();
-                window.setBody(login);
-            } else {
-                controls.AuthControl auth = new controls.AuthControl();
-                window.setBody(auth);
-            }
-            window.Show();
+            //HelperWindow window = new HelperWindow();
+            //if (confirmAuthorization()) {
+            //    controls.LoginControl login = new controls.LoginControl();
+            //    window.setBody(login);
+            //} else {
+            //    controls.AuthControl auth = new controls.AuthControl();
+            //    window.setBody(auth);
+            //}
+            //window.Show();
 
-            //MainWindow main = new MainWindow();
-            //main.setBody(new controls.MainControl());
-            //main.Show();
+            MainWindow main = new MainWindow();
+            main.setBody(new controls.MainControl());
+            main.Show();
             
             base.OnStartup(e);
         }

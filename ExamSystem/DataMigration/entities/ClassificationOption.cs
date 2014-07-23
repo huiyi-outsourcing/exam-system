@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 
 namespace ExamSystem.entities {
-    public class Occupation {
+    public class ClassificationOption {
+
+        #region Properties
         public virtual long Id { get; protected set; }
         public virtual String Description { get; set; }
-        public virtual IList<User> Staff { get; set; }
+        public virtual Boolean Correct { get; set; }
 
-        public Occupation() {
-            Staff = new List<User>();
-        }
+        public virtual ClinicalCase Case { get; set; }
+        #endregion
     }
 }

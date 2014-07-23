@@ -13,7 +13,7 @@ namespace ExamSystem.mappings {
             Map(x => x.Name);
             Map(x => x.Username);
             Map(x => x.Password);
-            References(x => x.Occupation);
+            References(x => x.Occupation).Cascade.None();
         }
     }
 }

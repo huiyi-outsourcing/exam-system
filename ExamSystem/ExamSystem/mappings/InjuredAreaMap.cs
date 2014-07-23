@@ -7,11 +7,11 @@ using ExamSystem.entities;
 using FluentNHibernate.Mapping;
 
 namespace ExamSystem.mappings {
-    public class OccupationMap : ClassMap<Occupation> {
-        public OccupationMap() {
+    public class InjuredAreaMap : ClassMap<InjuredArea> {
+        public InjuredAreaMap() {
             Id(x => x.Id);
-            Map(x => x.Description);
-            HasMany(x => x.Staff).Cascade.None().Inverse();
+            Map(x => x.Area);
+            HasMany(x => x.ClinicalCases).Inverse();
         }
     }
 }

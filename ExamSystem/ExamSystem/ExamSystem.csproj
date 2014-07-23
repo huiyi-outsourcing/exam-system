@@ -94,22 +94,25 @@
       <DependentUpon>RegisterControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\viewmodel\LoginViewModel.cs" />
+    <Compile Include="entities\Category.cs" />
+    <Compile Include="entities\ClassificationOption.cs" />
+    <Compile Include="entities\ClinicalCase.cs" />
+    <Compile Include="entities\InjuredArea.cs" />
+    <Compile Include="entities\InjuredDegree.cs" />
+    <Compile Include="entities\MedicalOption.cs" />
     <Compile Include="entities\Occupation.cs" />
     <Compile Include="entities\User.cs" />
     <Compile Include="HelperWindow.xaml.cs">
       <DependentUpon>HelperWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mappings\CategoryMap.cs" />
+    <Compile Include="mappings\ClassificationOptionMap.cs" />
+    <Compile Include="mappings\ClinicalCaseMap.cs" />
+    <Compile Include="mappings\InjuredAreaMap.cs" />
+    <Compile Include="mappings\InjuredDegreeMap.cs" />
+    <Compile Include="mappings\MedicalOptionMap.cs" />
     <Compile Include="mappings\OccupationMap.cs" />
     <Compile Include="mappings\UserMap.cs" />
-    <Compile Include="models\Category.cs" />
-    <Compile Include="models\ClassificationOption.cs" />
-    <Compile Include="models\ClinicalCase.cs" />
-    <Compile Include="models\Degree.cs" />
-    <Compile Include="models\ExamResult.cs" />
-    <Compile Include="models\InjuredArea.cs" />
-    <Compile Include="models\MedicalOption.cs" />
-    <Compile Include="models\Occupation.cs" />
-    <Compile Include="models\User.cs" />
     <Compile Include="utils\AuthHelper.cs" />
     <Compile Include="utils\EncryptHelper.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
