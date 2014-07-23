@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="562" d:DesignWidth="1280">
     <Grid>
-            
+        <StackPanel Orientation="Horizontal">
+            <Image Source="../resources/img/app_fenlei.png" Width="200" Margin="50" MouseLeftButtonDown="enterClassificationExam"/>
+            <Image Source="../resources/img/app_yiliao.png" Width="200" Margin="50" MouseLeftButtonDown="enterMedicalExam" />
+        </StackPanel>
     </Grid>
 </UserControl>

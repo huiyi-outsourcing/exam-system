@@ -20,5 +20,15 @@ namespace ExamSystem.controls {
         public MainControl() {
             InitializeComponent();
         }
+
+        private void enterClassificationExam(object sender, MouseButtonEventArgs e) {
+            MainWindow window = Window.GetWindow(this) as MainWindow;
+            window.setBody(new ClassificationExamControl());
+        }
+
+        private void enterMedicalExam(object sender, MouseButtonEventArgs e) {
+            MainWindow window = Window.GetWindow(this) as MainWindow;
+            window.setBody(new MedicalExamControl());
+        }
     }
 }

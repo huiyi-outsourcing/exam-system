@@ -78,11 +78,17 @@
     <Compile Include="controls\AuthControl.xaml.cs">
       <DependentUpon>AuthControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\ClassificationExamControl.xaml.cs">
+      <DependentUpon>ClassificationExamControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\MedicalExamControl.xaml.cs">
+      <DependentUpon>MedicalExamControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\RegisterControl.xaml.cs">
       <DependentUpon>RegisterControl.xaml</DependentUpon>
@@ -112,11 +118,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\ClassificationExamControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\LoginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\MainControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\MedicalExamControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +236,8 @@
     <Folder Include="conf\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="resources\img\app_fenlei.png" />
+    <Resource Include="resources\img\app_yiliao.png" />
     <Content Include="resources\img\bg_button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

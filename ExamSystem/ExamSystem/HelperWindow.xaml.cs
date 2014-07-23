@@ -27,12 +27,25 @@ namespace ExamSystem {
         }
         #endregion
 
+        #region Event Handlers
         private void Window_KeyDown(object sender, KeyEventArgs e) {
             if (e.Key == Key.Escape) {
-                if (MessageBox.Show("您确定要退出本程序吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                    Window.GetWindow(this).Close();
-                }
+                this.Close();
             }
         }
+
+        private void exit_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            MessageBoxResult result = MessageBox.Show("您确定要退出本程序吗？", "提醒", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+        }
+        #endregion
     }
 }
