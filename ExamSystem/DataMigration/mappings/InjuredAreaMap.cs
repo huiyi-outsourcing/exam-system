@@ -11,7 +11,7 @@ namespace ExamSystem.mappings {
         public InjuredAreaMap() {
             Id(x => x.Id);
             Map(x => x.Area);
-            HasMany(x => x.ClinicalCases).Inverse();
+            HasMany(x => x.ClinicalCases).Cascade.All().Inverse();
         }
     }
 }

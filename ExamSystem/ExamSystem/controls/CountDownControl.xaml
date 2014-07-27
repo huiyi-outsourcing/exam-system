@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ExamSystem.controls.CountDownControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="472">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <TextBlock Text="考试剩余时间：" Margin="20 0 20 0"/>
+            <TextBlock Text="00" Name="tb_hour" Foreground="Red"/>
+            <TextBlock Text=":" Margin="10 0 10 0" Foreground="Red"/>
+            <TextBlock Text="40" Name="tb_minute" Foreground="Red" />
+            <TextBlock Text=":" Margin="10 0 10 0" Foreground="Red"/>
+            <TextBlock Text="00" Name="tb_second" Foreground="Red"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

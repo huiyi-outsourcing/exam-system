@@ -81,6 +81,9 @@
     <Compile Include="controls\ClassificationExamControl.xaml.cs">
       <DependentUpon>ClassificationExamControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\CountDownControl.xaml.cs">
+      <DependentUpon>CountDownControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,12 @@
     <Compile Include="mappings\UserMap.cs" />
     <Compile Include="utils\AuthHelper.cs" />
     <Compile Include="utils\EncryptHelper.cs" />
+    <Compile Include="utils\ExamHelper.cs" />
+    <Compile Include="utils\exam\ClassificationExam.cs" />
+    <Compile Include="utils\exam\Exam.cs" />
+    <Compile Include="utils\exam\MedicalExam.cs" />
+    <Compile Include="utils\exam\Option.cs" />
+    <Compile Include="utils\exam\Question.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
     <Compile Include="utils\validations\ValidationRules.cs" />
     <Page Include="controls\AuthControl.xaml">
@@ -122,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\ClassificationExamControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\CountDownControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

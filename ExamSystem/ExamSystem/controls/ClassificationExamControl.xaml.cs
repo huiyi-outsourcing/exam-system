@@ -12,13 +12,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExamSystem.entities;
+
 namespace ExamSystem.controls {
     /// <summary>
     /// ClassificationExamControl.xaml 的交互逻辑
     /// </summary>
     public partial class ClassificationExamControl : UserControl {
+        #region Properties
+        private User user = null;
+        #endregion
+
+        #region Constructor
         public ClassificationExamControl() {
             InitializeComponent();
         }
+
+        public ClassificationExamControl(User user) {
+            InitializeComponent();
+            this.user = user;
+        }
+        #endregion
     }
 }

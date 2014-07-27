@@ -13,10 +13,10 @@ namespace ExamSystem.mappings {
             Map(x => x.Description);
             Map(x => x.Manifestation);
             References(x => x.InjuredDegree);
-            HasManyToMany(x => x.Categories).Cascade.All().Table("clinicalcase_category");
-            HasManyToMany(x => x.InjuredAreas).Cascade.All().Table("clinicalcase_injuredarea");
-            HasMany(x => x.COptions).Cascade.All();
-            HasMany(x => x.MOptions).Cascade.All();
+            HasManyToMany(x => x.Categories).Cascade.All();
+            HasManyToMany(x => x.InjuredAreas).Cascade.All();
+            HasMany(x => x.COptions).Cascade.All().Inverse();
+            HasMany(x => x.MOptions).Cascade.All().Inverse();
         }
     }
 }

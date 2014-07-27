@@ -11,7 +11,7 @@ namespace ExamSystem.mappings {
         public CategoryMap() {
             Id(x => x.Id);
             Map(x => x.Description);
-            HasManyToMany(x => x.ClinicalCases).Inverse().Table("clinicalcase_category");
+            HasManyToMany(x => x.ClinicalCases).Cascade.All().Inverse();
         }
     }
 }

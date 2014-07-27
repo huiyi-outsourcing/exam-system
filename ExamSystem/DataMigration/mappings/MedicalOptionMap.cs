@@ -12,7 +12,8 @@ namespace ExamSystem.mappings {
             Id(x => x.Id);
             Map(x => x.Description);
             Map(x => x.Correct);
-            References(x => x.Case);
+            References(x => x.Occupation);
+            References(x => x.ClinicalCase);
         }
     }
 }

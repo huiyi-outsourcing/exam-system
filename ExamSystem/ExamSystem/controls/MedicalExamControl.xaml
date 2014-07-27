@@ -2,10 +2,84 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:ExamSystem.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="562" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ListBoxControlTemplate" TargetType="ListBoxItem">
+            <RadioButton IsChecked="{Binding Path=IsSelected,
+            RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Width="300">
+                <ContentPresenter></ContentPresenter>
+            </RadioButton>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="16*" />
+            <ColumnDefinition Width="84*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" Name="g_Cases">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" VerticalAlignment="Top">
+                <ListBox IsSynchronizedWithCurrentItem="True" Name="qlist" Margin="10" SelectionMode="Single" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True" SelectionChanged="qlist_SelectionChanged">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+        
+        <Grid Grid.Column="1" Name="g_MainPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
             
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <controls:CountDownControl Grid.Column="0" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button Name="prev" Content="上一题" Click="prev_question" Margin="00 0 10 0" />
+                    <Button Name="next" Content="下一题" Click="next_question" Margin="0 0 10 0" />
+                    <Button Name="submit" Width="100" Content="提交试卷" Click="submit_exam" Margin="0 0 70 0" />
+                </StackPanel>
+            </Grid>
+                    
+            <Grid Grid.Row="0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                    <StackPanel Name="sp_bodyPanel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50">
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 20 0 20">
+                            <TextBlock Text="受伤史：" Foreground="Red" />
+                            <TextBlock Text="aaaaaaaaaaaaaaa" Name="tb_description" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 0 0 20">
+                            <TextBlock Text="临床表现：" Foreground="Red" />
+                            <TextBlock Text="" Name="tb_manifestation" TextWrapping="Wrap" />
+                        </StackPanel>
+                        
+                        <ListBox Name="lb_options" IsSynchronizedWithCurrentItem="True" SelectionMode="Multiple" Background="Transparent" BorderBrush="Transparent" SelectionChanged="lb_options_SelectionChanged" Margin="0 50 0 0">
+                            <ListBox.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="ListBoxItem.Template" Value="{StaticResource ListBoxControlTemplate}" />
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            
+        </Grid>
     </Grid>
 </UserControl>

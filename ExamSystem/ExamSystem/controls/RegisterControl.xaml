@@ -25,7 +25,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 10">
                 <Label Content="职        业：" />
-                <RadioButton Name="rb_doctor" GroupName="occupation" Content="医生" IsChecked="True" />
+                <RadioButton Name="rb_doctor" GroupName="occupation" Content="军医" IsChecked="True" />
                 <RadioButton Name="rb_nurse" GroupName="occupation" Content="护士" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">

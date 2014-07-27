@@ -42,13 +42,11 @@ namespace ExamSystem.controls {
             user.Name = name;
             user.Username = username;
             user.Password = EncryptHelper.encrypt(password);
-            Occupation occupation = new Occupation();
+            Occupation occupation = null;
             if ((bool)rb_doctor.IsChecked) {
-                occupation.Id = 1;
-                occupation.Description = "医生";
+                occupation = PersistenceHelper.RetrieveByProperty<Occupation>("Description", "军医")[0];
             } else {
-                occupation.Id = 2;
-                occupation.Description = "护士";
+                occupation = PersistenceHelper.RetrieveByProperty<Occupation>("Description", "护士")[0];
             }
             user.Occupation = occupation;
 

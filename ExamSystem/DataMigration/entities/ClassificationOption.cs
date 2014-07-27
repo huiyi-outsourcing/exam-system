@@ -11,7 +11,8 @@ namespace ExamSystem.entities {
         public virtual String Description { get; set; }
         public virtual Boolean Correct { get; set; }
 
-        public virtual ClinicalCase Case { get; set; }
+        public virtual Occupation Occupation { get; set; }
+        public virtual ClinicalCase ClinicalCase { get; set; }
         #endregion
     }
 }

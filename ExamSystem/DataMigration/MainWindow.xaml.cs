@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -22,21 +23,23 @@ using NHibernate.Criterion;
 using FluentNHibernate.Automapping;
 
 using ExamSystem.entities;
+using DataMigration.utils;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Threading;
 
 namespace DataMigration {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window {
-        
-        //private static ISessionFactory sessionFactory
-        //    = Fluently.Configure()
-        //    .Database(MySQLConfiguration.Standard.ConnectionString(cs => cs.FromAppSetting("conn")))
-        //    .Mappings(m => m.AutoMappings
-        //        .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
-        //        .Where(type => type.Namespace == "ExamSystem.entities")))
-        //    .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
-        //    .BuildSessionFactory();
+
+        ObservableCollection<FileCollection> _FileCollection = new ObservableCollection<FileCollection>();
+
+        public ObservableCollection<FileCollection> FileCollection {
+            get { return _FileCollection; }
+            set { _FileCollection = value; }
+        }
 
         public MainWindow() {
             InitializeComponent();
@@ -54,50 +57,109 @@ namespace DataMigration {
 
             using (ISession session = sessionFactory.OpenSession()) {
                 using (ITransaction tran = session.BeginTransaction()) {
-                    var doctor = new Occupation { Description = "医生" };
-                    var nurse = new Occupation { Description = "护士" };
-                    session.SaveOrUpdate(doctor);
-                    session.SaveOrUpdate(nurse);
+                    String[] occupations = new String[2] { "军医", "护士" };
+                    foreach (String occupation in occupations) {
+                        Occupation ocp = new Occupation() { Description = occupation };
+                        session.SaveOrUpdate(ocp);
+                    }
 
-                    var category1 = new Category { Description = "分类组" };
-                    var category2 = new Category { Description = "手术组" };
-                    var category3 = new Category { Description = "重抗组" };
-                    var category4 = new Category { Description = "轻伤组" };
-                    var category5 = new Category { Description = "化学武器组" };
-                    var category6 = new Category { Description = "核武器组" };
-                    session.SaveOrUpdate(category1);
-                    session.SaveOrUpdate(category2);
-                    session.SaveOrUpdate(category3);
-                    session.SaveOrUpdate(category4);
-                    session.SaveOrUpdate(category5);
-                    session.SaveOrUpdate(category6);
+                    String[] categories = new String[6] { "分类组", "手术组", "重症抗休克组", "轻伤组", "化学武器组", "核武器组" };
+                    foreach (String category in categories) {
+                        Category cty = new Category() { Description = category };
+                        session.SaveOrUpdate(cty);
+                    }
 
-                    var degree1 = new InjuredDegree { Degree = "重度" };
-                    var degree2 = new InjuredDegree { Degree = "中度" };
-                    var degree3 = new InjuredDegree { Degree = "轻度" };
-                    session.SaveOrUpdate(degree1);
-                    session.SaveOrUpdate(degree2);
-                    session.SaveOrUpdate(degree3);
+                    String[] degrees = new String[3] { "重度", "中度", "轻度" };
+                    foreach (String degree in degrees) {
+                        InjuredDegree idegree = new InjuredDegree() { Degree = degree };
+                        session.SaveOrUpdate(idegree);
+                    }
 
-                    var area1 = new InjuredArea { Area = "头颈部" };
-                    var area2 = new InjuredArea { Area = "胸部" };
-                    var area3 = new InjuredArea { Area = "腰腹部" };
-                    var area4 = new InjuredArea { Area = "四肢" };
-                    var area5 = new InjuredArea { Area = "生殖系统" };
-                    var area6 = new InjuredArea { Area = "全身" };
-                    session.SaveOrUpdate(area1);
-                    session.SaveOrUpdate(area2);
-                    session.SaveOrUpdate(area3);
-                    session.SaveOrUpdate(area4);
-                    session.SaveOrUpdate(area5);
-                    session.SaveOrUpdate(area6);
+                    String[] areas = new String[13] { "常见临床危象", "腹部损伤", "骨盆、泌尿生殖系统损伤", "急救", "脊椎损伤", "颈部损伤", "颅脑损伤", "面部损伤", "上肢骨、关节损伤", "烧伤", "外伤感染", "下肢骨、关节损伤", "胸部损伤" };
+                    foreach (String area in areas) {
+                        InjuredArea iarea = new InjuredArea() { Area = area };
+                        session.SaveOrUpdate(iarea);
+                    }
                     tran.Commit();
+                }
+            }
+
+            MessageBox.Show("数据库创建完成");
+        }
+
+        private void import_Click(object sender, RoutedEventArgs e) {
+            _FileCollection.Clear();
+            
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "XML-file (.xml)|*.xml";
+            dialog.Multiselect = true;
+            if (dialog.ShowDialog() == true) {
+                foreach (String filename in dialog.FileNames) {
+                    _FileCollection.Add(new FileCollection() { FilePath = filename, FileStatus = "等待处理" });
+                }
+            }
+
+            PropertyHelper helper = new PropertyHelper();
+            foreach (FileCollection fc in _FileCollection) {
+                try {
+                    helper.readFile(fc.FilePath);
+                    fc.FileStatus = "成功";
+                } catch (Exception ex) {
+                    fc.FileStatus = "失败: " + ex.Message;
                 }
             }
         }
 
-        private void import_Click(object sender, RoutedEventArgs e) {
+        private void test_Click(object sender, RoutedEventArgs e) {
+            //test_user_occupation();
 
+            test_clinical_case();
         }
+
+        private void test_clinical_case() {
+            
+                ISession session = PersistenceHelper.OpenSession();
+                using (var transaction = session.BeginTransaction()) {
+                    ClinicalCase cases = new ClinicalCase() { Manifestation = "abc", Description = "abc" };
+                    session.SaveOrUpdate(cases);
+
+                    Occupation ocp = new Occupation() { Description = "军医" };
+                    session.SaveOrUpdate(ocp);
+
+                    ClassificationOption co1 = new ClassificationOption() { Correct = true, Description = "co1", Occupation = ocp };
+                    co1.ClinicalCase = cases;
+                    ClassificationOption co2 = new ClassificationOption() { Correct = true, Description = "co2", Occupation = ocp };
+                    co2.ClinicalCase = cases;
+
+                    session.SaveOrUpdate(co1);
+                    session.SaveOrUpdate(co2);
+
+
+                    transaction.Commit();
+                }
+        }
+
+        private void test_user_occupation() {
+            try {
+                ISession session = PersistenceHelper.OpenSession();
+                using (ITransaction tran = session.BeginTransaction()) {
+                    String[] occupations = new String[2] { "军医", "护士" };
+                    for (int i = 1; i <= occupations.Length; ++i) {
+                        Occupation ocp = new Occupation() { Description = occupations[i - 1] };
+                        User user = new User { Name = "test" + i, Password = "abc", Username = "test" + i, Occupation = ocp };
+                        session.SaveOrUpdate(user);
+                        tran.Commit();
+                        MessageBox.Show("user_occupation success.");
+                    }
+                }
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
+
+    public class FileCollection {
+        public string FilePath { get; set; }
+        public string FileStatus { get; set; }
     }
 }

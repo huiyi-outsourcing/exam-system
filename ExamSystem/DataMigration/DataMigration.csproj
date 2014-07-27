@@ -69,14 +69,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="entities\Category.cs" />
     <Compile Include="entities\ClassificationOption.cs" />
     <Compile Include="entities\ClinicalCase.cs" />
@@ -85,12 +77,6 @@
     <Compile Include="entities\MedicalOption.cs" />
     <Compile Include="entities\Occupation.cs" />
     <Compile Include="entities\User.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="mappings\CategoryMap.cs" />
     <Compile Include="mappings\ClassificationOptionMap.cs" />
     <Compile Include="mappings\ClinicalCaseMap.cs" />
@@ -99,6 +85,22 @@
     <Compile Include="mappings\MedicalOptionMap.cs" />
     <Compile Include="mappings\OccupationMap.cs" />
     <Compile Include="mappings\UserMap.cs" />
+    <Compile Include="utils\PersistenceHelper.cs" />
+    <Compile Include="utils\PropertyHelper.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,6 +129,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

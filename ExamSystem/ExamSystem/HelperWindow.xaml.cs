@@ -35,16 +35,9 @@ namespace ExamSystem {
         }
 
         private void exit_Click(object sender, RoutedEventArgs e) {
-            this.Close();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            MessageBoxResult result = MessageBox.Show("您确定要退出本程序吗？", "提醒", MessageBoxButton.OKCancel);
-
-            if (result == MessageBoxResult.OK)
-                e.Cancel = false;
-            else
-                e.Cancel = true;
+            if (MessageBox.Show("您确定要退出本程序吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                this.Close();
+            }
         }
         #endregion
     }

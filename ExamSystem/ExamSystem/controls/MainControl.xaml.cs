@@ -12,23 +12,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExamSystem.entities;
+
 namespace ExamSystem.controls {
     /// <summary>
     /// MainControl.xaml 的交互逻辑
     /// </summary>
     public partial class MainControl : UserControl {
+        private User user = null;
+
         public MainControl() {
             InitializeComponent();
         }
 
+        public MainControl(User user) {
+            InitializeComponent();
+            this.user = user;
+        }
+
         private void enterClassificationExam(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            window.setBody(new ClassificationExamControl());
+            window.setBody(new ClassificationExamControl(user));
         }
 
         private void enterMedicalExam(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            window.setBody(new MedicalExamControl());
+            window.setBody(new MedicalExamControl(user));
         }
     }
 }
