@@ -37,7 +37,9 @@ namespace ExamSystem {
         }
 
         private void mainPage_Click(object sender, RoutedEventArgs e) {
-            setBody(new controls.MainControl());
+            if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                setBody(new controls.MainControl());
+            }
         }
 
         private void exit_Click(object sender, RoutedEventArgs e) {

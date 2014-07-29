@@ -8,8 +8,8 @@ using ExamSystem.entities;
 namespace ExamSystem.utils.exam {
     public abstract class Exam {
         #region Properties
-        private IList<Question> questions = null;
-        private User user = null;
+        protected IList<Question> questions = null;
+        protected User user = null;
 
         public IList<Question> Questions {
             get { return questions; }
@@ -23,14 +23,18 @@ namespace ExamSystem.utils.exam {
         #endregion
 
         #region Constructor
-        public Exam(User user) {
-            this.user = user;
-            LoadExam();
-        }
         #endregion
 
-        protected virtual void LoadExam();
+        protected abstract void LoadExam();
 
-        public virtual double GetScore();
+        public double GetScore() {
+            double result = 0;
+            foreach (Question q in questions) {
+                double score = q.GetScore();
+                result += q.GetScore() * 100 / questions.Count;
+            }
+
+            return result;
+        }
     }
 }

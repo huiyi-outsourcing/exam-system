@@ -84,6 +84,9 @@
     <Compile Include="controls\CountDownControl.xaml.cs">
       <DependentUpon>CountDownControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\ExamResultControl.xaml.cs">
+      <DependentUpon>ExamResultControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\ExamResultControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\LoginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +178,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="resources\views\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resources\views\themes\CheckBoxResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

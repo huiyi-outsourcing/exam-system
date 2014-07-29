@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source=".\themes\ButtonResource.xaml"/>
+        <ResourceDictionary Source=".\themes\CheckBoxResource.xaml" />
         <ResourceDictionary Source=".\themes\ComboBoxResource.xaml"/>
         <ResourceDictionary Source=".\themes\LabelResource.xaml"/>
         <ResourceDictionary Source=".\themes\PasswordBoxResource.xaml"/>

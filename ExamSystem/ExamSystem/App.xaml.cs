@@ -38,19 +38,20 @@ namespace ExamSystem {
                 return;
             }
 
-            HelperWindow window = new HelperWindow();
-            if (confirmAuthorization()) {
-                controls.LoginControl login = new controls.LoginControl();
-                window.setBody(login);
-            } else {
-                controls.AuthControl auth = new controls.AuthControl();
-                window.setBody(auth);
-            }
-            window.Show();
+            //HelperWindow window = new HelperWindow();
+            //if (confirmAuthorization()) {
+            //    controls.LoginControl login = new controls.LoginControl();
+            //    window.setBody(login);
+            //} else {
+            //    controls.AuthControl auth = new controls.AuthControl();
+            //    window.setBody(auth);
+            //}
+            //window.Show();
 
-            //MainWindow main = new MainWindow();
-            //main.setBody(new controls.MainControl());
-            //main.Show();
+            entities.User user = PersistenceHelper.RetrieveByProperty<entities.User>("Username", "doctor")[0];
+            MainWindow main = new MainWindow();
+            main.setBody(new controls.MedicalExamControl(user));
+            main.Show();
             
             base.OnStartup(e);
         }

@@ -100,7 +100,7 @@ namespace DataMigration.utils {
                 ClassificationOption option = new ClassificationOption();
                 option.Description = node.SelectSingleNode("描述").InnerText.Trim();
                 String correct = node.SelectSingleNode("正确").InnerText.Trim();
-                if (correct.Equals("正确")) {
+                if (correct.Equals("对")) {
                     option.Correct = true;
                 } else {
                     option.Correct = false;
@@ -122,7 +122,7 @@ namespace DataMigration.utils {
                 MedicalOption option = new MedicalOption();
                 option.Description = node.SelectSingleNode("描述").InnerText.Trim();
                 String correct = node.SelectSingleNode("正确").InnerText.Trim();
-                if (correct.Equals("正确")) {
+                if (correct.Equals("对")) {
                     option.Correct = true;
                 } else {
                     option.Correct = false;
@@ -138,7 +138,7 @@ namespace DataMigration.utils {
                 MedicalOption option = new MedicalOption();
                 option.Description = node.SelectSingleNode("描述").InnerText.Trim();
                 String correct = node.SelectSingleNode("正确").InnerText.Trim();
-                if (correct.Equals("正确")) {
+                if (correct.Equals("对")) {
                     option.Correct = true;
                 } else {
                     option.Correct = false;

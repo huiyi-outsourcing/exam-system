@@ -40,9 +40,10 @@ namespace ExamSystem.controls {
                 return;
             }
 
-            if (authenticate(tb_username.Text.Trim(), pb_password.Password)) {
+            User user = authenticate(tb_username.Text.Trim(), pb_password.Password);
+            if (user != null) {
                 MainWindow main = new MainWindow();
-                main.setBody(new MainControl());
+                main.setBody(new MainControl(user));
                 main.Show();
                 Window parent = Window.GetWindow(this);
                 parent.Close();
@@ -51,17 +52,17 @@ namespace ExamSystem.controls {
             }
         }
 
-        private bool authenticate(String username, String password) {
+        private User authenticate(String username, String password) {
             IList<User> user = PersistenceHelper.RetrieveByProperty<User>("Username", tb_username.Text);
             if (user.Count == 0) {
-                return false;
+                return null;
             }
 
             String MD5Password = EncryptHelper.encrypt(password);
             if (MD5Password.Equals(user[0].Password)) {
-                return true;
+                return user[0];
             } else {
-                return false;
+                return null;
             }
         }
 
