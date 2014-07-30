@@ -84,6 +84,9 @@
     <Compile Include="controls\CountDownControl.xaml.cs">
       <DependentUpon>CountDownControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\DisplayExamResultControl.xaml.cs">
+      <DependentUpon>DisplayExamResultControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\ExamResultControl.xaml.cs">
       <DependentUpon>ExamResultControl.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,7 @@
     <Compile Include="entities\Category.cs" />
     <Compile Include="entities\ClassificationOption.cs" />
     <Compile Include="entities\ClinicalCase.cs" />
+    <Compile Include="entities\ExamResult.cs" />
     <Compile Include="entities\InjuredArea.cs" />
     <Compile Include="entities\InjuredDegree.cs" />
     <Compile Include="entities\MedicalOption.cs" />
@@ -141,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\CountDownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\DisplayExamResultControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -39,6 +39,12 @@ namespace ExamSystem.controls {
                 tb_second.Text = cd.GetSecond();
             } else {
                 timer.Stop();
+                try {
+                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as MedicalExamControl).SubmitExam();
+                } catch (Exception) {
+                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ClassificationExamControl).SubmitExam();
+                }
+                
             }
         }
     }

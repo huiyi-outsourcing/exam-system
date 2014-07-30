@@ -46,42 +46,51 @@ namespace DataMigration {
         }
 
         private void create_Click(object sender, RoutedEventArgs e) {
-            ISessionFactory sessionFactory
-            = Fluently.Configure()
-            .Database(MySQLConfiguration.Standard.ConnectionString(cs => cs.FromAppSetting("conn")))
-            .Mappings(m => m.AutoMappings
-                .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
-                .Where(type => type.Namespace == "ExamSystem.entities")))
-            .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
-            .BuildSessionFactory();
+            ISessionFactory sessionFactory = null;
+            try {
+                sessionFactory
+                = Fluently.Configure()
+                .Database(MySQLConfiguration.Standard.ConnectionString(cs => cs.FromAppSetting("conn")))
+                .Mappings(m => m.AutoMappings
+                    .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
+                    .Where(type => type.Namespace == "ExamSystem.entities")))
+                .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
+                .BuildSessionFactory();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
 
-            using (ISession session = sessionFactory.OpenSession()) {
-                using (ITransaction tran = session.BeginTransaction()) {
-                    String[] occupations = new String[2] { "军医", "护士" };
-                    foreach (String occupation in occupations) {
-                        Occupation ocp = new Occupation() { Description = occupation };
-                        session.SaveOrUpdate(ocp);
-                    }
+            try {
+                using (ISession session = sessionFactory.OpenSession()) {
+                    using (ITransaction tran = session.BeginTransaction()) {
+                        String[] occupations = new String[2] { "军医", "护士" };
+                        foreach (String occupation in occupations) {
+                            Occupation ocp = new Occupation() { Description = occupation };
+                            session.SaveOrUpdate(ocp);
+                        }
 
-                    String[] categories = new String[6] { "分类组", "手术组", "重症抗休克组", "轻伤组", "化学武器组", "核武器组" };
-                    foreach (String category in categories) {
-                        Category cty = new Category() { Description = category };
-                        session.SaveOrUpdate(cty);
-                    }
+                        String[] categories = new String[6] { "分类组", "手术组", "重症抗休克组", "轻伤组", "化学武器组", "核武器组" };
+                        foreach (String category in categories) {
+                            Category cty = new Category() { Description = category };
+                            session.SaveOrUpdate(cty);
+                        }
 
-                    String[] degrees = new String[3] { "重度", "中度", "轻度" };
-                    foreach (String degree in degrees) {
-                        InjuredDegree idegree = new InjuredDegree() { Degree = degree };
-                        session.SaveOrUpdate(idegree);
-                    }
+                        String[] degrees = new String[3] { "重度", "中度", "轻度" };
+                        foreach (String degree in degrees) {
+                            InjuredDegree idegree = new InjuredDegree() { Degree = degree };
+                            session.SaveOrUpdate(idegree);
+                        }
 
-                    String[] areas = new String[13] { "常见临床危象", "腹部损伤", "骨盆、泌尿生殖系统损伤", "急救", "脊椎损伤", "颈部损伤", "颅脑损伤", "面部损伤", "上肢骨、关节损伤", "烧伤", "外伤感染", "下肢骨、关节损伤", "胸部损伤" };
-                    foreach (String area in areas) {
-                        InjuredArea iarea = new InjuredArea() { Area = area };
-                        session.SaveOrUpdate(iarea);
+                        String[] areas = new String[13] { "常见临床危象", "腹部损伤", "骨盆、泌尿生殖系统损伤", "急救", "脊椎损伤", "颈部损伤", "颅脑损伤", "面部损伤", "上肢骨、关节损伤", "烧伤", "外伤感染", "下肢骨、关节损伤", "胸部损伤" };
+                        foreach (String area in areas) {
+                            InjuredArea iarea = new InjuredArea() { Area = area };
+                            session.SaveOrUpdate(iarea);
+                        }
+                        tran.Commit();
                     }
-                    tran.Commit();
                 }
+            } catch (Exception ex) {
+                MessageBox.Show("插入数据错误: " + ex.Message);
             }
 
             MessageBox.Show("数据库创建完成");

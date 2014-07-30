@@ -20,6 +20,7 @@ namespace ExamSystem {
 
         protected override void OnStartup(StartupEventArgs e) {
             // setup log4net
+            XmlConfigurator.Configure();
 
             // Get reference to the current Process
             Process thisProc = Process.GetCurrentProcess();

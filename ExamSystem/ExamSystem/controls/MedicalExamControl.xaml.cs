@@ -193,6 +193,11 @@ namespace ExamSystem.controls {
         private void ShowScore() {
             (Window.GetWindow(this) as MainWindow).setBody(new ExamResultControl(user, exam));
         }
+
+        public void SubmitExam() {
+            MessageBox.Show("考试时间到，自动提交试卷");
+            ShowScore();
+        }
         #endregion
     }
 }

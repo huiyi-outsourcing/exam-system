@@ -31,6 +31,7 @@ namespace ExamSystem.controls {
 
         public LoginControl() {
             InitializeComponent();
+            log.Info("enter logincontrol");
         }
 
         private void login_Click(object sender, RoutedEventArgs e) {
