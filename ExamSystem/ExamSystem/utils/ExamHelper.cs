@@ -13,6 +13,40 @@ namespace ExamSystem.utils {
         #region Constructor
         #endregion
 
+        public static IList<ClinicalCase> RetrieveByCategory(String category, int number = 20) {
+            IList<ClinicalCase> cases = new List<ClinicalCase>();
+
+            IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
+            int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
+
+            Random rnd = new Random();
+            ISet<long> idSet = new HashSet<long>();
+            for (int i = 0; i < areas.Count; ++i) {
+                // get specified list under that category
+                IList<ClinicalCase> tmp = new List<ClinicalCase>();
+                foreach (ClinicalCase cc in areas[i].ClinicalCases) {
+                    foreach (Category ct in cc.Categories) {
+                        if (ct.Description.Equals(category)) {
+                            tmp.Add(cc);
+                            break;
+                        }
+                    } 
+                }
+
+                for (int j = 0; j < random[i]; ++j) {
+                    int id;
+                    do {
+                        id = rnd.Next(0, tmp.Count);
+                    } while (idSet.Contains(tmp[id].Id));
+
+                    cases.Add(tmp[id]);
+                    idSet.Add(tmp[id].Id);
+                }
+            }
+
+            return cases;
+        }
+
         public static IList<ClinicalCase> RetrieveByInjuredArea(int number = 20) {
             IList<ClinicalCase> cases = new List<ClinicalCase>();
 
@@ -22,9 +56,8 @@ namespace ExamSystem.utils {
             Random rnd = new Random();
             ISet<long> idSet = new HashSet<long>();
             for (int i = 0; i < areas.Count; ++i) {
+                IList<ClinicalCase> tmp = areas[i].ClinicalCases;
                 for (int j = 0; j < random[i]; ++j) {
-                    IList<ClinicalCase> tmp = areas[i].ClinicalCases;
-                    
                     int id;
                     do {
                         id = rnd.Next(0, tmp.Count);
@@ -56,6 +89,16 @@ namespace ExamSystem.utils {
                 int swap = random[r];
                 random[r] = random[i];
                 random[i] = swap;
+            }
+        }
+
+        public static void shuffle(object[] a) {
+            Random rnd = new Random();
+            for (int i = 0; i < a.Length; ++i) {
+                int r = i + (int)rnd.Next(0, a.Length - i);
+                object swap = a[r];
+                a[r] = a[i];
+                a[i] = swap;
             }
         }
     }

@@ -43,6 +43,7 @@ namespace ExamSystem.controls {
             User user = authenticate(tb_username.Text.Trim(), pb_password.Password);
             if (user != null) {
                 MainWindow main = new MainWindow();
+                main.User = user;
                 main.setBody(new MainControl(user));
                 main.Show();
                 Window parent = Window.GetWindow(this);

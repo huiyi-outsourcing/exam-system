@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExamSystem.entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,20 @@ namespace ExamSystem {
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window {
+        #region Properties
+        private User user = null;
+
+        public User User {
+            get { return user; }
+            set { user = value; }
+        }
+        #endregion
+
+        #region Constructor
         public MainWindow() {
             InitializeComponent();
         }
+        #endregion
 
         #region Layout
         public void setBody(UserControl control) {
@@ -38,7 +50,7 @@ namespace ExamSystem {
 
         private void mainPage_Click(object sender, RoutedEventArgs e) {
             if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                setBody(new controls.MainControl());
+                setBody(new controls.MainControl(user));
             }
         }
 

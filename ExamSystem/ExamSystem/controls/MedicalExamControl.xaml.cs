@@ -27,6 +27,7 @@ namespace ExamSystem.controls {
         private User user = null;
         private Exam exam = null;
         private bool flag = false;
+        private String category;
         #endregion
 
         #region Constructor
@@ -34,10 +35,11 @@ namespace ExamSystem.controls {
             InitializeComponent();
         }
 
-        public MedicalExamControl(User user) {
+        public MedicalExamControl(User user, String category) {
             InitializeComponent();
             this.user = user;
-            exam = new MedicalExam(user);
+            this.category = category;
+            exam = new MedicalExam(user, category);
             initLayout();
         }
         #endregion

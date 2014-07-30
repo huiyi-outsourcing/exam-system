@@ -14,5 +14,11 @@ namespace ExamSystem.utils.exam {
                 Questions.Add(q);
             }
         }
+
+        public ClassificationExam(User user) {
+            this.user = user;
+            questions = new List<Question>();
+            LoadExam();
+        }
     }
 }

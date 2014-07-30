@@ -7,17 +7,19 @@ using ExamSystem.entities;
 
 namespace ExamSystem.utils.exam {
     public class MedicalExam : Exam {
+        private String category;
 
         protected override void LoadExam() {
-            IList<ClinicalCase> cases = ExamHelper.RetrieveByInjuredArea();
+            IList<ClinicalCase> cases = ExamHelper.RetrieveByCategory(category);
             foreach (ClinicalCase cc in cases) {
-                Question q = new Question(cc, Question.EXAMSTATUS.MEDICAL, User.Occupation.Description);
+                Question q = new Question(cc, Question.EXAMSTATUS.MEDICAL, user.Occupation.Description);
                 Questions.Add(q);
             }
         }
 
-        public MedicalExam(User user) {
+        public MedicalExam(User user, String category) {
             this.user = user;
+            this.category = category;
             questions = new List<Question>();
             LoadExam();
         }

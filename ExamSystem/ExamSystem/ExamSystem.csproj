@@ -96,6 +96,9 @@
     <Compile Include="controls\MedicalExamControl.xaml.cs">
       <DependentUpon>MedicalExamControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\MedicalExamSelectionControl.xaml.cs">
+      <DependentUpon>MedicalExamSelectionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\RegisterControl.xaml.cs">
       <DependentUpon>RegisterControl.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\MedicalExamControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\MedicalExamSelectionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,8 +270,27 @@
     <Folder Include="conf\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\img\app_fenlei.png" />
-    <Resource Include="resources\img\app_yiliao.png" />
+    <Content Include="resources\img\medi_he_wu_qi_zu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\medi_hua_xue_wu_qi_zu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\medi_qing_shang_zu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\medi_shou_shu_zu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\medi_zhong_zheng_kang_xiu_ke_zu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\app_fenlei.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\app_yiliao.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\img\bg_button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

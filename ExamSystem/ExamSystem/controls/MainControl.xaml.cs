@@ -37,7 +37,7 @@ namespace ExamSystem.controls {
 
         private void enterMedicalExam(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            window.setBody(new MedicalExamControl(user));
+            window.setBody(new MedicalExamSelectionControl(user));
         }
     }
 }
