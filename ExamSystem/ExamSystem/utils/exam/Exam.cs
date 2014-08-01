@@ -10,6 +10,12 @@ namespace ExamSystem.utils.exam {
         #region Properties
         protected IList<Question> questions = null;
         protected User user = null;
+        protected String category = null;
+
+        public String Category {
+            get { return category; }
+            set { category = value; }
+        }
 
         public IList<Question> Questions {
             get { return questions; }

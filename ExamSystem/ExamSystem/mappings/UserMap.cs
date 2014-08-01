@@ -14,6 +14,7 @@ namespace ExamSystem.mappings {
             Map(x => x.Username);
             Map(x => x.Password);
             References(x => x.Occupation).Cascade.None();
+            HasMany(x => x.Results).Cascade.All();
         }
     }
 }

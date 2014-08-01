@@ -7,13 +7,13 @@ using ExamSystem.entities;
 using FluentNHibernate.Mapping;
 
 namespace ExamSystem.mappings {
-    public class ExamResultMap : ClassMap<ExamResult> {
-        public ExamResultMap() {
+    public class MedicalOptionMap : ClassMap<MedicalOption> {
+        public MedicalOptionMap() {
             Id(x => x.Id);
-            Map(x => x.Score);
+            Map(x => x.Description);
+            Map(x => x.Correct);
             References(x => x.Occupation);
-            References(x => x.User);
-            Map(x => x.DateTime).CustomSqlType("date");
+            References(x => x.ClinicalCase);
         }
     }
 }

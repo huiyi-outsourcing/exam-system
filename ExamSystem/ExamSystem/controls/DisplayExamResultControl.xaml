@@ -11,9 +11,27 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <ComboBox Name="cb_occupation" Width="100" Margin="20"/>
+            <TextBlock Text="分组" Margin="20" />
+            <ComboBox Name="cb_category" Width="100" Margin="20" />
+            <Button Name="bn_inqury_by_category" Content="查询" Click="bn_inqury_by_category_Click" />
+            <TextBlock Text="姓名" Margin="40 20 0 20" />
             <TextBox Name="tb_name" Width="200" Margin="20"/>
-            <Button Name="bn_inqury" Content="查询" />
+            <Button Name="bn_inqury" Content="查询" Click="bn_inqury_Click" />
         </StackPanel>
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  Name="dg_results"
+                  ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Name}"
+                                    Width="640"/>
+                <DataGridTextColumn Header="成绩"
+                                    IsReadOnly="True"
+                                    Width="640"
+                                    Binding="{Binding Path=Score}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

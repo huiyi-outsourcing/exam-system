@@ -49,18 +49,21 @@ namespace ExamSystem.utils.exam {
             score = sc;
             selectedOptions = new HashSet<int>();
             options = new List<Option>();
+            char tmp = 'A';
             if (estatus == EXAMSTATUS.CLASSIFICATION) { // if it's classification exam 
-                foreach (ClassificationOption co in cli_case.COptions) {
+                for (int i = 0; i < cli_case.COptions.Count; ++i) {
+                    ClassificationOption co = cli_case.COptions[i];
                     if (!occupation.Equals(co.Occupation.Description))
                         continue;
-                    Option option = new Option(co.Description, co.Correct);
+                    Option option = new Option((char)(tmp + i) + ". " + co.Description, co.Correct);
                     options.Add(option);
                 }
             } else {
-                foreach (MedicalOption mo in cli_case.MOptions) {
+                for (int i = 0; i < cli_case.COptions.Count; ++i) {
+                    MedicalOption mo = cli_case.MOptions[i];
                     if (!occupation.Equals(mo.Occupation.Description))
                         continue;
-                    Option option = new Option(mo.Description, mo.Correct);
+                    Option option = new Option((char)(tmp + i) + ". " + mo.Description, mo.Correct);
                     options.Add(option);
                 }
             }

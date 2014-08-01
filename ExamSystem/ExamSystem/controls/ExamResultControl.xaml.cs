@@ -128,6 +128,13 @@ namespace ExamSystem.controls {
         private void CalculateResult() {
             double score = exam.GetScore();
             tb_score.Text = Math.Round(score, 2).ToString();
+
+            ExamResult result = new ExamResult();
+            result.Occupation = user.Occupation;
+            result.Score = score;
+            result.User = user;
+            result.DateTime = DateTime.Now;
+            utils.PersistenceHelper.Save<ExamResult>(result);
         }
         #endregion
     }

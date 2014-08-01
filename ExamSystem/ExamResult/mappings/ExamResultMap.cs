@@ -7,7 +7,7 @@ using ExamSystem.entities;
 using FluentNHibernate.Mapping;
 
 namespace ExamSystem.mappings {
-    public class ExamResultMap : ClassMap<ExamResult> {
+    public class ExamResultMap : ClassMap<ExamSystem.entities.ExamResult> {
         public ExamResultMap() {
             Id(x => x.Id);
             Map(x => x.Score);

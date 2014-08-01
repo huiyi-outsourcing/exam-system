@@ -15,8 +15,9 @@ namespace ExamSystem.utils.exam {
             }
         }
 
-        public ClassificationExam(User user) {
+        public ClassificationExam(User user, String category) {
             this.user = user;
+            this.category = category;
             questions = new List<Question>();
             LoadExam();
         }

@@ -12,13 +12,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExamSystem.entities;
+using ExamSystem.utils;
+
 namespace ExamSystem.controls {
     /// <summary>
     /// DisplayExamResultControl.xaml 的交互逻辑
     /// </summary>
     public partial class DisplayExamResultControl : UserControl {
         public DisplayExamResultControl() {
+            IList<Category> categories = PersistenceHelper.RetrieveAll<Category>();
+            cb_category.ItemsSource = categories;
+            cb_category.SelectedValuePath = "Description";
+            cb_category.DisplayMemberPath = "Description";
             InitializeComponent();
+        }
+
+        private void bn_inqury_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void bn_inqury_by_category_Click(object sender, RoutedEventArgs e) {
+
+            cb_category.ItemsSource = null;
         }
     }
 }

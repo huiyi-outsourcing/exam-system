@@ -10,5 +10,10 @@ namespace ExamSystem.entities {
         public virtual String Username { get; set; }
         public virtual String Password { get; set; }
         public virtual Occupation Occupation { get; set; }
+        public virtual IList<ExamResult> Results { get; set; }
+
+        public User() {
+            Results = new List<ExamResult>();
+        }
     }
 }

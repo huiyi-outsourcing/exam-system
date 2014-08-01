@@ -35,7 +35,7 @@ namespace ExamSystem.controls {
         public ClassificationExamControl(User user) {
             InitializeComponent();
             this.user = user;
-            exam = new ClassificationExam(user);
+            exam = new ClassificationExam(user, "分类组");
             initLayout();
         }
         #endregion

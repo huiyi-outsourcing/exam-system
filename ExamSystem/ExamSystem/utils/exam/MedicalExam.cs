@@ -7,8 +7,6 @@ using ExamSystem.entities;
 
 namespace ExamSystem.utils.exam {
     public class MedicalExam : Exam {
-        private String category;
-
         protected override void LoadExam() {
             IList<ClinicalCase> cases = ExamHelper.RetrieveByCategory(category);
             foreach (ClinicalCase cc in cases) {
