@@ -16,7 +16,7 @@
         <Line X1="0" X2="2000" Y1="100" Y2="100" Stroke="Black" StrokeThickness="4" Grid.Row="0" />
         <Line X1="0" X2="2000" Y1="0" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="2" />
 
-        <Image Grid.Row="0" Source="resources/img/head_title.png" />
+        <Image Grid.Row="0" Source="resources/img/卫勤分队伤病员处置软件.png" Height="69" />
 
         <Grid Grid.Row="1" Name="body"></Grid>
         

@@ -56,11 +56,12 @@ namespace ExamSystem.utils {
             Random rnd = new Random();
             ISet<long> idSet = new HashSet<long>();
             for (int i = 0; i < areas.Count; ++i) {
-                IList<ClinicalCase> tmp = areas[i].ClinicalCases;
+                ClinicalCase[] tmp = areas[i].ClinicalCases.ToArray<ClinicalCase>();
+                shuffle(tmp);
                 for (int j = 0; j < random[i]; ++j) {
                     int id;
                     do {
-                        id = rnd.Next(0, tmp.Count);
+                        id = rnd.Next(0, tmp.Length);
                     } while (idSet.Contains(tmp[id].Id));
 
                     cases.Add(tmp[id]);

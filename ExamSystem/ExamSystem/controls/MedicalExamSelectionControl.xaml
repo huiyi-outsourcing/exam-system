@@ -8,13 +8,13 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Image Source="../resources/img/medi_shou_shu_zu.png" Width="200" Margin="50" MouseLeftButtonDown="enterShouShuZu"/>
-                <Image Source="../resources/img/medi_zhong_zheng_kang_xiu_ke_zu.png" Width="200" Margin="50" MouseLeftButtonDown="enterZhongZhengKangXiuKeZu" />
-                <Image Source="../resources/img/medi_qing_shang_zu.png" Width="200" Margin="50" MouseLeftButtonDown="enterQingShangZu"/>
+                <Image Source="../resources/img/手术组.png" Width="200" Margin="50" MouseLeftButtonDown="enterShouShuZu"/>
+                <Image Source="../resources/img/重抗组.png" Width="200" Margin="50" MouseLeftButtonDown="enterZhongZhengKangXiuKeZu" />
+                <Image Source="../resources/img/轻伤组.png" Width="200" Margin="50" MouseLeftButtonDown="enterQingShangZu"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="../resources/img/medi_hua_xue_wu_qi_zu.png" Width="200" Margin="50 0 50 50" MouseLeftButtonDown="enterHuaXueWuQiZu"/>
-                <Image Source="../resources/img/medi_he_wu_qi_zu.png" Width="200" Margin="50 0 50 50" MouseLeftButtonDown="enterHeWuQiZu"/>
+            <StackPanel Orientation="Horizontal" Name="sp1">
+                <Image Source="../resources/img/化学武器组.png" Width="200" Margin="50 0 50 50" MouseLeftButtonDown="enterHuaXueWuQiZu"/>
+                <Image Source="../resources/img/核武器组.png" Width="200" Margin="50 0 50 50" MouseLeftButtonDown="enterHeWuQiZu"/>
             </StackPanel>
         </StackPanel>
     </Grid>

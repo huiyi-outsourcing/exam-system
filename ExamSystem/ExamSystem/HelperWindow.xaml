@@ -13,8 +13,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <Image Source="resources/img/label_title.png" Width="200"/>
-            <Image Source="resources/img/head_title.png" 
+            <Image Source="resources/img/卫勤分队伤病员处置软件.png" 
                Width="800"/>
         </StackPanel>
 

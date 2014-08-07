@@ -25,9 +25,14 @@ namespace ExamSystem.controls {
             InitializeComponent();
         }
 
-        public MedicalExamSelectionControl(User user) {
+        public MedicalExamSelectionControl(User user, String type) {
             InitializeComponent();
             this.user = user;
+            if (type.Equals("local")) {
+                sp1.Visibility = Visibility.Collapsed;
+            } else {
+                sp1.Visibility = Visibility.Visible;
+            }
         }
 
         private void enterShouShuZu(object sender, MouseButtonEventArgs e) {

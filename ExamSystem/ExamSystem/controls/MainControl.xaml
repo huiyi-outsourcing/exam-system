@@ -7,8 +7,8 @@
              d:DesignHeight="562" d:DesignWidth="1280">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Image Source="../resources/img/app_fenlei.png" Width="200" Margin="50" MouseLeftButtonDown="enterClassificationExam"/>
-            <Image Source="../resources/img/app_yiliao.png" Width="200" Margin="50" MouseLeftButtonDown="enterMedicalExam" />
+            <Image Source="../resources/img/地方伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterLocal"/>
+            <Image Source="../resources/img/战伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterArmy" />
         </StackPanel>
     </Grid>
 </UserControl>

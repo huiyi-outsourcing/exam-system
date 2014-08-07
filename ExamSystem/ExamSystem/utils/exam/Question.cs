@@ -50,12 +50,13 @@ namespace ExamSystem.utils.exam {
             selectedOptions = new HashSet<int>();
             options = new List<Option>();
             char tmp = 'A';
+            int index = 0;
             if (estatus == EXAMSTATUS.CLASSIFICATION) { // if it's classification exam 
                 for (int i = 0; i < cli_case.COptions.Count; ++i) {
                     ClassificationOption co = cli_case.COptions[i];
                     if (!occupation.Equals(co.Occupation.Description))
                         continue;
-                    Option option = new Option((char)(tmp + i) + ". " + co.Description, co.Correct);
+                    Option option = new Option((char)(tmp + index++) + ". " + co.Description, co.Correct);
                     options.Add(option);
                 }
             } else {
@@ -63,7 +64,7 @@ namespace ExamSystem.utils.exam {
                     MedicalOption mo = cli_case.MOptions[i];
                     if (!occupation.Equals(mo.Occupation.Description))
                         continue;
-                    Option option = new Option((char)(tmp + i) + ". " + mo.Description, mo.Correct);
+                    Option option = new Option((char)(tmp + index++) + ". " + mo.Description, mo.Correct);
                     options.Add(option);
                 }
             }

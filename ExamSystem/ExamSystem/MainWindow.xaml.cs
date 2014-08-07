@@ -49,9 +49,15 @@ namespace ExamSystem {
         }
 
         private void mainPage_Click(object sender, RoutedEventArgs e) {
-            if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+            if (body.Children[0] is controls.ClassificationExamControl || body.Children[0] is controls.MedicalExamControl || body.Children[0] is controls.ExamResultControl) {
+                if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                    setBody(new controls.MainControl(user));
+                }
+            } else {
                 setBody(new controls.MainControl(user));
             }
+
+            
         }
 
         private void exit_Click(object sender, RoutedEventArgs e) {
