@@ -60,7 +60,7 @@ namespace ExamSystem.utils.exam {
                     options.Add(option);
                 }
             } else {
-                for (int i = 0; i < cli_case.COptions.Count; ++i) {
+                for (int i = 0; i < cli_case.MOptions.Count; ++i) {
                     MedicalOption mo = cli_case.MOptions[i];
                     if (!occupation.Equals(mo.Occupation.Description))
                         continue;

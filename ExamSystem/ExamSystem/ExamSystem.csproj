@@ -232,27 +232,6 @@
     <Folder Include="conf\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\img\medi_he_wu_qi_zu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\medi_hua_xue_wu_qi_zu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\medi_qing_shang_zu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\medi_shou_shu_zu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\medi_zhong_zheng_kang_xiu_ke_zu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\app_fenlei.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\app_yiliao.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="resources\img\bg_button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -292,16 +271,10 @@
     <Content Include="resources\img\医疗处置.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="resources\img\地方.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="resources\img\战伤.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="icon.ico" />
-    <Content Include="resources\img\head_title.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="resources\img\icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

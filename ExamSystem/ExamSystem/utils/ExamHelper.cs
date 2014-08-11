@@ -53,21 +53,35 @@ namespace ExamSystem.utils {
             IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
             int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
 
-            Random rnd = new Random();
-            ISet<long> idSet = new HashSet<long>();
-            for (int i = 0; i < areas.Count; ++i) {
-                ClinicalCase[] tmp = areas[i].ClinicalCases.ToArray<ClinicalCase>();
-                shuffle(tmp);
-                for (int j = 0; j < random[i]; ++j) {
-                    int id;
-                    do {
-                        id = rnd.Next(0, tmp.Length);
-                    } while (idSet.Contains(tmp[id].Id));
+            bool flag = false;
+            do {
+                cases.Clear();
+                flag = false;
+                Random rnd = new Random();
+                ISet<long> idSet = new HashSet<long>();
+                for (int i = 0; i < areas.Count && !flag; ++i) {
+                    ClinicalCase[] tmp = areas[i].ClinicalCases.ToArray<ClinicalCase>();
+                    shuffle(tmp);
+                    for (int j = 0; j < random[i]; ++j) {
+                        int id;
+                        int cnt = 0;
+                        do {
+                            id = rnd.Next(0, tmp.Length);
+                            cnt++;
+                            if (cnt == 10) {
+                                flag = true;
+                                break;
+                            }
+                        } while (idSet.Contains(tmp[id].Id));
 
-                    cases.Add(tmp[id]);
-                    idSet.Add(tmp[id].Id);
+                        if (flag)
+                            break;
+
+                        cases.Add(tmp[id]);
+                        idSet.Add(tmp[id].Id);
+                    }
                 }
-            }
+            } while (flag);
 
             return cases;
         }
