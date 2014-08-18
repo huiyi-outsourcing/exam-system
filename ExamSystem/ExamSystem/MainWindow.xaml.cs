@@ -21,6 +21,12 @@ namespace ExamSystem {
     public partial class MainWindow : Window {
         #region Properties
         private User user = null;
+        private String category = null;
+
+        public String Category {
+            get { return category; }
+            set { category = value; }
+        }
 
         public User User {
             get { return user; }
@@ -49,12 +55,12 @@ namespace ExamSystem {
         }
 
         private void mainPage_Click(object sender, RoutedEventArgs e) {
-            if (body.Children[0] is controls.ClassificationExamControl || body.Children[0] is controls.MedicalExamControl || body.Children[0] is controls.ExamResultControl) {
+            if (body.Children[0] is controls.ExamControl || body.Children[0] is controls.ExamResultControl) {
                 if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                    setBody(new controls.MainControl(user));
+                    setBody(new controls.MainControl(user, category));
                 }
             } else {
-                setBody(new controls.MainControl(user));
+                setBody(new controls.MainControl(user, category));
             }
 
             

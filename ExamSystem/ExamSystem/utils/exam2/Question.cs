@@ -5,7 +5,7 @@ using System.Text;
 
 using ExamSystem.entities;
 
-namespace ExamSystem.utils.exam {
+namespace ExamSystem.utils.exam2 {
     public class Question {
         #region Properties
         private String description;
@@ -38,12 +38,10 @@ namespace ExamSystem.utils.exam {
             get { return description; }
             set { description = value; }
         }
-
-        public enum EXAMSTATUS { CLASSIFICATION, MEDICAL }
         #endregion
 
         #region Constructor
-        public Question(ClinicalCase cli_case, EXAMSTATUS estatus, String occupation, int sc = 5) {
+        public Question(ClinicalCase cli_case, String category, String occupation, int sc = 5) {
             description = cli_case.Description;
             manifestation = cli_case.Manifestation;
             score = sc;
@@ -51,7 +49,7 @@ namespace ExamSystem.utils.exam {
             options = new List<Option>();
             char tmp = 'A';
             int index = 0;
-            if (estatus == EXAMSTATUS.CLASSIFICATION) { // if it's classification exam 
+            if (category.Equals("分类组")) { // if it's classification exam 
                 for (int i = 0; i < cli_case.COptions.Count; ++i) {
                     ClassificationOption co = cli_case.COptions[i];
                     if (!occupation.Equals(co.Occupation.Description))
@@ -73,24 +71,36 @@ namespace ExamSystem.utils.exam {
 
         #region Public Methods
         public double GetScore() {
-            int result = 0;
-
-            for (int i = 0; i < options.Count; ++i) {
-                if (selectedOptions.Contains(i)) {
-                    if (options[i].Correct)
-                        result += 1;
-                    else
-                        return 0.0;
-                }
-            }
-
-            int count = 0;
+            int correctOption = 0;
             foreach (Option o in options) {
                 if (o.Correct)
-                    count++;
+                    correctOption++;
             }
 
-            return result * 1.0 / count;
+            if (selectedOptions.Count > correctOption) {
+                int c = 0;
+                int w = 0;
+                for (int i = 0; i < selectedOptions.Count; ++i) {
+                    if (options[selectedOptions.ElementAt(i)].Correct) {
+                        c++;
+                    } else {
+                        w++;
+                    }
+                }
+                if (w > c) {
+                    return 0;
+                } else {
+                    return (c - w) * 1.0 / correctOption;
+                }
+            } else {
+                int c = 0;
+                for (int i = 0; i < selectedOptions.Count; ++i) {
+                    if (options[selectedOptions.ElementAt(i)].Correct) {
+                        c++;
+                    }
+                }
+                return c * 1.0 / correctOption;
+            }
         }
 
         public bool IsCorrect() {
@@ -98,6 +108,10 @@ namespace ExamSystem.utils.exam {
                 if (options[i].Correct) {
                     if (!selectedOptions.Contains(i))
                         return false;
+                } else {
+                    if (selectedOptions.Contains(i)) {
+                        return false;
+                    }
                 }
             }
 

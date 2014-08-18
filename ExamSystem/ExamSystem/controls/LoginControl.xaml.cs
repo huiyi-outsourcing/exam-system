@@ -35,58 +35,51 @@ namespace ExamSystem.controls {
         }
 
         private void login_Click(object sender, RoutedEventArgs e) {
-            String message = validateInput();
-            if (message.Length != 0) {
-                MessageBox.Show(message);
-                return;
+            String occupation;
+            if (rb_doctor.IsChecked == true) {
+                occupation = "军医";
+            } else {
+                occupation = "护士";
             }
-
-            User user = authenticate(tb_username.Text.Trim(), pb_password.Password);
+            User user = authenticate(tb_name.Text.Trim(), tb_securitycode.Text.Trim(), occupation);
             if (user != null) {
+                String category = "";
+                if (rb_ssz.IsChecked == true)
+                    category = "手术组";
+                if (rb_zsz.IsChecked == true)
+                    category = "重症抗休克组";
+                if (rb_qsz.IsChecked == true)
+                    category = "轻伤组";
+                if (rb_hwqz.IsChecked == true)
+                    category = "核武器组";
+                if (rb_flz.IsChecked == true)
+                    category = "分类组";
+                if (rb_hxwqz.IsChecked == true)
+                    category = "化学武器组";
+
                 MainWindow main = new MainWindow();
                 main.User = user;
-                main.setBody(new MainControl(user));
+                main.Category = category;
+                main.setBody(new MainControl(user, category));
                 main.Show();
                 Window parent = Window.GetWindow(this);
                 parent.Close();
             } else {
-                MessageBox.Show("用户名或密码错误");
+                MessageBox.Show("姓名或保障卡号错误");
             }
         }
 
-        private User authenticate(String username, String password) {
-            IList<User> user = PersistenceHelper.RetrieveByProperty<User>("Username", tb_username.Text);
+        private User authenticate(String name, String securitycode, String occupation) {
+            IList<User> user = PersistenceHelper.RetrieveByProperty<User>("SecurityCode", tb_securitycode.Text.Trim());
             if (user.Count == 0) {
                 return null;
             }
 
-            String MD5Password = EncryptHelper.encrypt(password);
-            if (MD5Password.Equals(user[0].Password)) {
+            if (user[0].Name.Equals(name) && user[0].Occupation.Description.Equals(occupation)) {
                 return user[0];
             } else {
                 return null;
             }
-        }
-
-        private String validateInput() {
-            String username = tb_username.Text.Trim();
-            String password = pb_password.Password.Trim();
-
-            StringBuilder builder = new StringBuilder();
-            if (username.Length < 4 || username.Length > 10) {
-                builder.Append("用户名应在4-10个字符之间\n");
-            }
-
-            if (password.Contains('\'') || password.Contains('*') || password.Contains('_') || password.Contains('(') || password.Contains(')')) {
-                builder.Append("密码不能包含以下特殊字符：', *, _, (, ), 空格");
-            }
-
-            return builder.ToString();
-        }
-
-        private void register_Click(object sender, RoutedEventArgs e) {
-            HelperWindow window = Window.GetWindow(this) as HelperWindow;
-            window.setBody(new controls.RegisterControl());
         }
 
         private void exit_Click(object sender, RoutedEventArgs e) {

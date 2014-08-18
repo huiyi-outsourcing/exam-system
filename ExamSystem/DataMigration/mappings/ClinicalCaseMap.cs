@@ -12,6 +12,7 @@ namespace ExamSystem.mappings {
             Id(x => x.Id);
             Map(x => x.Description);
             Map(x => x.Manifestation);
+            Map(x => x.Reason);
             References(x => x.InjuredDegree);
             HasManyToMany(x => x.Categories).Cascade.All();
             HasManyToMany(x => x.InjuredAreas).Cascade.All();

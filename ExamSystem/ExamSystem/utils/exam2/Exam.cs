@@ -5,12 +5,18 @@ using System.Text;
 
 using ExamSystem.entities;
 
-namespace ExamSystem.utils.exam {
-    public abstract class Exam {
+namespace ExamSystem.utils.exam2 {
+    public class Exam {
         #region Properties
         protected IList<Question> questions = null;
         protected User user = null;
         protected String category = null;
+        protected String reason = null;
+
+        public String Reason {
+            get { return reason; }
+            set { reason = value; }
+        }
 
         public String Category {
             get { return category; }
@@ -29,9 +35,24 @@ namespace ExamSystem.utils.exam {
         #endregion
 
         #region Constructor
+        public Exam(User user, String category, String reason) {
+            this.user = user;
+            this.category = category;
+            this.reason = reason;
+            LoadExam();
+        }
         #endregion
 
-        protected abstract void LoadExam();
+        protected void LoadExam() {
+            questions = new List<Question>();
+            IList<ClinicalCase> cases = ExamHelper.RetrieveByCategory(category);
+            foreach (ClinicalCase cc in cases) {
+                if (!cc.Reason.Equals(reason))
+                    continue;
+                Question q = new Question(cc, category, user.Occupation.Description);
+                questions.Add(q);
+            }
+        }
 
         public double GetScore() {
             double result = 0;

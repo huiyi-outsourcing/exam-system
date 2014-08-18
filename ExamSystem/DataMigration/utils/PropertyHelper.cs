@@ -63,6 +63,10 @@ namespace DataMigration.utils {
             clinical_case.InjuredAreas = areaList;
         }
 
+        private void readReason(ClinicalCase clinical_case, String str) {
+            clinical_case.Reason = str;
+        }
+
         private void readInjuredDegrees(ClinicalCase clinical_case, String str) {
             String degreeString = str;
             clinical_case.InjuredDegree = degrees[degreeString];
@@ -174,6 +178,9 @@ namespace DataMigration.utils {
 
             // read manifestation
             readManifestation(clinical_case, root.SelectSingleNode("临床表现").InnerText.Trim());
+
+            // read Reason
+            readReason(clinical_case, root.SelectSingleNode("伤势类型").InnerText.Trim());
             PersistenceHelper.Save<ClinicalCase>(clinical_case);
 
             // read classification Option

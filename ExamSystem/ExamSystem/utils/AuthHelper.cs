@@ -5,8 +5,12 @@ using System.Management;
 using System.Security.Cryptography;
 using System.Text;
 
+using log4net;
+
 namespace ExamSystem.utils {
     public class AuthHelper {
+        private static ILog log = LogManager.GetLogger(typeof(AuthHelper));
+
         private AuthHelper() {
         }
 
@@ -23,6 +27,8 @@ namespace ExamSystem.utils {
         }
 
         public static String generateAuthrizationCode(String id) {
+            log.Debug("进入generateAuthorizationCode");
+
             MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
             byte[] source = System.Text.Encoding.UTF8.GetBytes(id);
             byte[] target = provider.ComputeHash(source);

@@ -20,24 +20,26 @@ namespace ExamSystem.controls {
     /// </summary>
     public partial class MainControl : UserControl {
         private User user = null;
+        private String category;
 
         public MainControl() {
             InitializeComponent();
         }
 
-        public MainControl(User user) {
+        public MainControl(User user, String category) {
             InitializeComponent();
+            this.category = category;
             this.user = user;
         }
 
         private void enterLocal(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            window.setBody(new ManageControl(user, "local"));
+            window.setBody(new ExamControl(user, category, "地方伤"));
         }
 
         private void enterArmy(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            window.setBody(new ManageControl(user, "army"));
+            window.setBody(new ExamControl(user, category, "战伤"));
         }
     }
 }

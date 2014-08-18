@@ -11,8 +11,7 @@ namespace ExamSystem.mappings {
         public UserMap() {
             Id(x => x.Id);
             Map(x => x.Name);
-            Map(x => x.Username);
-            Map(x => x.Password);
+            Map(x => x.SecurityCode);
             References(x => x.Occupation).Cascade.None();
             HasMany(x => x.Results).Cascade.All();
         }

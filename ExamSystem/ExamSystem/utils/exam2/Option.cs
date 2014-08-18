@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ExamSystem.utils.exam {
+namespace ExamSystem.utils.exam2 {
     public class Option {
         private String description;
 

@@ -41,7 +41,7 @@ namespace ExamResult {
 
             ICriteria criteria = PersistenceHelper.OpenSession().CreateCriteria(typeof(ExamSystem.entities.ExamResult));
             if (chb_name.IsChecked == true) {
-                IList<ExamSystem.entities.User> users = PersistenceHelper.RetrieveByProperty<ExamSystem.entities.User>("Username", tb_name.Text.Trim());
+                IList<ExamSystem.entities.User> users = PersistenceHelper.RetrieveByProperty<ExamSystem.entities.User>("SecurityCode", tb_securitycode.Text.Trim());
                 if (users.Count != 0)
                     criteria.Add(NHibernate.Criterion.Expression.Eq("User", users[0]));
                 else
@@ -81,6 +81,11 @@ namespace ExamResult {
                 excel.SaveToExcel(filepath, results);
                 MessageBox.Show("保存成功");
             }
+        }
+
+        private void btn_register_Click(object sender, RoutedEventArgs e) {
+            Window register = new RegisterWindow();
+            register.Show();
         }
     }
 }

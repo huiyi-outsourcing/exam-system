@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using ExamSystem.utils.exam;
+using ExamSystem.utils.exam2;
 using ExamSystem.entities;
 using System.Windows.Media.Effects;
 
@@ -29,6 +29,7 @@ namespace ExamSystem.controls {
         }
 
         public ExamResultControl(User user, Exam exam) {
+            MessageBox.Show("您本次训练的成绩为" + Math.Round(exam.GetScore(), 2) + "分，本次成绩已计入系统，方便上级查询！");
             InitializeComponent();
             this.user = user;
             this.exam = exam;
@@ -135,6 +136,13 @@ namespace ExamSystem.controls {
             result.User = user;
             result.DateTime = DateTime.Now;
             utils.PersistenceHelper.Save<ExamResult>(result);
+        }
+
+        private void again_Click(object sender, RoutedEventArgs e) {
+            if (MessageBox.Show("您确定要继续训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                MainWindow window = Window.GetWindow(this) as MainWindow;
+                window.setBody(new ExamControl(user, exam.Category, exam.Reason));
+            }
         }
         #endregion
     }

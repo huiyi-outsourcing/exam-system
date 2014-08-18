@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 
 using ExamSystem.entities;
+using log4net;
 
 namespace ExamSystem.utils {
     public class ExamHelper {
         #region Properties
+        private static readonly ILog log = LogManager.GetLogger(typeof(ExamHelper));
         #endregion
 
         #region Constructor
@@ -15,34 +17,49 @@ namespace ExamSystem.utils {
 
         public static IList<ClinicalCase> RetrieveByCategory(String category, int number = 20) {
             IList<ClinicalCase> cases = new List<ClinicalCase>();
-
             IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
-            int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
 
-            Random rnd = new Random();
-            ISet<long> idSet = new HashSet<long>();
-            for (int i = 0; i < areas.Count; ++i) {
-                // get specified list under that category
-                IList<ClinicalCase> tmp = new List<ClinicalCase>();
-                foreach (ClinicalCase cc in areas[i].ClinicalCases) {
-                    foreach (Category ct in cc.Categories) {
-                        if (ct.Description.Equals(category)) {
-                            tmp.Add(cc);
-                            break;
+            bool redo = false;
+
+            do {
+                int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
+                cases.Clear();
+                redo = false;
+
+                ISet<long> idSet = new HashSet<long>();
+                for (int i = 0; i < areas.Count; ++i) {
+                    // get specified list under that category
+                    IList<ClinicalCase> tmp = new List<ClinicalCase>();
+                    foreach (ClinicalCase cc in areas[i].ClinicalCases) {
+                        foreach (Category ct in cc.Categories) {
+                            if (ct.Description.Equals(category)) {
+                                tmp.Add(cc);
+                                break;
+                            }
                         }
-                    } 
-                }
+                    }
 
-                for (int j = 0; j < random[i]; ++j) {
-                    int id;
-                    do {
-                        id = rnd.Next(0, tmp.Count);
-                    } while (idSet.Contains(tmp[id].Id));
+                    ClinicalCase[] cca = tmp.ToArray<ClinicalCase>();
+                    shuffle(cca);
 
-                    cases.Add(tmp[id]);
-                    idSet.Add(tmp[id].Id);
+                    int cnt = 0;
+                    for (int j = 0; j < cca.Length; ++j) {
+                        if (!idSet.Contains(cca[j].Id)) {
+                            cases.Add(cca[j]);
+                            idSet.Add(cca[j].Id);
+                            cnt++;
+
+                            if (cnt == random[i])
+                                break;
+                        }
+                    }
+
+                    if (cnt < random[i]) {
+                        redo = true;
+                        break;
+                    }
                 }
-            }
+            } while (redo);
 
             return cases;
         }
@@ -51,37 +68,32 @@ namespace ExamSystem.utils {
             IList<ClinicalCase> cases = new List<ClinicalCase>();
 
             IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
-            int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
+            
 
-            bool flag = false;
+            bool redo = false;
             do {
+                int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
                 cases.Clear();
-                flag = false;
+                redo = false;
                 Random rnd = new Random();
                 ISet<long> idSet = new HashSet<long>();
-                for (int i = 0; i < areas.Count && !flag; ++i) {
+                for (int i = 0; i < areas.Count && !redo; ++i) {
                     ClinicalCase[] tmp = areas[i].ClinicalCases.ToArray<ClinicalCase>();
                     shuffle(tmp);
-                    for (int j = 0; j < random[i]; ++j) {
-                        int id;
-                        int cnt = 0;
-                        do {
-                            id = rnd.Next(0, tmp.Length);
+
+                    int cnt = 0;
+                    for (int j = 0; j < tmp.Length; ++j) {
+                        if (!idSet.Contains(tmp[j].Id)) {
+                            cases.Add(tmp[j]);
+                            idSet.Add(tmp[j].Id);
                             cnt++;
-                            if (cnt == 10) {
-                                flag = true;
+
+                            if (cnt == random[i])
                                 break;
-                            }
-                        } while (idSet.Contains(tmp[id].Id));
-
-                        if (flag)
-                            break;
-
-                        cases.Add(tmp[id]);
-                        idSet.Add(tmp[id].Id);
+                        }
                     }
                 }
-            } while (flag);
+            } while (redo);
 
             return cases;
         }

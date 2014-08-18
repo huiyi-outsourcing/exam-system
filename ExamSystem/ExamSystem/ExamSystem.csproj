@@ -83,11 +83,11 @@
     <Compile Include="controls\AuthControl.xaml.cs">
       <DependentUpon>AuthControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\ClassificationExamControl.xaml.cs">
-      <DependentUpon>ClassificationExamControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="controls\CountDownControl.xaml.cs">
       <DependentUpon>CountDownControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\ExamControl.xaml.cs">
+      <DependentUpon>ExamControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\ExamResultControl.xaml.cs">
       <DependentUpon>ExamResultControl.xaml</DependentUpon>
@@ -97,18 +97,6 @@
     </Compile>
     <Compile Include="controls\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="controls\ManageControl.xaml.cs">
-      <DependentUpon>ManageControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="controls\MedicalExamControl.xaml.cs">
-      <DependentUpon>MedicalExamControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="controls\MedicalExamSelectionControl.xaml.cs">
-      <DependentUpon>MedicalExamSelectionControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="controls\RegisterControl.xaml.cs">
-      <DependentUpon>RegisterControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\viewmodel\LoginViewModel.cs" />
     <Compile Include="entities\Category.cs" />
@@ -134,23 +122,21 @@
     <Compile Include="mappings\UserMap.cs" />
     <Compile Include="utils\AuthHelper.cs" />
     <Compile Include="utils\EncryptHelper.cs" />
+    <Compile Include="utils\exam2\Exam.cs" />
+    <Compile Include="utils\exam2\Option.cs" />
+    <Compile Include="utils\exam2\Question.cs" />
     <Compile Include="utils\ExamHelper.cs" />
-    <Compile Include="utils\exam\ClassificationExam.cs" />
-    <Compile Include="utils\exam\Exam.cs" />
-    <Compile Include="utils\exam\MedicalExam.cs" />
-    <Compile Include="utils\exam\Option.cs" />
-    <Compile Include="utils\exam\Question.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
     <Compile Include="utils\validations\ValidationRules.cs" />
     <Page Include="controls\AuthControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\ClassificationExamControl.xaml">
+    <Page Include="controls\CountDownControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\CountDownControl.xaml">
+    <Page Include="controls\ExamControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,22 +149,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\MainControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="controls\ManageControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="controls\MedicalExamControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="controls\MedicalExamSelectionControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="controls\RegisterControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,9 +198,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="conf\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="resources\img\bg_button.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

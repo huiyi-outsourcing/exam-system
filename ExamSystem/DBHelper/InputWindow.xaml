@@ -3,46 +3,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="InputWindow" WindowState="Maximized">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="20">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="分组" Margin="0 0 20 0"/>
-                <ComboBox Name="cob_category" ItemsSource="{Binding}" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+                <TextBlock Text="分组"/>
+                <ListBox Name="cob_category" ItemsSource="{Binding}" Width="120" SelectionMode="Multiple"/>
+            </StackPanel>
                 
-                <TextBlock Text="受伤部位" Margin="50 0 20 0" />
-                <ComboBox Name="cob_area" ItemsSource="{Binding}" Width="120" />
-
-                <TextBlock Text="受伤程度" Margin="50 0 20 0" />
-                <ComboBox Name="cob_degree" ItemsSource="{Binding}" Width="120" />
+            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+                <TextBlock Text="受伤部位" />
+                <ListBox Name="cob_area" ItemsSource="{Binding}" Width="280" SelectionMode="Multiple">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </StackPanel>
                 
-                <Button Content="确认修改" Click="Button_Click_1" Margin="50 0 0 0"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="受伤程度" />
+                <ListBox Name="cob_degree" ItemsSource="{Binding}" Width="120" SelectionMode="Single" />
             </StackPanel>
-            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
-                <TextBlock Text="受伤史" Margin="0 0 0 10"/>
-                <TextBox Name="tb_description" Height="50"/>
-            </StackPanel>
-            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
-                <TextBlock Text="临床表现" Margin="0 0 0 10"/>
-                <TextBox Name="tb_manifestation" Height="50"/>
-            </StackPanel>
-            <TabControl Margin="0 10 0 0">
-                <TabItem Header="分类处置">
-                    <DataGrid AutoGenerateColumns="False"
-                              Name="dg_coptions"
-                              ItemsSource="{Binding}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="描述"
-                                                Width="300"
-                                                Binding="{Binding Path=Description}" />
-                            <DataGridCheckBoxColumn Header="正确"
-                                                    Width="50"
-                                                    Binding="{Binding Path=Correct}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-                <TabItem Header="医疗处置">
-                    
-                </TabItem>
-            </TabControl>
+                
+            <Button Content="确认修改" Click="Button_Click_1" Height="30" Width="80" Margin="50 0 0 0"/>
         </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0 10 0 0" Orientation="Vertical">
+            <TextBlock Text="受伤史" Margin="0 0 0 10"/>
+            <TextBox Name="tb_description" Height="50" TextWrapping="Wrap"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 10 0 0" Orientation="Vertical">
+            <TextBlock Text="临床表现" Margin="0 0 0 10"/>
+            <TextBox Name="tb_manifestation" Height="50" TextWrapping="Wrap"/>
+        </StackPanel>
+        <TabControl Grid.Row="3" Grid.Column="1" Margin="0 10 0 0">
+            <TabItem Header="分类处置">
+                <DataGrid AutoGenerateColumns="False"
+                            Name="dg_coptions"
+                            ItemsSource="{Binding}"
+                            Height="300">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="描述"
+                                            Width="1100"
+                                            Binding="{Binding Path=Description}" />
+                        <DataGridComboBoxColumn Header="职业"
+                                                Width="100"
+                                                x:Name="occupation"
+                                                SelectedItemBinding="{Binding Path=Occupation}"
+                                                ItemsSource="{Binding}" />
+                        <DataGridCheckBoxColumn Header="正确"
+                                                Width="50"
+                                                Binding="{Binding Path=Correct}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="医疗处置">
+                    
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

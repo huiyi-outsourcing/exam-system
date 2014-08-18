@@ -40,8 +40,8 @@
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80*" />
-                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="70*" />
+                    <ColumnDefinition Width="30*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock Text="考试成绩:" Margin="0 0 20 0" />
@@ -51,7 +51,8 @@
                     <TextBlock Name="tb_answers" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                    <Button Name="prev" Content="上一题" Click="prev_question" Margin="00 0 10 0" />
+                    <Button Name="again" Content="继续训练" Click="again_Click" Margin="0 0 10 0" Width="100" />
+                    <Button Name="prev" Content="上一题" Click="prev_question" Margin="0 0 10 0" />
                     <Button Name="next" Content="下一题" Click="next_question" Margin="0 0 10 0" />
                 </StackPanel>
             </Grid>

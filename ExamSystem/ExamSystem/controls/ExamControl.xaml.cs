@@ -13,34 +13,31 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using ExamSystem.entities;
-using ExamSystem.utils.exam;
+using ExamSystem.utils.exam2;
 using System.Windows.Media.Effects;
 
 namespace ExamSystem.controls {
     /// <summary>
-    /// ClassificationExamControl.xaml 的交互逻辑
+    /// ExamControl.xaml 的交互逻辑
     /// </summary>
-    public partial class ClassificationExamControl : UserControl {
+    public partial class ExamControl : UserControl {
         #region Properties
         private User user = null;
         private Exam exam = null;
         private bool flag = false;
         #endregion
 
-        #region Constructor
-        public ClassificationExamControl() {
+        public ExamControl() {
             InitializeComponent();
         }
 
-        public ClassificationExamControl(User user) {
+        public ExamControl(User user, String category, String reason) {
             InitializeComponent();
             this.user = user;
-            exam = new ClassificationExam(user, "分类组");
+            exam = new Exam(user, category, reason);
             initLayout();
         }
-        #endregion
 
-        #region Layout
         private void initLayout() { 
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
@@ -103,7 +100,6 @@ namespace ExamSystem.controls {
                 }
             }
         }
-        #endregion
 
         #region EventHandlers
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e) {
@@ -178,9 +174,11 @@ namespace ExamSystem.controls {
             if (count != exam.Questions.Count) {
                 if (MessageBox.Show("还有题目没有完成，确认提交？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
                     ShowScore();
+                    (gd_status.Children[0] as CountDownControl).stopTimer();
                 }
             } else {
                 ShowScore();
+                (gd_status.Children[0] as CountDownControl).stopTimer();
             }
         }
         #endregion

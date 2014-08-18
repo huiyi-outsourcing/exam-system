@@ -119,52 +119,6 @@ namespace DataMigration {
             }
         }
 
-        private void test_Click(object sender, RoutedEventArgs e) {
-            //test_user_occupation();
-
-            test_clinical_case();
-        }
-
-        private void test_clinical_case() {
-            
-                ISession session = PersistenceHelper.OpenSession();
-                using (var transaction = session.BeginTransaction()) {
-                    ClinicalCase cases = new ClinicalCase() { Manifestation = "abc", Description = "abc" };
-                    session.SaveOrUpdate(cases);
-
-                    Occupation ocp = new Occupation() { Description = "军医" };
-                    session.SaveOrUpdate(ocp);
-
-                    ClassificationOption co1 = new ClassificationOption() { Correct = true, Description = "co1", Occupation = ocp };
-                    co1.ClinicalCase = cases;
-                    ClassificationOption co2 = new ClassificationOption() { Correct = true, Description = "co2", Occupation = ocp };
-                    co2.ClinicalCase = cases;
-
-                    session.SaveOrUpdate(co1);
-                    session.SaveOrUpdate(co2);
-
-
-                    transaction.Commit();
-                }
-        }
-
-        private void test_user_occupation() {
-            try {
-                ISession session = PersistenceHelper.OpenSession();
-                using (ITransaction tran = session.BeginTransaction()) {
-                    String[] occupations = new String[2] { "军医", "护士" };
-                    for (int i = 1; i <= occupations.Length; ++i) {
-                        Occupation ocp = new Occupation() { Description = occupations[i - 1] };
-                        User user = new User { Name = "test" + i, Password = "abc", Username = "test" + i, Occupation = ocp };
-                        session.SaveOrUpdate(user);
-                        tran.Commit();
-                        MessageBox.Show("user_occupation success.");
-                    }
-                }
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 
     public class FileCollection {

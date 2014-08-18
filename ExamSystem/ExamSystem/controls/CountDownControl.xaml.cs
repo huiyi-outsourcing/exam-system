@@ -29,7 +29,12 @@ namespace ExamSystem.controls {
             timer.Tick += new EventHandler(timer_Tick);
 
             cd = new CountDownHelper(40 * 60);
+            //cd = new CountDownHelper(10);
             timer.Start();
+        }
+
+        public void stopTimer() {
+            timer.Stop();
         }
 
         private void timer_Tick(object sender, EventArgs e) {
@@ -40,11 +45,10 @@ namespace ExamSystem.controls {
             } else {
                 timer.Stop();
                 try {
-                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as MedicalExamControl).SubmitExam();
+                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ExamControl).SubmitExam();
                 } catch (Exception) {
-                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ClassificationExamControl).SubmitExam();
+                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ExamControl).SubmitExam();
                 }
-                
             }
         }
     }

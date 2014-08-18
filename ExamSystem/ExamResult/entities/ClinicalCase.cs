@@ -11,6 +11,7 @@ namespace ExamSystem.entities {
         public virtual String Description { get; set; }
         public virtual String Manifestation { get; set; }
         public virtual InjuredDegree InjuredDegree { get; set; }
+        public virtual String Reason { get; set; }
 
         public virtual IList<Category> Categories { get; set; }
         public virtual IList<InjuredArea> InjuredAreas { get; set; }

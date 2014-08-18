@@ -17,6 +17,7 @@ namespace ExamSystem {
     /// App.xaml 的交互逻辑
     /// </summary>
     public partial class App : Application {
+        private static readonly ILog log = LogManager.GetLogger(typeof(App));
 
         protected override void OnStartup(StartupEventArgs e) {
             // setup log4net
@@ -31,6 +32,8 @@ namespace ExamSystem {
                 return;
             }
 
+            log.Debug("程序单例启动成功");
+
             try {
                 PersistenceHelper.OpenSession();
             } catch (Exception) {
@@ -39,8 +42,11 @@ namespace ExamSystem {
                 return;
             }
 
+            log.Debug("数据库检测成功");
+
             HelperWindow window = new HelperWindow();
             if (confirmAuthorization()) {
+                log.Debug("验证成功");
                 controls.LoginControl login = new controls.LoginControl();
                 window.setBody(login);
             } else {
@@ -60,6 +66,7 @@ namespace ExamSystem {
         private Boolean confirmAuthorization() {
             RegistryKey key = Registry.LocalMachine;
             RegistryKey SimuTraining = key.OpenSubKey("SOFTWARE\\ExamSystem");
+            log.Debug("查找key");
             if (SimuTraining != null && SimuTraining.GetValue("authcode") != null) {
                 String id = AuthHelper.getMachineID();
                 return AuthHelper.authorize(id, SimuTraining.GetValue("authcode").ToString());

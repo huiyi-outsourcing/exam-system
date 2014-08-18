@@ -15,6 +15,7 @@ namespace DataMigration {
     /// </summary>
     public partial class App : Application {
         protected override void OnStartup(StartupEventArgs e) {
+            
             // setup log4net
             XmlConfigurator.Configure();
 
@@ -26,6 +27,9 @@ namespace DataMigration {
                 Application.Current.Shutdown();
                 return;
             }
+
+            MainWindow main = new MainWindow();
+            main.Show();
 
             base.OnStartup(e);
         }
