@@ -15,7 +15,7 @@ namespace ExamSystem.utils {
         #region Constructor
         #endregion
 
-        public static IList<ClinicalCase> RetrieveByCategory(String category, int number = 20) {
+        public static IList<ClinicalCase> RetrieveByCategory(String category, String reason, int number = 20) {
             IList<ClinicalCase> cases = new List<ClinicalCase>();
             IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
 
@@ -31,10 +31,12 @@ namespace ExamSystem.utils {
                     // get specified list under that category
                     IList<ClinicalCase> tmp = new List<ClinicalCase>();
                     foreach (ClinicalCase cc in areas[i].ClinicalCases) {
-                        foreach (Category ct in cc.Categories) {
-                            if (ct.Description.Equals(category)) {
-                                tmp.Add(cc);
-                                break;
+                        if (cc.Reason.Equals(reason)) {
+                            foreach (Category ct in cc.Categories) {
+                                if (ct.Description.Equals(category)) {
+                                    tmp.Add(cc);
+                                    break;
+                                }
                             }
                         }
                     }

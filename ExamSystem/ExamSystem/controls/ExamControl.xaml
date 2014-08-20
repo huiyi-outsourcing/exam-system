@@ -22,7 +22,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Name="g_Cases">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" VerticalAlignment="Top">
+            <TextBlock Text="请对20份病历进行处置" Margin="5 5 5 0" FontSize="20" />
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" VerticalAlignment="Top" Margin="0 25 0 0">
                 <ListBox IsSynchronizedWithCurrentItem="True" Name="qlist" Margin="10" SelectionMode="Single" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True" SelectionChanged="qlist_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>

@@ -6,9 +6,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="562" d:DesignWidth="1280">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Image Source="../resources/img/地方伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterLocal"/>
-            <Image Source="../resources/img/战伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterArmy" />
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="根据卫勤分队的任务清选择类别" FontSize="40" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../resources/img/地方伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterLocal"/>
+                <Image Source="../resources/img/战伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterArmy" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

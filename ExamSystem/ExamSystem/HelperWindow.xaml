@@ -7,9 +7,9 @@
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="33*" />
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="24*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">

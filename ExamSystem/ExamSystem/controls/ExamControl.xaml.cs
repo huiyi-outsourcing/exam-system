@@ -172,7 +172,7 @@ namespace ExamSystem.controls {
             }
 
             if (count != exam.Questions.Count) {
-                if (MessageBox.Show("还有题目没有完成，确认提交？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                if (MessageBox.Show("还有题目没有完成，确认提交？（提交后不能修改）", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
                     ShowScore();
                     (gd_status.Children[0] as CountDownControl).stopTimer();
                 }

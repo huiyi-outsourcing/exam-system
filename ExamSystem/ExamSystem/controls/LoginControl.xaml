@@ -9,25 +9,27 @@
              d:DesignHeight="400" d:DesignWidth="1280">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="用  户  名：" />
                 <TextBox x:Name="tb_name" Width="300">
                 </TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20">
                 <Label Content="保障卡号：" />
                 <TextBox Name="tb_securitycode" Width="300" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="2 0 0 0">
                 <TextBlock Text="专业技术职称：" Margin="0 0 0 20"/>
                 <RadioButton Name="rb_doctor" Content="医生" GroupName="occupation" IsChecked="True" Margin="10 0 10 0" />
                 <RadioButton Name="rb_nurse" Content="护士" GroupName="occupation" Margin="10 0 0 0" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5 0 0 0">
                 <TextBlock Text="组    别：" Margin="0 0 0 20" />
                 <RadioButton Name="rb_ssz" Content="手术组" GroupName="category" IsChecked="True" Margin="10 0 10 0" />
                 <RadioButton Name="rb_zsz" Content="重伤组" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_qsz" Content="轻伤组" GroupName="category" Margin="10 0 0 0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="90 0 0 20">
                 <RadioButton Name="rb_hxwqz" Content="化学武器组" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_hwqz" Content="核武器组" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_flz" Content="分类组" GroupName="category" Margin="10 0 0 0" />
