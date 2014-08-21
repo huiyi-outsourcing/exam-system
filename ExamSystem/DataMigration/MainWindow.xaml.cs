@@ -46,6 +46,7 @@ namespace DataMigration {
         }
 
         private void create_Click(object sender, RoutedEventArgs e) {
+            Mouse.SetCursor(Cursors.Wait);
             ISessionFactory sessionFactory = null;
             try {
                 sessionFactory
@@ -69,19 +70,19 @@ namespace DataMigration {
                             session.SaveOrUpdate(ocp);
                         }
 
-                        String[] categories = new String[6] { "分类组", "手术组", "重症抗休克组", "轻伤组", "化学武器组", "核武器组" };
+                        String[] categories = new String[6] { "分类组", "手术室(组)", "抗休克室(组)", "伤病员室(组)", "化学武器伤伤病员室(组)", "核武器伤伤病员(组)" };
                         foreach (String category in categories) {
                             Category cty = new Category() { Description = category };
                             session.SaveOrUpdate(cty);
                         }
 
-                        String[] degrees = new String[3] { "重度", "中度", "轻度" };
+                        String[] degrees = new String[3] { "重伤", "中度伤", "轻伤" };
                         foreach (String degree in degrees) {
                             InjuredDegree idegree = new InjuredDegree() { Degree = degree };
                             session.SaveOrUpdate(idegree);
                         }
 
-                        String[] areas = new String[13] { "常见临床危象", "腹部损伤", "骨盆、泌尿生殖系统损伤", "急救", "脊椎损伤", "颈部损伤", "颅脑损伤", "面部损伤", "上肢骨、关节损伤", "烧伤", "外伤感染", "下肢骨、关节损伤", "胸部损伤" };
+                        String[] areas = new String[16] { "常见临床危象", "腹部损伤", "骨盆、泌尿生殖系统损伤", "急救", "脊椎损伤", "颈部损伤", "颅脑损伤", "面部损伤", "上肢骨、关节损伤", "烧伤", "外伤感染", "下肢骨、关节损伤", "胸部损伤", "复合伤", "核武器伤", "化学武器伤" };
                         foreach (String area in areas) {
                             InjuredArea iarea = new InjuredArea() { Area = area };
                             session.SaveOrUpdate(iarea);
@@ -93,6 +94,7 @@ namespace DataMigration {
                 MessageBox.Show("插入数据错误: " + ex.Message);
             }
 
+            Mouse.SetCursor(Cursors.Arrow);
             MessageBox.Show("数据库创建完成");
         }
 
@@ -109,6 +111,7 @@ namespace DataMigration {
             }
 
             PropertyHelper helper = new PropertyHelper();
+            Mouse.SetCursor(Cursors.Wait);
             foreach (FileCollection fc in _FileCollection) {
                 try {
                     helper.readFile(fc.FilePath);
@@ -117,6 +120,7 @@ namespace DataMigration {
                     fc.FileStatus = "失败: " + ex.Message;
                 }
             }
+            Mouse.SetCursor(Cursors.Arrow);
         }
 
     }

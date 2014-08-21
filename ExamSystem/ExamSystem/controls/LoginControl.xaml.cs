@@ -45,17 +45,17 @@ namespace ExamSystem.controls {
             if (user != null) {
                 String category = "";
                 if (rb_ssz.IsChecked == true)
-                    category = "手术组";
+                    category = "手术室(组)";
                 if (rb_zsz.IsChecked == true)
-                    category = "重症抗休克组";
+                    category = "抗休克室(组)";
                 if (rb_qsz.IsChecked == true)
-                    category = "轻伤组";
+                    category = "伤病员室(组)";
                 if (rb_hwqz.IsChecked == true)
-                    category = "核武器组";
+                    category = "核武器伤伤病员(组)";
                 if (rb_flz.IsChecked == true)
                     category = "分类组";
                 if (rb_hxwqz.IsChecked == true)
-                    category = "化学武器组";
+                    category = "化学武器伤伤病员室(组)";
 
                 MainWindow main = new MainWindow();
                 main.User = user;

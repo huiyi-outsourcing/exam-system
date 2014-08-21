@@ -20,8 +20,8 @@
             <ListView Name="_listview" ItemsSource="{Binding FileCollection}" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="620" Header="文件" DisplayMemberBinding="{Binding FilePath}" />
-                        <GridViewColumn Width="160" Header="状态" DisplayMemberBinding="{Binding FileStatus}" />
+                        <GridViewColumn Width="320" Header="文件" DisplayMemberBinding="{Binding FilePath}" />
+                        <GridViewColumn Width="460" Header="状态" DisplayMemberBinding="{Binding FileStatus}" />
                     </GridView>
                 </ListView.View>
             </ListView>

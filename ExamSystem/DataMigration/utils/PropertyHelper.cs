@@ -48,6 +48,8 @@ namespace DataMigration.utils {
             IList<Category> categoryList = new List<Category>();
             String[] categoriesString = str.Split('|');
             foreach (String categoryString in categoriesString) {
+                if (!categories.ContainsKey(categoryString))
+                    throw new Exception("组别中不存在: " + categoryString);
                 categories[categoryString].ClinicalCases.Add(clinical_case);
                 categoryList.Add(categories[categoryString]);
             }
@@ -58,17 +60,23 @@ namespace DataMigration.utils {
             IList<InjuredArea> areaList = new List<InjuredArea>();
             String[] areasString = str.Split('|');
             foreach (String areaString in areasString) {
+                if (!areas.ContainsKey(areaString))
+                    throw new Exception("伤部中不存在: " + areaString);
                 areaList.Add(areas[areaString]);
             }
             clinical_case.InjuredAreas = areaList;
         }
 
         private void readReason(ClinicalCase clinical_case, String str) {
+            if (!(str.Equals("战伤") || str.Equals("外伤")))
+                throw new Exception("伤势类型中不存在： " + str);
             clinical_case.Reason = str;
         }
 
         private void readInjuredDegrees(ClinicalCase clinical_case, String str) {
             String degreeString = str;
+            if (!degrees.ContainsKey(degreeString))
+                throw new Exception("受伤程度中不存在： " + degreeString);
             clinical_case.InjuredDegree = degrees[degreeString];
         }
 
