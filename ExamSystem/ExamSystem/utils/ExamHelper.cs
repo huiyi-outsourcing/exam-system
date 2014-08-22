@@ -17,53 +17,70 @@ namespace ExamSystem.utils {
 
         public static IList<ClinicalCase> RetrieveByCategory(String category, String reason, int number = 20) {
             IList<ClinicalCase> cases = new List<ClinicalCase>();
-            IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
+            Category ct = PersistenceHelper.RetrieveByProperty<Category>("Description", category)[0];
+            IList<ClinicalCase> tmp = new List<ClinicalCase>();
+            foreach (ClinicalCase cc in ct.ClinicalCases) { 
+                if (cc.Reason.Equals(reason))
+                    tmp.Add(cc);
+            }
 
-            bool redo = false;
 
-            do {
-                int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
-                cases.Clear();
-                redo = false;
-
-                ISet<long> idSet = new HashSet<long>();
-                for (int i = 0; i < areas.Count; ++i) {
-                    // get specified list under that category
-                    IList<ClinicalCase> tmp = new List<ClinicalCase>();
-                    foreach (ClinicalCase cc in areas[i].ClinicalCases) {
-                        if (cc.Reason.Equals(reason)) {
-                            foreach (Category ct in cc.Categories) {
-                                if (ct.Description.Equals(category)) {
-                                    tmp.Add(cc);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-
-                    ClinicalCase[] cca = tmp.ToArray<ClinicalCase>();
-                    shuffle(cca);
-
-                    int cnt = 0;
-                    for (int j = 0; j < cca.Length; ++j) {
-                        if (!idSet.Contains(cca[j].Id)) {
-                            cases.Add(cca[j]);
-                            idSet.Add(cca[j].Id);
-                            cnt++;
-
-                            if (cnt == random[i])
-                                break;
-                        }
-                    }
-
-                    if (cnt < random[i]) {
-                        redo = true;
-                        break;
-                    }
+            if (tmp.Count <= 20) {
+                return tmp;
+            } else {
+                ClinicalCase[] cca = tmp.ToArray<ClinicalCase>();
+                shuffle(cca);
+                for (int i = 0; i < 20; ++i) {
+                    cases.Add(cca[i]);
                 }
-            } while (redo);
+                return cases;
+            }
 
-            return cases;
+            //IList<InjuredArea> areas = PersistenceHelper.RetrieveAll<InjuredArea>();
+
+            //bool redo = false;
+
+            //do {
+            //    int[] random = GenerateUniformlyRandomNumberArray(number, areas.Count);
+            //    cases.Clear();
+            //    redo = false;
+
+            //    ISet<long> idSet = new HashSet<long>();
+            //    for (int i = 0; i < areas.Count; ++i) {
+            //        // get specified list under that category
+            //        IList<ClinicalCase> tmp = new List<ClinicalCase>();
+            //        foreach (ClinicalCase cc in areas[i].ClinicalCases) {
+            //            if (cc.Reason.Equals(reason)) {
+            //                foreach (Category ct in cc.Categories) {
+            //                    if (ct.Description.Equals(category)) {
+            //                        tmp.Add(cc);
+            //                        break;
+            //                    }
+            //                }
+            //            }
+            //        }
+
+            //        ClinicalCase[] cca = tmp.ToArray<ClinicalCase>();
+            //        shuffle(cca);
+
+            //        int cnt = 0;
+            //        for (int j = 0; j < cca.Length; ++j) {
+            //            if (!idSet.Contains(cca[j].Id)) {
+            //                cases.Add(cca[j]);
+            //                idSet.Add(cca[j].Id);
+            //                cnt++;
+
+            //                if (cnt == random[i])
+            //                    break;
+            //            }
+            //        }
+
+            //        if (cnt < random[i]) {
+            //            redo = true;
+            //            break;
+            //        }
+            //    }
+            //} while (redo);
         }
 
         public static IList<ClinicalCase> RetrieveByInjuredArea(int number = 20) {

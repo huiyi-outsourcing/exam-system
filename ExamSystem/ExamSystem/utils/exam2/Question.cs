@@ -41,7 +41,7 @@ namespace ExamSystem.utils.exam2 {
         #endregion
 
         #region Constructor
-        public Question(ClinicalCase cli_case, String category, String occupation, int sc = 5) {
+        public Question(ClinicalCase cli_case, String category, String occupation, double sc = 5) {
             description = cli_case.Description;
             manifestation = cli_case.Manifestation;
             score = sc;

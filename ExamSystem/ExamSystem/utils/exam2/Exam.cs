@@ -58,10 +58,10 @@ namespace ExamSystem.utils.exam2 {
             double result = 0;
             foreach (Question q in questions) {
                 double score = q.GetScore();
-                result += q.GetScore() * 100 / questions.Count;
+                result += q.GetScore() * 100;
             }
 
-            return result;
+            return result / questions.Count;
         }
     }
 }
