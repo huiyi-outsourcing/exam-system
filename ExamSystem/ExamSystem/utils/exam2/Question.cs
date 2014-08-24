@@ -62,7 +62,8 @@ namespace ExamSystem.utils.exam2 {
                     MedicalOption mo = cli_case.MOptions[i];
                     if (!occupation.Equals(mo.Occupation.Description))
                         continue;
-                    Option option = new Option((char)(tmp + index++) + ". " + mo.Description, mo.Correct);
+                    //Option option = new Option((char)(tmp + index++) + ". " + mo.Description, mo.Correct);
+                    Option option = new Option(mo.Description, mo.Correct);
                     options.Add(option);
                 }
             }

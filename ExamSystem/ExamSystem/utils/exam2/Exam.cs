@@ -46,6 +46,9 @@ namespace ExamSystem.utils.exam2 {
         protected void LoadExam() {
             questions = new List<Question>();
             IList<ClinicalCase> cases = ExamHelper.RetrieveByCategory(category, reason);
+            if (cases.Count == 0)
+                throw new Exception();
+
             foreach (ClinicalCase cc in cases) {
                 if (!cc.Reason.Equals(reason))
                     continue;
