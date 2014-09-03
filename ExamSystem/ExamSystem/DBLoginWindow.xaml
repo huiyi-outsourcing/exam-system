@@ -1,0 +1,17 @@
+﻿<Window x:Class="ExamSystem.DBLoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="数据库查找" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="resources/img/main_bg.png" />
+    </Window.Background>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="服务器IP地址：" />
+            <TextBox Name="tb_ip" Width="200" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="20" HorizontalAlignment="Right">
+            <Button Content="确认" Click="Button_Click_1" />
+        </StackPanel>
+    </StackPanel>
+</Window>

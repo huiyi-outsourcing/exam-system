@@ -87,5 +87,10 @@ namespace ExamResult {
             Window register = new RegisterWindow();
             register.Show();
         }
+
+        private void btn_change_password_Click(object sender, RoutedEventArgs e) {
+            ChangePasswordWindow window = new ChangePasswordWindow();
+            window.ShowDialog();
+        }
     }
 }

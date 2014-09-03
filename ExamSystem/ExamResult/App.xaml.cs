@@ -15,6 +15,9 @@ namespace ExamResult {
         protected override void OnStartup(StartupEventArgs e) {
             XmlConfigurator.Configure();
 
+            LoginWindow window = new LoginWindow();
+            window.Show();
+
             base.OnStartup(e);
         }
     }

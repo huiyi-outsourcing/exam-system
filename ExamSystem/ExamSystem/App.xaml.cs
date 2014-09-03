@@ -32,28 +32,15 @@ namespace ExamSystem {
                 return;
             }
 
-            log.Debug("程序单例启动成功");
-
-            try {
-                PersistenceHelper.OpenSession();
-            } catch (Exception) {
-                MessageBox.Show("无法连接数据库，请检查网络连接或联系管理员。");
-                Application.Current.Shutdown();
-                return;
-            }
-
-            log.Debug("数据库检测成功");
-
-            HelperWindow window = new HelperWindow();
             if (confirmAuthorization()) {
-                log.Debug("验证成功");
-                controls.LoginControl login = new controls.LoginControl();
-                window.setBody(login);
+                DBLoginWindow window = new DBLoginWindow();
+                window.Show();
             } else {
+                HelperWindow window = new HelperWindow();
                 controls.AuthControl auth = new controls.AuthControl();
                 window.setBody(auth);
+                window.Show();
             }
-            window.Show();
 
             //entities.User user = PersistenceHelper.RetrieveByProperty<entities.User>("Username", "doctor")[0];
             //MainWindow main = new MainWindow();

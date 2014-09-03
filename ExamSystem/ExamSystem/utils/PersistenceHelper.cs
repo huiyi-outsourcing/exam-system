@@ -17,13 +17,7 @@ namespace ExamSystem.utils {
 
         #region Declarations
         // Member variables
-        private static ISessionFactory sessionFactory
-            = Fluently.Configure()
-            .Database(MySQLConfiguration.Standard.ConnectionString(cs => cs.FromAppSetting("conn")))
-            .Mappings(m => m.AutoMappings
-                .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
-                .Where(type => type.Namespace == "ExamSystem.entities")))
-            .BuildSessionFactory();
+        private static ISessionFactory sessionFactory = null;
         private static ISession session = null;
         #endregion
 
@@ -32,9 +26,22 @@ namespace ExamSystem.utils {
         #endregion
 
         #region Public Methods
+        public static void OpenSessionFactory() {
+            sessionFactory = Fluently.Configure()
+            .Database(MySQLConfiguration.Standard.ConnectionString(cs => cs.FromAppSetting("conn")))
+            .Mappings(m => m.AutoMappings
+                .Add(AutoMap.AssemblyOf<ExamSystem.entities.User>()
+                .Where(type => type.Namespace == "ExamSystem.entities")))
+            .BuildSessionFactory();
+        }
+
         public static ISession OpenSession() {
-            session = sessionFactory.OpenSession();
-            return session;
+            if (sessionFactory != null) {
+                session = sessionFactory.OpenSession();
+                return session;
+            } else {
+                return null;
+            }
         }
 
         /// <summary>

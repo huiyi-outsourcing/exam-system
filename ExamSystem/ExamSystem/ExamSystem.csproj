@@ -99,6 +99,9 @@
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\viewmodel\LoginViewModel.cs" />
+    <Compile Include="DBLoginWindow.xaml.cs">
+      <DependentUpon>DBLoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="entities\Category.cs" />
     <Compile Include="entities\ClassificationOption.cs" />
     <Compile Include="entities\ClinicalCase.cs" />
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\MainControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DBLoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

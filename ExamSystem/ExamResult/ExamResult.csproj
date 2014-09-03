@@ -59,6 +59,7 @@
       <HintPath>..\packages\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="entities\Category.cs" />
     <Compile Include="entities\ClassificationOption.cs" />
     <Compile Include="entities\ClinicalCase.cs" />
@@ -86,6 +90,9 @@
     <Compile Include="entities\MedicalOption.cs" />
     <Compile Include="entities\Occupation.cs" />
     <Compile Include="entities\User.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mappings\CategoryMap.cs" />
     <Compile Include="mappings\ClassificationOptionMap.cs" />
     <Compile Include="mappings\ClinicalCaseMap.cs" />
@@ -100,6 +107,14 @@
     </Compile>
     <Compile Include="utils\ExcelHelper.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
+    <Page Include="ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
