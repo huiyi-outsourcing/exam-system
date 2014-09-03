@@ -11,20 +11,20 @@
         
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="姓       名：" Margin="10"/>
+                <TextBlock Text="姓        名：" Margin="10" FontSize="18" FontFamily="华文新魏"/>
                 <TextBox Name="tb_name" Width="200" Height="30" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="保障卡号：" Margin="10"/>
+                <TextBlock Text="保障卡号：" Margin="10" FontSize="18" FontFamily="华文新魏"/>
                 <TextBox Name="tb_securitycode" Width="200" Height="30" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="职      称：" Margin="62 10 10 10"/>
-                <RadioButton Name="rb_doctor" Content="军医" GroupName="occupation" Margin="10" IsChecked="True"/>
-                <RadioButton Name="rb_nurse" Content="护士" GroupName="occupation" Margin="10" />
+                <TextBlock Text="职      称：" Margin="62 10 10 10" FontFamily="华文新魏" FontSize="18"/>
+                <RadioButton FontSize="18" FontFamily="华文新魏" Name="rb_doctor" Content="军医" GroupName="occupation" Margin="10" IsChecked="True"/>
+                <RadioButton FontSize="18" FontFamily="华文新魏" Name="rb_nurse" Content="护士" GroupName="occupation" Margin="10" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Name="tb_register" Content="注册" Width="80" Height="25" Click="tb_register_Click" />
+                <Button FontSize="18" FontFamily="华文新魏" Name="tb_register" Content="注册" Width="80" Height="25" Click="tb_register_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

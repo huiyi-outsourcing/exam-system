@@ -51,7 +51,7 @@ namespace ExamSystem.controls {
                 if (rb_qsz.IsChecked == true)
                     category = "伤病员室(组)";
                 if (rb_hwqz.IsChecked == true)
-                    category = "核武器伤伤病员(组)";
+                    category = "核武器伤伤病员室(组)";
                 if (rb_flz.IsChecked == true)
                     category = "分类组";
                 if (rb_hxwqz.IsChecked == true)

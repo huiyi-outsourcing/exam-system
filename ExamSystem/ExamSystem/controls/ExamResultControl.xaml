@@ -45,10 +45,10 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock Text="考试成绩:" Margin="0 0 20 0" />
-                    <TextBlock Name="tb_score" Text="100" />
-                    <TextBlock Text="（错误题目被红色标记）" Margin="0 0 50 0" />
+                    <TextBlock Name="tb_score" Text="100" Foreground="Red" />
+                    <TextBlock Text="分 （错误题目被红色标记）" Margin="0 0 50 0" />
                     <TextBlock Text="正确答案：" Margin="0 0 20 0"/>
-                    <TextBlock Name="tb_answers" />
+                    <TextBlock Name="tb_answers" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
                     <Button Name="again" Content="继续训练" Click="again_Click" Margin="0 0 10 0" Width="100" />

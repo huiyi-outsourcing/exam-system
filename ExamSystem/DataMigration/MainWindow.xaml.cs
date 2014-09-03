@@ -70,7 +70,7 @@ namespace DataMigration {
                             session.SaveOrUpdate(ocp);
                         }
 
-                        String[] categories = new String[6] { "分类组", "手术室(组)", "抗休克室(组)", "伤病员室(组)", "化学武器伤伤病员室(组)", "核武器伤伤病员(组)" };
+                        String[] categories = new String[6] { "分类组", "手术室(组)", "抗休克室(组)", "伤病员室(组)", "化学武器伤伤病员室(组)", "核武器伤伤病员室(组)" };
                         foreach (String category in categories) {
                             Category cty = new Category() { Description = category };
                             session.SaveOrUpdate(cty);

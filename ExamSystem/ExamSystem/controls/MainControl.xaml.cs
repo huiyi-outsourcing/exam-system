@@ -37,7 +37,7 @@ namespace ExamSystem.controls {
             ExamControl ec = null;
             try {
                 ec = new ExamControl(user, category, "外伤");
-            } catch (Exception ex) {
+            } catch (Exception) {
                 MessageBox.Show("数据库中无病例");
                 return;
             }
@@ -49,7 +49,7 @@ namespace ExamSystem.controls {
             ExamControl ec = null;
             try {
                 ec = new ExamControl(user, category, "战伤");
-            } catch (Exception ex) {
+            } catch (Exception) {
                 MessageBox.Show("数据库中无病例");
                 return;
             }
