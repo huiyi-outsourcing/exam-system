@@ -60,6 +60,10 @@
             <Grid Grid.Row="0">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                     <StackPanel Name="sp_bodyPanel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50">
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                            <TextBlock Text="您正在查看： 试题" />
+                            <TextBlock Name="tb_number" Foreground="Red" Margin="10 0 0 0" />
+                        </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 20 0 20">
                             <TextBlock Text="受伤史：" Foreground="Red" />
                             <TextBlock Text="aaaaaaaaaaaaaaa" Name="tb_description" TextWrapping="Wrap" Width="900" />

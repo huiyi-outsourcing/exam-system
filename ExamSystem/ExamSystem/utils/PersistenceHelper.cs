@@ -76,7 +76,7 @@ namespace ExamSystem.utils {
         /// <typeparam name="T">The type of the objects to be retrieved.</typeparam>
         /// <returns>A list of all objects of the specified type.</returns>
         public static IList<T> RetrieveAll<T>() {
-            ICriteria criteria = session.CreateCriteria(typeof(T));
+            ICriteria criteria = OpenSession().CreateCriteria(typeof(T));
             IList<T> itemList = criteria.List<T>();
 
             return itemList;
@@ -91,7 +91,7 @@ namespace ExamSystem.utils {
         /// <returns>A list of all objects meeting the specified criteria.</returns>
         public static IList<T> RetrieveByProperty<T>(string propertyName, object propertyValue) {
             // Create a criteria object with the specified criteria
-            ICriteria criteria = session.CreateCriteria(typeof(T));
+            ICriteria criteria = OpenSession().CreateCriteria(typeof(T));
             criteria.Add(Expression.Eq(propertyName, propertyValue));
 
             // get matching objects
@@ -104,7 +104,7 @@ namespace ExamSystem.utils {
         /// Saves an object and its persistent children.
         /// </summary>
         public static void Save<T>(T item) {
-            using (session.BeginTransaction()) {
+            using (OpenSession().BeginTransaction()) {
                 session.SaveOrUpdate(item);
                 session.Transaction.Commit();
             }

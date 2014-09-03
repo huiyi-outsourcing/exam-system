@@ -16,13 +16,13 @@
         <Line X1="0" X2="2000" Y1="100" Y2="100" Stroke="Black" StrokeThickness="4" Grid.Row="0" />
         <Line X1="0" X2="2000" Y1="0" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="2" />
 
-        <Image Grid.Row="0" Source="resources/img/卫勤分队伤病员处置软件.png" Height="69" />
+        <Image Grid.Row="0" Source="resources/img/卫勤分队伤病员处置软件.png" Height="69" HorizontalAlignment="Left" Width="500" />
 
         <Grid Grid.Row="1" Name="body"></Grid>
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button Name="btn_main" Click="mainPage_Click" Content="首页" Margin="20" />
-            <Button Name="btn_exit" Click="exit_Click" Content="退出" />
+            <Button Name="btn_exit" Click="exit_Click" Content="结束训练" Width="120" />
         </StackPanel>
         <!-- end of static layout -->
 

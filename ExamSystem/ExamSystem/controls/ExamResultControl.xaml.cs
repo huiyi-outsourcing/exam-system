@@ -29,7 +29,7 @@ namespace ExamSystem.controls {
         }
 
         public ExamResultControl(User user, Exam exam) {
-            MessageBox.Show("您本次训练的成绩为" + Math.Round(exam.GetScore(), 2) + "分，本次成绩已计入系统，方便上级查询！");
+            MessageBox.Show("您本次训练的成绩为" + Math.Round(exam.GetScore(), 2) + "分，本次成绩已计入系统，方便上级查询！点确定按钮后，做错的题目题号按钮将变为红色，请点击相应题号后，会出现该题的正确答案，请比照正确答案进行纠错学习！");
             InitializeComponent();
             this.user = user;
             this.exam = exam;
@@ -88,6 +88,7 @@ namespace ExamSystem.controls {
                 lb_options.Items.Add(item);
             }
 
+            tb_number.Text = index + 1 + "";
             // set answers textblock
             tb_answers.Text = q.GetAnswers();
         }

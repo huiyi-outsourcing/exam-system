@@ -83,7 +83,7 @@ namespace ExamSystem.controls {
             //foreach (int idx in q.SelectedOptions) {
             //    lb_options.SelectedItems.Add(lb_options.Items[idx]);
             //}
-
+            tb_number.Text = index + 1 + "";
             drawColor();
             flag = false;
         }

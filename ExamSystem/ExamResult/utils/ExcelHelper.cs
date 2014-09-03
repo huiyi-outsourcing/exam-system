@@ -59,7 +59,6 @@ namespace ExamResult.utils {
         }
         private string GetExcelSheetName(string pPath) {
             //打开一个Excel应用
-
             _excelApp = new Excel.Application();
             if (_excelApp == null) {
                 throw new Exception("打开Excel应用时发生错误！");

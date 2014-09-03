@@ -25,6 +25,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                 <Button FontSize="18" FontFamily="华文新魏" Name="tb_register" Content="注册" Width="80" Height="25" Click="tb_register_Click" />
+                <Button FontSize="18" FontFamily="华文新魏" Name="tb_import" Content="Excel导入" Width="100" Height="25" Click="tb_import_Click" Margin="10 0 0 0"/>
             </StackPanel>
         </StackPanel>
     </Grid>

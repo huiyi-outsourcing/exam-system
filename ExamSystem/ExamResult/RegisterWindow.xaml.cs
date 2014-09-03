@@ -13,6 +13,9 @@ using System.Windows.Shapes;
 
 using ExamSystem.entities;
 using DataMigration.utils;
+using ExamResult.utils;
+using System.Data;
+using ExcelLibrary.SpreadSheet;
 
 namespace ExamResult {
     /// <summary>
@@ -54,6 +57,36 @@ namespace ExamResult {
                 return true;
             } else {
                 return false;
+            }
+        }
+
+        private void tb_import_Click(object sender, RoutedEventArgs e) {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "Excel Worksheets 2003(*.xls)|*.xls";
+            if (dialog.ShowDialog() == true) {
+                String filepath = dialog.FileName;
+                Workbook workbook = Workbook.Load(filepath);
+                Worksheet worksheet = workbook.Worksheets[0];
+
+                try {
+                    for (int rowIndex = worksheet.Cells.FirstRowIndex; rowIndex <= worksheet.Cells.LastRowIndex; ++rowIndex) {
+                        Row row = worksheet.Cells.GetRow(rowIndex);
+
+                        if (PersistenceHelper.RetrieveByProperty<User>("SecurityCode", row.GetCell(1).StringValue).Count != 0) {
+                            continue;    
+                        }
+
+                        User user = new User();
+                        user.Name = row.GetCell(0).StringValue;
+                        user.SecurityCode = row.GetCell(1).StringValue;
+                        user.Occupation = occupations[row.GetCell(2).StringValue];
+                        PersistenceHelper.Save<User>(user);
+                    }
+                } catch (Exception) {
+                    MessageBox.Show("导入Excel出错");
+                    return;
+                }
+                MessageBox.Show("导入成功");
             }
         }
     }

@@ -71,7 +71,7 @@ namespace ExamSystem {
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            MessageBoxResult result = MessageBox.Show("您确定要退出本程序吗？", "提醒", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
                 e.Cancel = false;
