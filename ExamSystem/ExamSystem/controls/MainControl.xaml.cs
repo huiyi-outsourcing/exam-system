@@ -34,26 +34,26 @@ namespace ExamSystem.controls {
 
         private void enterLocal(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            ExamControl ec = null;
+            ExamListControl elc = null;
             try {
-                ec = new ExamControl(user, category, "外伤");
+                elc = new ExamListControl(user, category, "外伤");
             } catch (Exception) {
                 MessageBox.Show("数据库中无病例");
                 return;
             }
-            window.setBody(ec);
+            window.setBody(elc);
         }
 
         private void enterArmy(object sender, MouseButtonEventArgs e) {
             MainWindow window = Window.GetWindow(this) as MainWindow;
-            ExamControl ec = null;
+            ExamListControl elc = null;
             try {
-                ec = new ExamControl(user, category, "战伤");
+                elc = new ExamListControl(user, category, "战伤");
             } catch (Exception) {
                 MessageBox.Show("数据库中无病例");
                 return;
             }
-            window.setBody(ec);
+            window.setBody(elc);
         }
     }
 }

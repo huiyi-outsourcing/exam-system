@@ -7,7 +7,7 @@
              d:DesignHeight="80" d:DesignWidth="472">
     <Grid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <TextBlock Text="考试剩余时间：" Margin="20 0 20 0"/>
+            <TextBlock Text="考试剩余时间：" Margin="20 0 20 0" Foreground="Black"/>
             <TextBlock Text="00" Name="tb_hour" Foreground="Red"/>
             <TextBlock Text=":" Margin="10 0 10 0" Foreground="Red"/>
             <TextBlock Text="40" Name="tb_minute" Foreground="Red" />

@@ -57,11 +57,14 @@ namespace ExamSystem.controls {
                 if (rb_hxwqz.IsChecked == true)
                     category = "化学武器伤伤病员室(组)";
 
-                MainWindow main = new MainWindow();
-                main.User = user;
-                main.Category = category;
-                main.setBody(new MainControl(user, category));
-                main.Show();
+                ReasonWindow reason = new ReasonWindow(user, category);
+                reason.Show();
+
+                //MainWindow main = new MainWindow();
+                //main.User = user;
+                //main.Category = category;
+                //main.setBody(new MainControl(user, category));
+                //main.Show();
                 Window parent = Window.GetWindow(this);
                 parent.Close();
             } else {

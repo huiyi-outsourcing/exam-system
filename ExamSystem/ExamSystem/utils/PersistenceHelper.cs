@@ -36,12 +36,12 @@ namespace ExamSystem.utils {
         }
 
         public static ISession OpenSession() {
-            if (sessionFactory != null) {
+            if (sessionFactory == null) {
+                OpenSessionFactory();
                 session = sessionFactory.OpenSession();
-                return session;
-            } else {
-                return null;
             }
+
+            return session;
         }
 
         /// <summary>
@@ -91,7 +91,8 @@ namespace ExamSystem.utils {
         /// <returns>A list of all objects meeting the specified criteria.</returns>
         public static IList<T> RetrieveByProperty<T>(string propertyName, object propertyValue) {
             // Create a criteria object with the specified criteria
-            ICriteria criteria = OpenSession().CreateCriteria(typeof(T));
+            ISession session = OpenSession();
+            ICriteria criteria = session.CreateCriteria(typeof(T));
             criteria.Add(Expression.Eq(propertyName, propertyValue));
 
             // get matching objects

@@ -14,29 +14,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ExamSystem.controls;
+
 namespace ExamSystem {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window {
         #region Properties
-        private User user = null;
-        private String category = null;
+        private ExamListControl examlist = null;
 
-        public String Category {
-            get { return category; }
-            set { category = value; }
-        }
-
-        public User User {
-            get { return user; }
-            set { user = value; }
+        public ExamListControl Examlist {
+            get { return examlist; }
+            set { examlist = value; }
         }
         #endregion
 
         #region Constructor
         public MainWindow() {
             InitializeComponent();
+        }
+
+        public MainWindow(ExamListControl examlist) {
+            InitializeComponent();
+            this.examlist = examlist;
+            setBody(examlist);
         }
         #endregion
 
@@ -50,36 +52,55 @@ namespace ExamSystem {
         #region EventHandlers
         private void Window_KeyDown(object sender, KeyEventArgs e) {
             if (e.Key == Key.Escape) {
-                this.Close();
+                if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                    this.Close();
+                }
             }
         }
 
         private void mainPage_Click(object sender, RoutedEventArgs e) {
-            if (body.Children[0] is controls.ExamControl || body.Children[0] is controls.ExamResultControl) {
-                if (MessageBox.Show("您确定要退出本次考试吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                    setBody(new controls.MainControl(user, category));
-                }
-            } else {
-                setBody(new controls.MainControl(user, category));
+            if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+                ReasonWindow reason = new ReasonWindow(examlist.User, examlist.Category);
+                this.Close();
+                reason.Show();
             }
-
-            
         }
 
-        private void exit_Click(object sender, RoutedEventArgs e) {
-            this.Close();
-        }
+        private void submit_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult result = MessageBox.Show("您确定提交试卷吗？\n说明：点确定提交后计算机自动计算考核成绩并计入系统，点取消返回当前页。", "提醒", MessageBoxButton.OKCancel);
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            MessageBoxResult result = MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel);
-
-            if (result == MessageBoxResult.OK)
-                e.Cancel = false;
-            else
-                e.Cancel = true;
+            if (result == MessageBoxResult.OK) {
+                SubmitExam();
+            }
         }
         #endregion
 
-        
+        public void SubmitExam() {
+            ExamResultMainControl erc = new ExamResultMainControl(examlist.User, examlist.Exam);
+            setBody(erc);
+            btn_main.Visibility = Visibility.Visible;
+            btn_confirm.Visibility = Visibility.Hidden;
+            btn_submit.Visibility = Visibility.Hidden;
+            cdc.stopTimer();
+            cdc.Visibility = Visibility.Hidden;
+        }
+
+        private void confirm_Click(object sender, RoutedEventArgs e) {
+            examlist.refresh();
+            setBody(examlist);
+            toggleButton();
+        }
+
+        public void toggleButton() {
+            if (btn_confirm.Visibility == Visibility.Hidden) {
+                btn_confirm.Visibility = Visibility.Visible;
+                btn_main.Visibility = Visibility.Hidden;
+                btn_submit.Visibility = Visibility.Hidden;
+            } else {
+                btn_confirm.Visibility = Visibility.Hidden;
+                btn_main.Visibility = Visibility.Visible;
+                btn_submit.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

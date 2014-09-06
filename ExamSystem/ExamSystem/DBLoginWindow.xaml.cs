@@ -37,7 +37,7 @@ namespace ExamSystem {
             ConfigurationManager.AppSettings["conn"] = newip;
 
             try {
-                PersistenceHelper.OpenSessionFactory();
+                PersistenceHelper.OpenSession();
             } catch (Exception) {
                 Mouse.SetCursor(Cursors.Arrow);
                 MessageBox.Show("无法连接数据库，请检查网络连接或联系管理员。");

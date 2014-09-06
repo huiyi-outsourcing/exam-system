@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ExamSystem.controls.ExamResultMainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="562" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ListBoxControlTemplate" TargetType="ListBoxItem">
+            <CheckBox IsChecked="{Binding Path=IsSelected,
+            RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Width="900">
+                <ContentPresenter></ContentPresenter>
+            </CheckBox>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+            <TextBlock Name="tb_score" Foreground="Red" FontSize="40" HorizontalAlignment="Center" />
+            <TextBlock Text="成绩已计入系统，方便上级查询！还可以进行以下操作：" Foreground="Black" FontSize="40" Margin="0 20 0 0"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="本轮试题答案对照查询" Foreground="Red" FontSize="30" MouseLeftButtonDown="specific_result" Margin="0 100 0 0" />
+            <TextBlock Text="继续训练" Foreground="Red" FontSize="30" Margin="0 20 0 0" MouseLeftButtonDown="continue_training"/>
+            <TextBlock Text="结束训练" Foreground="Red" FontSize="30" Margin="0 20 0 0" MouseLeftButtonDown="exit_training" />
+        </StackPanel>
+    </Grid>
+</UserControl>
+

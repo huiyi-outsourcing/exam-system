@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ExamSystem.controls.ExamListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="562" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="242" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="请对以下伤病员进行处置" Foreground="Black" FontSize="40" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListBox IsSynchronizedWithCurrentItem="True" Name="qlist" Margin="10" SelectionMode="Single" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="10" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Left">
+            <TextBlock Text="说明：" FontSize="25" Margin="250 45 0 0" Foreground="Black" />
+            <TextBlock Text="1.点击上方的题号即可进入训练界面（需将上述所有题目做完方有考核成绩）。" FontSize="25" Margin="250 5 0 0" Foreground="Black" />
+            <TextBlock Text="2.每套试题满分100分，点提交试题后，系统自动计算成绩，系统将成绩记录并存档。" FontSize="25" Margin="250 5 0 0" Foreground="Black" />
+        </StackPanel>
+    </Grid>
+</UserControl>

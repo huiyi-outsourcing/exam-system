@@ -20,8 +20,8 @@ namespace ExamSystem {
         private static readonly ILog log = LogManager.GetLogger(typeof(App));
 
         protected override void OnStartup(StartupEventArgs e) {
-            // setup log4net
-            XmlConfigurator.Configure();
+            //// setup log4net
+            //XmlConfigurator.Configure();
 
             // Get reference to the current Process
             Process thisProc = Process.GetCurrentProcess();
@@ -42,9 +42,9 @@ namespace ExamSystem {
                 window.Show();
             }
 
-            //entities.User user = PersistenceHelper.RetrieveByProperty<entities.User>("Username", "doctor")[0];
-            //MainWindow main = new MainWindow();
-            //main.setBody(new controls.MedicalExamControl(user));
+            //entities.User user = PersistenceHelper.RetrieveAll<entities.User>()[0];
+
+            //MainWindow main = new MainWindow(new controls.ExamListControl(user, "手术室(组)", "外伤"));
             //main.Show();
             
             base.OnStartup(e);

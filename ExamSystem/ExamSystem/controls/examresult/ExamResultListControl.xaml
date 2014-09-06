@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ExamSystem.controls.examresult.ExamResultListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="562" d:DesignWidth="1280">
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="本轮考试答案对照查询" Foreground="Black" FontSize="40" HorizontalAlignment="Center" />
+            <TextBlock Text="说明：红色按钮为扣分题，请点击题号进行答案对比。" Foreground="Black" FontSize="30" Margin="0 20 0 0" />
+            <ListBox IsSynchronizedWithCurrentItem="True" Name="qlist" SelectionMode="Single" Background="Transparent" BorderBrush="Transparent" Margin="0 30 0 0" HorizontalAlignment="Center">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="10" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

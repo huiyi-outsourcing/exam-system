@@ -27,8 +27,8 @@
                         <BulletDecorator Background="Transparent" Cursor="Hand">
                             <BulletDecorator.Bullet>
                                 <Grid Height="30" Width="30">
-                                    <Image Name="check" Source="resources/img/check.png" Visibility="Hidden"/>
-                                    <Border Name="RadioOuter" Background="Transparent" BorderBrush="Gainsboro" BorderThickness="2" CornerRadius="2" />
+                                    <Image Name="check" Source="resources/img/check_black.png" Visibility="Hidden"/>
+                                    <Border Name="RadioOuter" Background="Transparent" BorderBrush="Black" BorderThickness="2" CornerRadius="2" />
                                 </Grid>
                             </BulletDecorator.Bullet>
 

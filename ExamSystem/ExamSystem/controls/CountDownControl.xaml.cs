@@ -28,8 +28,8 @@ namespace ExamSystem.controls {
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(timer_Tick);
 
-            cd = new CountDownHelper(40 * 60);
-            //cd = new CountDownHelper(10);
+            //cd = new CountDownHelper(40 * 60);
+            cd = new CountDownHelper(10);
             timer.Start();
         }
 
@@ -44,11 +44,13 @@ namespace ExamSystem.controls {
                 tb_second.Text = cd.GetSecond();
             } else {
                 timer.Stop();
-                try {
-                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ExamControl).SubmitExam();
-                } catch (Exception) {
-                    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ExamControl).SubmitExam();
-                }
+                MessageBox.Show("考试时间已到，自动提交试卷并记录考试成绩！");
+                (Window.GetWindow(this) as MainWindow).SubmitExam();
+                //try {
+                //    (Window.GetWindow(this) as MainWindow).SubmitExam();
+                //} catch (Exception) {
+                //    ((Window.GetWindow(this) as MainWindow).body.Children[0] as ExamControl).SubmitExam();
+                //}
             }
         }
     }
