@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ExamSystem.ReasonWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="战（现）场急救技术模拟训练系统" Height="752" Width="1280" WindowState="Maximized" WindowStyle="None" KeyDown="Window_KeyDown">
+        Title="战（现）场急救技术模拟训练系统" Height="752" Width="1280" Icon="new_icon.ico" WindowState="Maximized" WindowStyle="None" KeyDown="Window_KeyDown">
     <Window.Background>
         <ImageBrush ImageSource="resources/img/main_bg.png" />
     </Window.Background>

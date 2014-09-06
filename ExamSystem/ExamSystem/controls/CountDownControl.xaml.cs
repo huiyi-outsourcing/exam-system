@@ -28,8 +28,8 @@ namespace ExamSystem.controls {
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(timer_Tick);
 
-            //cd = new CountDownHelper(40 * 60);
-            cd = new CountDownHelper(10);
+            cd = new CountDownHelper(40 * 60);
+            //cd = new CountDownHelper(10);
             timer.Start();
         }
 
