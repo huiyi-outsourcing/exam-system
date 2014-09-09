@@ -24,8 +24,8 @@
                     <TextBlock Text="请根据卫勤分队的任务请选择训练类别" FontSize="40" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="resources/img/地方伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterLocal"/>
-                    <Image Source="resources/img/战伤.png" Width="200" Margin="50" MouseLeftButtonDown="enterArmy" />
+                    <Image Source="resources/img/战伤（军队）.png" Width="200" Margin="50" MouseLeftButtonDown="enterArmy" />
+                    <Image Source="resources/img/外伤（地方）.png" Width="200" Margin="50" MouseLeftButtonDown="enterLocal"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

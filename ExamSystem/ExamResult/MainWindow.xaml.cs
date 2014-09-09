@@ -77,7 +77,7 @@ namespace ExamResult {
             dialog.Filter = "Excel Worksheets 2003(*.xls)|*.xls";
             if (dialog.ShowDialog() == true) {
                 String filepath = dialog.FileName;
-                ExcelHelper excel = new ExcelHelper();
+                ExcelHelper2 excel = new ExcelHelper2();
                 excel.SaveToExcel(filepath, results);
                 MessageBox.Show("保存成功");
             }

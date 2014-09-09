@@ -106,6 +106,7 @@
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="utils\ExcelHelper.cs" />
+    <Compile Include="utils\ExcelHelper2.cs" />
     <Compile Include="utils\PersistenceHelper.cs" />
     <Page Include="ChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
