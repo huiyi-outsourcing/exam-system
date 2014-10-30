@@ -28,7 +28,7 @@ namespace ExamSystem.controls {
             this.exam = exam;
 
             double score = exam.GetScore();
-            tb_score.Text = "本轮考核成绩为" + Math.Round(score, 2).ToString() + "分";
+            tb_score.Text = Math.Round(score, 2).ToString();
 
             ExamResult result = new ExamResult();
             result.Occupation = user.Occupation;
@@ -39,9 +39,7 @@ namespace ExamSystem.controls {
         }
 
         private void specific_result(object sender, MouseButtonEventArgs e) {
-            ExamResultWindow window = new ExamResultWindow(new controls.examresult.ExamResultListControl(user, exam));
-            window.Show();
-            Window.GetWindow(this).Close();
+            
         }
 
         private void continue_training(object sender, MouseButtonEventArgs e) {
@@ -53,9 +51,22 @@ namespace ExamSystem.controls {
         }
 
         private void exit_training(object sender, MouseButtonEventArgs e) {
-            if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                Window.GetWindow(this).Close();
-            }
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) {
+            ExamResultWindow window = new ExamResultWindow(new controls.examresult.ExamResultListControl(user, exam));
+            window.Show();
+            Application.Current.MainWindow = window;
+            Window.GetWindow(this).Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e) {
+            windows.ExitTrainingWindow window = new windows.ExitTrainingWindow(Window.GetWindow(this));
+            window.ShowDialog();
+            //if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+            //    Window.GetWindow(this).Close();
+            //}
         }
 
     }

@@ -20,15 +20,18 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
-            <TextBlock Name="tb_score" Foreground="Red" FontSize="40" HorizontalAlignment="Center" />
-            <TextBlock Text="成绩已计入系统，方便上级查询！还可以进行以下操作：" Foreground="Black" FontSize="40" Margin="0 20 0 0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+            <TextBlock Text="本轮考核成绩为：" Foreground="#CC0000" FontSize="40" VerticalAlignment="Center" />
+            <TextBlock Name="tb_score" Foreground="#CC0000" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock Text="分" Foreground="#CC0000" FontSize="40" VerticalAlignment="Center"/>
         </StackPanel>
         
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <TextBlock Text="本轮试题答案对照查询" Foreground="Red" FontSize="30" MouseLeftButtonDown="specific_result" Margin="0 100 0 0" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Content="标准处置对照" FontSize="25" Click="Button_Click_1" Margin="0 70 0 0" Width="220" Height="50" Focusable="False" />
+            <!--
             <TextBlock Text="继续训练" Foreground="Red" FontSize="30" Margin="0 20 0 0" MouseLeftButtonDown="continue_training"/>
-            <TextBlock Text="结束训练" Foreground="Red" FontSize="30" Margin="0 20 0 0" MouseLeftButtonDown="exit_training" />
+            -->
+            <Button Content="结束训练" FontSize="25" Margin="60 70 0 0" Click="Button_Click_2" Width="220" Height="50" Focusable="False" />
         </StackPanel>
     </Grid>
 </UserControl>

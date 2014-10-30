@@ -67,25 +67,22 @@ namespace ExamSystem {
         }
 
         private void submit_Click(object sender, RoutedEventArgs e) {
-            MessageBoxResult result = MessageBox.Show("您确定提交试卷吗？\n说明：点确定提交后计算机自动计算考核成绩并计入系统，点取消返回当前页。", "提醒", MessageBoxButton.OKCancel);
-
-            if (result == MessageBoxResult.OK) {
-                SubmitExam();
-            }
+            ReminderWindow window = new ReminderWindow(this);
+            window.ShowDialog();
         }
         #endregion
 
         public void SubmitExam() {
             ExamResultMainControl erc = new ExamResultMainControl(examlist.User, examlist.Exam);
             setBody(erc);
-            btn_main.Visibility = Visibility.Visible;
             btn_confirm.Visibility = Visibility.Hidden;
             btn_submit.Visibility = Visibility.Hidden;
-            cdc.stopTimer();
-            cdc.Visibility = Visibility.Hidden;
         }
 
         private void confirm_Click(object sender, RoutedEventArgs e) {
+            QuestionControl qc = body.Children[0] as QuestionControl;
+            qc.Confirm();
+
             examlist.refresh();
             setBody(examlist);
             toggleButton();
@@ -94,11 +91,10 @@ namespace ExamSystem {
         public void toggleButton() {
             if (btn_confirm.Visibility == Visibility.Hidden) {
                 btn_confirm.Visibility = Visibility.Visible;
-                btn_main.Visibility = Visibility.Hidden;
+                
                 btn_submit.Visibility = Visibility.Hidden;
             } else {
                 btn_confirm.Visibility = Visibility.Hidden;
-                btn_main.Visibility = Visibility.Visible;
                 btn_submit.Visibility = Visibility.Visible;
             }
         }

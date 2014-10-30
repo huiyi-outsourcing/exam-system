@@ -29,12 +29,18 @@ namespace ExamSystem.controls.examresult {
         }
 
         private void initLayout(int index) {
+            var h = ((System.Windows.Controls.Panel)Application.Current.MainWindow.Content).ActualHeight;
+            var w = ((System.Windows.Controls.Panel)Application.Current.MainWindow.Content).ActualWidth;
+
             tb_index.Text = "第" + (index + 1) + "题";
             tb_description.Text = question.Description;
+            tb_description.Width = w * 0.3;
             tb_manifestation.Text = question.Manifestation;
+            tb_manifestation.Width = w * 0.3;
 
             for (int i = 0; i < question.Options.Count; ++i) {
                 TextBlock tb = new TextBlock() { Text = question.Options[i].Description, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.Black, FontSize = 25, Margin = new Thickness(0, 0, 0, 20) };
+                tb.Width = w * 0.6;
                 sp_options.Children.Add(tb);
             }
 

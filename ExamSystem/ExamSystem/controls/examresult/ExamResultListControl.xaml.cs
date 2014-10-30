@@ -22,6 +22,9 @@ namespace ExamSystem.controls.examresult {
     /// </summary>
     public partial class ExamResultListControl : UserControl {
         private User user = null;
+        private bool[] visited;
+        SolidColorBrush Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#99FFFF"));
+        SolidColorBrush Red = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6600"));
 
         public User User {
             get { return user; }
@@ -38,6 +41,9 @@ namespace ExamSystem.controls.examresult {
             InitializeComponent();
             this.user = user;
             this.exam = exam;
+            visited = new bool[exam.Questions.Count];
+            for (int i = 0; i < visited.Length; ++i)
+                visited[i] = false;
 
             initLayout();
         }
@@ -46,7 +52,7 @@ namespace ExamSystem.controls.examresult {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 40, Height = 40, Background = q.IsCorrect() ? Brushes.Green : Brushes.Red };
+                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 40, Height = 40, Background = q.IsCorrect() ? Brushes.Green : Red};
                 border.Effect = new DropShadowEffect() { Color = Colors.Black, BlurRadius = 16, ShadowDepth = 0, Opacity = 1 };
 
                 TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
@@ -65,9 +71,23 @@ namespace ExamSystem.controls.examresult {
 
         private void show_question(object sender, RoutedEventArgs e) {
             int index = qlist.SelectedIndex;
+            visited[index] = true;
             ExamResultWindow window = Window.GetWindow(this) as ExamResultWindow;
             window.setBody(new QuestionResultControl(exam.Questions.ElementAt(index), index));
             window.toggleButton();
+        }
+
+        public void refresh() {
+            for (int i = 0; i < qlist.Items.Count; ++i) {
+                ListBoxItem item = qlist.Items[i] as ListBoxItem;
+                Border border = item.Content as Border;
+                Question q = item.Tag as Question;
+
+                if (q.IsCorrect()) continue;
+                if (visited[i]) {
+                    border.Background = Blue;
+                }
+            }
         }
     }
 }

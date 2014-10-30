@@ -18,6 +18,11 @@ namespace ExamSystem {
     public partial class ExamResultWindow : Window {
         private controls.examresult.ExamResultListControl examresult;
 
+        public controls.examresult.ExamResultListControl Examresult {
+            get { return examresult; }
+            set { examresult = value; }
+        }
+
         public ExamResultWindow(controls.examresult.ExamResultListControl examresult) {
             InitializeComponent();
             this.examresult = examresult;
@@ -32,12 +37,12 @@ namespace ExamSystem {
         public void toggleButton() {
             if (btn_confirm.Visibility == Visibility.Hidden) {
                 btn_confirm.Visibility = Visibility.Visible;
-                btn_main.Visibility = Visibility.Hidden;
+                //btn_main.Visibility = Visibility.Hidden;
                 btn_continue.Visibility = Visibility.Hidden;
                 btn_exit.Visibility = Visibility.Hidden;
             } else {
                 btn_confirm.Visibility = Visibility.Hidden;
-                btn_main.Visibility = Visibility.Visible;
+                //btn_main.Visibility = Visibility.Visible;
                 btn_continue.Visibility = Visibility.Visible;
                 btn_exit.Visibility = Visibility.Visible;
             }
@@ -60,22 +65,28 @@ namespace ExamSystem {
         }
 
         private void btn_continue_Click(object sender, RoutedEventArgs e) {
-            if (MessageBox.Show("您确定要继续训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                ReasonWindow reason = new ReasonWindow(examresult.User, examresult.Exam.Category);
-                this.Close();
-                reason.Show();
-            }
+            windows.ContinueTrainingWindow window = new windows.ContinueTrainingWindow(this);
+            window.ShowDialog();
+
+            //if (MessageBox.Show("您确定要继续训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+            //    ReasonWindow reason = new ReasonWindow(examresult.User, examresult.Exam.Category);
+            //    this.Close();
+            //    reason.Show();
+            //}
         }
 
         private void btn_exit_Click(object sender, RoutedEventArgs e) {
-            if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
-                this.Close();
-            }
+            windows.ExitTrainingWindow window = new windows.ExitTrainingWindow(this);
+            window.ShowDialog();
+            //if (MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+            //    this.Close();
+            //}
         }
 
         private void btn_confirm_Click(object sender, RoutedEventArgs e) {
             setBody(examresult);
             toggleButton();
+            examresult.refresh();
         }
     }
 }

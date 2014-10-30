@@ -3,21 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="562" d:DesignWidth="1280">
-    <UserControl.Resources>
-        <ControlTemplate x:Key="ListBoxControlTemplate" TargetType="ListBoxItem">
-            <CheckBox IsChecked="{Binding Path=IsSelected,
-            RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Width="900">
-                <ContentPresenter></ContentPresenter>
-            </CheckBox>
-        </ControlTemplate>
-    </UserControl.Resources>
-    
+             mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="65*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -28,30 +18,23 @@
 
             <TextBlock Name="tb_index" Grid.Row="0" HorizontalAlignment="Left" Foreground="Red" FontSize="30" Margin="10"/>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-                <StackPanel Orientation="Vertical" Width="380" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
-                    <TextBlock Text="受伤史：" Foreground="Red"/>
-                    <TextBlock Name="tb_description" TextWrapping="Wrap" Foreground="Black"/>
-                    <TextBlock Text="临床表现：" Margin="0 20 0 0" Foreground="Red"/>
-                    <TextBlock Name="tb_manifestation" TextWrapping="Wrap" Foreground="Black" />
+            <Grid Grid.Row="1">
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"  Name="sc">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20 10 20 10">
+                    <TextBlock Text="受伤史：" Foreground="Red" FontWeight="Bold" />
+                    <TextBlock Name="tb_description" TextWrapping="Wrap" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Stretch"/>
+                    <TextBlock Text="临床表现：" Margin="0 40 0 0" Foreground="Red" FontWeight="Bold" />
+                    <TextBlock Name="tb_manifestation" TextWrapping="Wrap" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Stretch"/>
                 </StackPanel>
             </ScrollViewer>
+            </Grid>
         </Grid>
         
         <Grid Grid.Column="1">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-                <ListBox Name="lb_options" IsSynchronizedWithCurrentItem="True" SelectionMode="Multiple" Background="Transparent" BorderBrush="Transparent" Margin="0 50 0 0" SelectionChanged="lb_options_SelectionChanged">
-                    <ListBox.ItemContainerStyle>
-                        <Style>
-                            <Setter Property="ListBoxItem.Template" Value="{StaticResource ListBoxControlTemplate}" />
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="1" />
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                </ListBox>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Name="sp_options" VerticalAlignment="Top" Margin="0 30 0 0">
+                    
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>

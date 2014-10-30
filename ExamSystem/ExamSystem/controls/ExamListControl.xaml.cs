@@ -40,7 +40,8 @@ namespace ExamSystem.controls {
             get { return exam; }
             set { exam = value; }
         }
-        private static readonly SolidColorBrush DarkYellow = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCC00"));
+        private SolidColorBrush DarkYellow;
+        private SolidColorBrush Blue;
         #endregion
 
         public ExamListControl() {
@@ -52,6 +53,8 @@ namespace ExamSystem.controls {
             this.user = user;
             this.category = category;
             exam = new Exam(user, category, reason);
+            DarkYellow = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#99FFFF"));
+            Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCC66")); 
             initLayout();
         }
 
@@ -89,7 +92,7 @@ namespace ExamSystem.controls {
                 Question q = item.Tag as Question;
 
                 if (q.SelectedOptions.Count > 0) {
-                    border.Background = Brushes.Blue;
+                    border.Background = Blue;
                 } else {
                     border.Background = DarkYellow;
                 }

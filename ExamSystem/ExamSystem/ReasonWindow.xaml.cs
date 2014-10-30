@@ -43,7 +43,8 @@ namespace ExamSystem {
             try {
                 elc = new ExamListControl(user, category, "外伤");
             } catch (Exception) {
-                MessageBox.Show("数据库中无病例");
+                windows.NoCaseWindow nc = new windows.NoCaseWindow();
+                nc.ShowDialog();
                 return;
             }
             MainWindow window = new MainWindow(elc);
@@ -56,7 +57,8 @@ namespace ExamSystem {
             try {
                 elc = new ExamListControl(user, category, "战伤");
             } catch (Exception) {
-                MessageBox.Show("数据库中无病例");
+                windows.NoCaseWindow nc = new windows.NoCaseWindow();
+                nc.ShowDialog();
                 return;
             }
             MainWindow window = new MainWindow(elc);
@@ -72,9 +74,8 @@ namespace ExamSystem {
         }
 
         private void exit_Click(object sender, RoutedEventArgs e) {
-            MessageBoxResult result = MessageBox.Show("您确定要结束本次训练吗？", "提醒", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.OK)
-                this.Close();
+            windows.ExitWindow window = new windows.ExitWindow(this);
+            window.ShowDialog();
         }
         #endregion
     }
