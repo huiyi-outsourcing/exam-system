@@ -78,5 +78,13 @@ namespace ExamSystem {
             window.ShowDialog();
         }
         #endregion
+
+        private void btn_return_Click(object sender, RoutedEventArgs e)
+        {
+            HelperWindow window = new HelperWindow();
+            window.setBody(new controls.LoginControl());
+            window.Show();
+            this.Close();
+        }
     }
 }

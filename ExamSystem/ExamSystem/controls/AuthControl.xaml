@@ -6,12 +6,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="1280">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="0 -100 0 0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Label Content="设备码：" />
                 <TextBox Name="machine_code" Width="300" IsReadOnly="True" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 30">
                 <Label Content="授权码：" />
                 <TextBox Name="auth_code" Width="300" />
             </StackPanel>

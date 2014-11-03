@@ -4,16 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="562" d:DesignWidth="1280">
+             d:DesignHeight="762" d:DesignWidth="1280">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="180" />
+            <RowDefinition Height="202" />
             <RowDefinition Height="200" />
-            <RowDefinition Height="242" />
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="根据组室任务对下列伤员进行处置" Foreground="#CC0000" FontSize="40" />
+            <TextBlock Text="根据组室任务对下列伤员进行处置" Foreground="Black" FontSize="40" />
         </StackPanel>
         
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -31,6 +32,11 @@
             <TextBlock Text="1.双击上方题号进入相应训练界面，完成后点击&quot;确定&quot;，返回该界面。" FontSize="25" Margin="250 5 0 0" Foreground="Black" />
             <TextBlock Text="2.伤员处置完成后，点击&quot;提交&quot;系统将自动计算成绩并存档。" FontSize="25" Margin="250 5 0 0" Foreground="Black" />
             <TextBlock Text="3.处置后的题号变黄色，未点&quot;提交&quot;前，可双击题号进行修改。" FontSize="25" Margin="250 5 0 0" Foreground="Black" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Name="btn_submit" Click="btn_submit_Click" Content="提交" />
+            <Button Name="btn_return" Click="btn_return_Click" Content="返回" Margin="50 0 0 0" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -72,31 +72,30 @@ namespace ExamSystem {
         }
         #endregion
 
-        public void SubmitExam() {
+        public void SubmitExam()
+        {
             ExamResultMainControl erc = new ExamResultMainControl(examlist.User, examlist.Exam);
             setBody(erc);
-            btn_confirm.Visibility = Visibility.Hidden;
-            btn_submit.Visibility = Visibility.Hidden;
         }
 
-        private void confirm_Click(object sender, RoutedEventArgs e) {
-            QuestionControl qc = body.Children[0] as QuestionControl;
-            qc.Confirm();
+        //private void confirm_Click(object sender, RoutedEventArgs e) {
+        //    QuestionControl qc = body.Children[0] as QuestionControl;
+        //    qc.Confirm();
 
-            examlist.refresh();
-            setBody(examlist);
-            toggleButton();
-        }
+        //    examlist.refresh();
+        //    setBody(examlist);
+        //    toggleButton();
+        //}
 
-        public void toggleButton() {
-            if (btn_confirm.Visibility == Visibility.Hidden) {
-                btn_confirm.Visibility = Visibility.Visible;
+        //public void toggleButton() {
+        //    if (btn_confirm.Visibility == Visibility.Hidden) {
+        //        btn_confirm.Visibility = Visibility.Visible;
                 
-                btn_submit.Visibility = Visibility.Hidden;
-            } else {
-                btn_confirm.Visibility = Visibility.Hidden;
-                btn_submit.Visibility = Visibility.Visible;
-            }
-        }
+        //        btn_submit.Visibility = Visibility.Hidden;
+        //    } else {
+        //        btn_confirm.Visibility = Visibility.Hidden;
+        //        btn_submit.Visibility = Visibility.Visible;
+        //    }
+        //}
     }
 }

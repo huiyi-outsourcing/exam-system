@@ -34,19 +34,19 @@ namespace ExamSystem {
             body.Children.Add(control);
         }
 
-        public void toggleButton() {
-            if (btn_confirm.Visibility == Visibility.Hidden) {
-                btn_confirm.Visibility = Visibility.Visible;
-                //btn_main.Visibility = Visibility.Hidden;
-                btn_continue.Visibility = Visibility.Hidden;
-                btn_exit.Visibility = Visibility.Hidden;
-            } else {
-                btn_confirm.Visibility = Visibility.Hidden;
-                //btn_main.Visibility = Visibility.Visible;
-                btn_continue.Visibility = Visibility.Visible;
-                btn_exit.Visibility = Visibility.Visible;
-            }
-        }
+        //public void toggleButton() {
+        //    if (btn_confirm.Visibility == Visibility.Hidden) {
+        //        btn_confirm.Visibility = Visibility.Visible;
+        //        //btn_main.Visibility = Visibility.Hidden;
+        //        btn_continue.Visibility = Visibility.Hidden;
+        //        btn_exit.Visibility = Visibility.Hidden;
+        //    } else {
+        //        btn_confirm.Visibility = Visibility.Hidden;
+        //        //btn_main.Visibility = Visibility.Visible;
+        //        btn_continue.Visibility = Visibility.Visible;
+        //        btn_exit.Visibility = Visibility.Visible;
+        //    }
+        //}
 
         private void Window_KeyDown(object sender, KeyEventArgs e) {
             if (e.Key == Key.Escape) {
@@ -83,10 +83,10 @@ namespace ExamSystem {
             //}
         }
 
-        private void btn_confirm_Click(object sender, RoutedEventArgs e) {
-            setBody(examresult);
-            toggleButton();
-            examresult.refresh();
-        }
+        //private void btn_confirm_Click(object sender, RoutedEventArgs e) {
+        //    setBody(examresult);
+        //    toggleButton();
+        //    examresult.refresh();
+        //}
     }
 }

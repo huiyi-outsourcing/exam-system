@@ -53,8 +53,8 @@ namespace ExamSystem.controls {
             this.user = user;
             this.category = category;
             exam = new Exam(user, category, reason);
-            DarkYellow = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#99FFFF"));
-            Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCC66")); 
+            Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#548DD3"));
+            DarkYellow = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A5A5A5")); 
             initLayout();
         }
 
@@ -62,12 +62,12 @@ namespace ExamSystem.controls {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 40, Height = 40, Background = DarkYellow  };
+                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 60, Height = 60, Background = Blue };
                 border.Effect = new DropShadowEffect() { Color = Colors.Black, BlurRadius = 16, ShadowDepth = 0, Opacity = 1 };
 
                 TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
                 border.Child = tb;
-                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(20) };
+                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(0, 2, 0, 2) };
                 item.Content = border;
                 item.Tag = q;
 
@@ -83,7 +83,6 @@ namespace ExamSystem.controls {
             int index = qlist.SelectedIndex;
             MainWindow window = Window.GetWindow(this) as MainWindow;
             window.setBody(new QuestionControl(exam.Questions.ElementAt(index), index));
-            window.toggleButton();
         }
 
         public void refresh() {
@@ -92,11 +91,25 @@ namespace ExamSystem.controls {
                 Question q = item.Tag as Question;
 
                 if (q.SelectedOptions.Count > 0) {
-                    border.Background = Blue;
-                } else {
                     border.Background = DarkYellow;
+                } else {
+                    border.Background = Blue;
                 }
             }
+        }
+
+        private void btn_submit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = Window.GetWindow(this) as MainWindow;
+            ReminderWindow window = new ReminderWindow(main);
+            window.ShowDialog();
+        }
+
+        private void btn_return_Click(object sender, RoutedEventArgs e)
+        {
+            ReasonWindow reason = new ReasonWindow(user, category);
+            reason.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }

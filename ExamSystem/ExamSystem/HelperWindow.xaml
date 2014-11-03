@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStyle="None"
         Title="战（现）场急救技术模拟训练系统" Height="752" Width="1280" WindowState="Maximized" Icon="icon.ico" KeyDown="Window_KeyDown">
     <Window.Background>
-        <ImageBrush ImageSource="resources/img/main_bg_second.png" />
+        <ImageBrush ImageSource="resources/img/main_background.png" />
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="33*" />
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="24*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">

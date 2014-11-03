@@ -18,24 +18,31 @@
 
             <TextBlock Name="tb_index" Grid.Row="0" HorizontalAlignment="Left" Foreground="Red" FontSize="30" Margin="10"/>
 
-            <Grid Grid.Row="1">
-            <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"  Name="sc">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20 10 20 10">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"  Name="sc">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20 10 20 10">
                     <TextBlock Text="受伤史：" Foreground="Red" FontWeight="Bold" />
                     <TextBlock Name="tb_description" TextWrapping="Wrap" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Stretch"/>
                     <TextBlock Text="临床表现：" Margin="0 40 0 0" Foreground="Red" FontWeight="Bold" />
                     <TextBlock Name="tb_manifestation" TextWrapping="Wrap" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Stretch"/>
                 </StackPanel>
             </ScrollViewer>
-            </Grid>
+
+            <Image Source="../resources/img/spliter.png" Grid.RowSpan="2" HorizontalAlignment="Right" />
         </Grid>
         
         <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Name="sp_options" VerticalAlignment="Top" Margin="0 30 0 0">
                     
                 </StackPanel>
             </ScrollViewer>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+                <Button Name="btn_confirm" Click="btn_confirm_Click" Content="确定" />
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

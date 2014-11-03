@@ -35,12 +35,12 @@
                 <RadioButton Name="rb_hwqz" Content="核武器伤伤病员室(组)" GroupName="category" Margin="10 0 0 0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="登陆" Name="login" Margin="-30 0 10 0" Click="login_Click"></Button>
+                <Button Content="登陆" Name="login" Margin="-30 30 10 0" Click="login_Click"></Button>
                 <!--
                 <Button Content="注册" Name="register" Margin="0 0 10 0" Click="register_Click"></Button>
                 -->
                 
-                <Button Content="退出" Name="exit" Margin="30 0 10 0" Click="exit_Click"></Button>
+                <Button Content="退出" Name="exit" Margin="30 30 10 0" Click="exit_Click"></Button>
                 
             </StackPanel>
         </StackPanel>

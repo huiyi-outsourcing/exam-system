@@ -97,5 +97,14 @@ namespace ExamSystem.controls {
             //    question.SelectedOptions.Add(idx);
             //}
         }
+
+        private void btn_confirm_Click(object sender, RoutedEventArgs e)
+        {
+            Confirm();
+
+            MainWindow parent = Window.GetWindow(this) as MainWindow;
+            parent.Examlist.refresh();
+            parent.setBody(parent.Examlist);
+        }
     }
 }

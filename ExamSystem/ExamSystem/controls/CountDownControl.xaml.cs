@@ -45,7 +45,7 @@ namespace ExamSystem.controls {
             } else {
                 timer.Stop();
                 MessageBox.Show("考试时间已到，自动提交试卷并记录考试成绩！");
-                (Window.GetWindow(this) as MainWindow).SubmitExam();
+                //(Window.GetWindow(this) as MainWindow).SubmitExam();
                 //try {
                 //    (Window.GetWindow(this) as MainWindow).SubmitExam();
                 //} catch (Exception) {

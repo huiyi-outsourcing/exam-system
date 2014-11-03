@@ -291,19 +291,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="resources\img\作战军事行动.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="resources\img\main_background.png" />
+    <Resource Include="resources\img\button.png" />
+    <Resource Include="resources\img\作战军事行动.png" />
+    <Resource Include="resources\img\exam_background.png" />
+    <Resource Include="resources\img\提示1.png" />
+    <Resource Include="resources\img\内容图.png" />
+    <Resource Include="resources\img\spliter.png" />
     <Content Include="resources\img\非战争军事伤.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="resources\img\非战争军事行动.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="icon.ico" />
-    <Content Include="resources\img\bg_button.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="resources\img\check.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -314,9 +312,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\img\LOGO-首页.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\img\main_background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\img\check_black.png">

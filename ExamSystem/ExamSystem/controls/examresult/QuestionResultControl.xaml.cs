@@ -68,5 +68,12 @@ namespace ExamSystem.controls.examresult {
             scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
             e.Handled = true;
         }
+
+        private void btn_return_Click(object sender, RoutedEventArgs e)
+        {
+            ExamResultWindow window = Window.GetWindow(this) as ExamResultWindow;
+            window.Examresult.refresh();
+            window.setBody(window.Examresult);
+        }
     }
 }

@@ -50,11 +50,14 @@ namespace ExamSystem {
             main.Show();
             */
 
-            if (confirmAuthorization()) {
+            if (confirmAuthorization())
+            {
                 HelperWindow window = new HelperWindow();
                 window.setBody(new controls.LoginControl());
                 window.Show();
-            } else {
+            }
+            else
+            {
                 HelperWindow window = new HelperWindow();
                 controls.AuthControl auth = new controls.AuthControl();
                 window.setBody(auth);

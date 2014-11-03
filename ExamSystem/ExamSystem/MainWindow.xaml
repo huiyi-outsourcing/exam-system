@@ -4,35 +4,14 @@
         xmlns:controls="clr-namespace:ExamSystem.controls"
         Title="战（现）场急救技术模拟训练系统" Icon="icon.ico" WindowState="Maximized" WindowStyle="None" KeyDown="Window_KeyDown">
     <Window.Background>
-        <ImageBrush ImageSource="resources/img/main_background.jpg" />
+        <ImageBrush ImageSource="resources/img/exam_background.png" />
     </Window.Background>
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="150" />
             <RowDefinition />
-            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
 
-        <!-- static layout -->
-        <Line X1="0" X2="2000" Y1="100" Y2="100" Stroke="Black" StrokeThickness="4" Grid.Row="0" />
-        <Line X1="0" X2="2000" Y1="0" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="2" />
-
-        <Image Grid.Row="0" Source="resources/img/卫勤LOGO.png" HorizontalAlignment="Left" Width="500" Margin="20 0 0 0" />
-        
         <Grid Grid.Row="1" Name="body"></Grid>
-        
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Button Name="btn_submit" Click="submit_Click" Content="提交" Width="100" Margin="50 20 0 20" />
-            
-            <Button Name="btn_confirm" Click="confirm_Click" Content="确定" Width="80" Margin="350 0 0 0" Visibility="Hidden" />
-
-            <!--
-            <controls:CountDownControl x:Name="cdc" HorizontalAlignment="Right" Margin="200 0 0 0" />
-            -->
-        </StackPanel>
-        <!-- end of static layout -->
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-        </StackPanel>
     </Grid>
 </Window>

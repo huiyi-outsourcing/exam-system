@@ -23,8 +23,8 @@ namespace ExamSystem.controls.examresult {
     public partial class ExamResultListControl : UserControl {
         private User user = null;
         private bool[] visited;
-        SolidColorBrush Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#99FFFF"));
-        SolidColorBrush Red = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF6600"));
+        SolidColorBrush Grey = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#BDBDBD"));
+        SolidColorBrush Red = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000"));
 
         public User User {
             get { return user; }
@@ -52,12 +52,12 @@ namespace ExamSystem.controls.examresult {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 40, Height = 40, Background = q.IsCorrect() ? Brushes.Green : Red};
+                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 60, Height = 60, Background = q.IsCorrect() ? Brushes.LightGray : Red};
                 border.Effect = new DropShadowEffect() { Color = Colors.Black, BlurRadius = 16, ShadowDepth = 0, Opacity = 1 };
 
                 TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
                 border.Child = tb;
-                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(20) };
+                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(0, 2, 0, 2) };
                 item.Content = border;
                 item.Tag = q;
 
@@ -74,7 +74,7 @@ namespace ExamSystem.controls.examresult {
             visited[index] = true;
             ExamResultWindow window = Window.GetWindow(this) as ExamResultWindow;
             window.setBody(new QuestionResultControl(exam.Questions.ElementAt(index), index));
-            window.toggleButton();
+            //window.toggleButton();
         }
 
         public void refresh() {
@@ -85,9 +85,21 @@ namespace ExamSystem.controls.examresult {
 
                 if (q.IsCorrect()) continue;
                 if (visited[i]) {
-                    border.Background = Blue;
+                    border.Background = Brushes.LightGray;
                 }
             }
+        }
+
+        private void btn_continue_Click(object sender, RoutedEventArgs e)
+        {
+            windows.ContinueTrainingWindow window = new windows.ContinueTrainingWindow(Window.GetWindow(this) as ExamResultWindow);
+            window.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, RoutedEventArgs e)
+        {
+            windows.ExitTrainingWindow window = new windows.ExitTrainingWindow(Window.GetWindow(this));
+            window.ShowDialog();
         }
     }
 }

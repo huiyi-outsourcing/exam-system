@@ -40,12 +40,14 @@
             </ScrollViewer>
 
             <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Margin="10">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                    <TextBlock Name="tb_selected" Foreground="Red" FontSize="30" Margin="30 0 0 0" />
-                    <TextBlock Name="tb_correct" Foreground="Red" FontSize="30" Margin="30 10 0 0" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                        <TextBlock Name="tb_selected" Foreground="Red" FontSize="30" Margin="30 0 0 0" />
+                        <TextBlock Name="tb_correct" Foreground="Red" FontSize="30" Margin="30 10 0 0" />
+                    </StackPanel>
+                    <Button Name="btn_return" Click="btn_return_Click" Content="确定"  Margin="120 0 0 0" />
                 </StackPanel>
             </ScrollViewer>
-
         </Grid>
     </Grid>
 </UserControl>

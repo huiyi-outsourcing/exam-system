@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ExitWindow" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Window.Background>
-        <ImageBrush ImageSource="../resources/img/提示框.png" />
+        <ImageBrush ImageSource="../resources/img/提示1.png" />
     </Window.Background>
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
