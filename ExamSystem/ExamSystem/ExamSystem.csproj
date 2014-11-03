@@ -298,6 +298,10 @@
     <Resource Include="resources\img\提示1.png" />
     <Resource Include="resources\img\内容图.png" />
     <Resource Include="resources\img\spliter.png" />
+    <Resource Include="resources\img\标题.png" />
+    <Resource Include="resources\img\main_background2.png" />
+    <Resource Include="resources\img\答案对话框.png" />
+    <Resource Include="resources\img\提示对话框.png" />
     <Content Include="resources\img\非战争军事伤.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

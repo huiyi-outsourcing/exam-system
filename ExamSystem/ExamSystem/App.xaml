@@ -4,10 +4,10 @@
              xmlns:src="clr-namespace:ExamSystem.utils">
     <Application.Resources>
         <Style TargetType="{x:Type Button}">
-            <Setter Property="Width" Value="80" />
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="60" />
             <Setter Property="Background" Value="Blue" />
-            <Setter Property="FontFamily" Value="华文新魏" />
+            <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="FontSize" Value="22" />
             <Setter Property="Background">
                 <Setter.Value>
@@ -58,13 +58,13 @@
 
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="华文新魏" />
+            <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Foreground" Value="White" />
         </Style>
 
         <Style TargetType="{x:Type PasswordBox}">
             <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="华文新魏" />
+            <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
@@ -178,13 +178,13 @@
 
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="华文新魏" />
+            <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Foreground" Value="White" />
         </Style>
 
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="FontSize" Value="22" />
-            <Setter Property="FontFamily" Value="华文新魏" />
+            <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>

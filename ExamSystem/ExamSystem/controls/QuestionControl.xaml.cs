@@ -34,9 +34,9 @@ namespace ExamSystem.controls {
             var h = ((System.Windows.Controls.Panel)Application.Current.MainWindow.Content).ActualHeight;
             var w = ((System.Windows.Controls.Panel)Application.Current.MainWindow.Content).ActualWidth;
             tb_index.Text = "第" + (index + 1) + "题";
-            tb_description.Text = question.Description;
+            tb_description.Text = "    " + question.Description;
             tb_description.Width = w * 0.3;
-            tb_manifestation.Text = question.Manifestation;
+            tb_manifestation.Text = "    " + question.Manifestation;
             tb_manifestation.Width = w * 0.3;
             //MessageBox.Show();
 

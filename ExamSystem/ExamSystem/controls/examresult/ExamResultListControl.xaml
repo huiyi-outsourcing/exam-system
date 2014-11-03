@@ -7,7 +7,7 @@
              d:DesignHeight="562" d:DesignWidth="1280">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="本轮处置答案对照" Foreground="#CC0000" FontSize="40" HorizontalAlignment="Center" />
+            <TextBlock Text="本轮处置答案对照" Foreground="Black" FontSize="35" HorizontalAlignment="Center" />
             
             <ListBox IsSynchronizedWithCurrentItem="True" Name="qlist" SelectionMode="Single" Background="Transparent" BorderBrush="Transparent" Margin="0 30 0 0" HorizontalAlignment="Center">
                 <ListBox.ItemsPanel>
@@ -16,9 +16,9 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <TextBlock Text="说明：" Foreground="Black" FontSize="25" Margin="0 20 0 0" />
-            <TextBlock Text="1. 红色按钮为扣分题，双击题号进行答案对比。" Foreground="Black" FontSize="25" Margin="0 10 0 0" />
-            <TextBlock Text="2. 查看后题号将变为灰色。" Foreground="Black" FontSize="25" Margin="0 10 0 0" />
+            <TextBlock Text="说明：" Foreground="Black" FontSize="22" Margin="0 50 0 0" />
+            <TextBlock Text="1. 红色按钮为扣分题，双击题号进行答案对比。" Foreground="Black" FontSize="22" Margin="0 10 0 0" />
+            <TextBlock Text="2. 查看后题号将变为灰色。" Foreground="Black" FontSize="22" Margin="0 10 0 0" />
             
             <StackPanel Orientation="Horizontal" Margin="0 30 0 0" VerticalAlignment="Top">
                 <Button Name="btn_continue" Click="btn_continue_Click" Content="继续训练" Width="120" />

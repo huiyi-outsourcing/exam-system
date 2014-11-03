@@ -62,8 +62,8 @@ namespace ExamSystem.controls {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 60, Height = 60, Background = Blue };
-                border.Effect = new DropShadowEffect() { Color = Colors.Black, BlurRadius = 16, ShadowDepth = 0, Opacity = 1 };
+                Border border = new Border() { Width = 60, Height = 60, Background = Blue };
+                border.Effect = new DropShadowEffect() { Color = (Color)ColorConverter.ConvertFromString("#AFFFFF"), BlurRadius = 32, ShadowDepth = 0, Opacity = 1 };
 
                 TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
                 border.Child = tb;

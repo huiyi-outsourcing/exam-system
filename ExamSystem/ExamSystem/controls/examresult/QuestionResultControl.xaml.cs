@@ -33,9 +33,9 @@ namespace ExamSystem.controls.examresult {
             var w = ((System.Windows.Controls.Panel)Application.Current.MainWindow.Content).ActualWidth;
 
             tb_index.Text = "第" + (index + 1) + "题";
-            tb_description.Text = question.Description;
+            tb_description.Text = "    " + question.Description;
             tb_description.Width = w * 0.3;
-            tb_manifestation.Text = question.Manifestation;
+            tb_manifestation.Text = "    " + question.Manifestation;
             tb_manifestation.Width = w * 0.3;
 
             for (int i = 0; i < question.Options.Count; ++i) {
@@ -44,19 +44,19 @@ namespace ExamSystem.controls.examresult {
                 sp_options.Children.Add(tb);
             }
 
-            String selected = "您选择的答案为： ";
+            String selected = "您选择的答案为：";
             for (int i = 0; i < question.SelectedOptions.Count; ++i) { 
                 char tmp = (char)(question.SelectedOptions.ElementAt(i) + 'A');
-                selected += tmp;
+                selected += tmp + " ";
             }
 
             tb_selected.Text = selected;
 
-            String correct = "正确答案为：";
+            String correct = "正确答案为：    ";
             for (int i = 0; i < question.Options.Count; ++i) {
                 if (question.Options[i].Correct) {
                     char tmp = (char)(i + 'A');
-                    correct += tmp;
+                    correct += tmp + " ";
                 }
             }
 
