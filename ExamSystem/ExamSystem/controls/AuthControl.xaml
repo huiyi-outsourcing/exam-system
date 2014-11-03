@@ -3,21 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="1280">
+             mc:Ignorable="d">
     <Grid>
-        <StackPanel Margin="0 -100 0 0">
+        <StackPanel VerticalAlignment="Top" Margin="0 70 0 0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label Content="设备码：" />
-                <TextBox Name="machine_code" Width="300" IsReadOnly="True" />
+                <Label Content="设备码：" FontSize="22"/>
+                <TextBox Name="machine_code" Width="300" FontSize="22" IsReadOnly="True" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 30">
-                <Label Content="授权码：" />
-                <TextBox Name="auth_code" Width="300" />
+                <Label Content="授权码：" FontSize="22" />
+                <TextBox Name="auth_code" Width="300" FontSize="22" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Content="授权" Name="authorize" Margin="20 0 20 0" Click="authorize_Click"></Button>
-                <Button Content="退出" Name="exit" Click="exit_Click"></Button>
+                <Button Content="授权" Name="authorize" Margin="20 0 20 0" Click="authorize_Click" Width="100" Height="50"></Button>
+                <Button Content="退出" Name="exit" Click="exit_Click" Width="100" Height="50"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>
