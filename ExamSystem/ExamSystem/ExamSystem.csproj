@@ -291,17 +291,51 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="resources\img\main_background.png" />
-    <Resource Include="resources\img\button.png" />
-    <Resource Include="resources\img\作战军事行动.png" />
-    <Resource Include="resources\img\exam_background.png" />
-    <Resource Include="resources\img\提示1.png" />
-    <Resource Include="resources\img\内容图.png" />
-    <Resource Include="resources\img\spliter.png" />
-    <Resource Include="resources\img\标题.png" />
-    <Resource Include="resources\img\main_background2.png" />
-    <Resource Include="resources\img\答案对话框.png" />
-    <Resource Include="resources\img\提示对话框.png" />
+    <Content Include="resources\img\main_background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\yellow_button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\作战军事行动.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\exam_background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\提示1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\内容图.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\spliter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\标题.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\main_background2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\答案对话框.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\提示对话框.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\blue_button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\gray_button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\img\red_button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\img\非战争军事伤.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

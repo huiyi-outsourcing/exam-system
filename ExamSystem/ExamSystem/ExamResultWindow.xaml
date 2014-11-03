@@ -7,24 +7,10 @@
     </Window.Background>
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition />
+            <RowDefinition Height="19*" />
+            <RowDefinition Height="81*" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1" Name="body"></Grid>
-
-        <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            --><!--
-            <Button Name="btn_main" Click="btn_main_Click" Content="首页" Margin="20" />
-            --><!--
-            <Button Name="btn_continue" Click="btn_continue_Click" Content="继续训练" Width="120" Margin="20" />
-            <Button Name="btn_exit" Click="btn_exit_Click" Content="结束训练" Width="120" Margin="20 0 0 0" />
-            
-            <Button Name="btn_confirm" Click="btn_confirm_Click" Content="确定" Width="80" Margin="300 0 0 0" Visibility="Hidden" />
-        </StackPanel>
-        --><!-- end of static layout --><!--
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-        </StackPanel>-->
     </Grid>
 </Window>

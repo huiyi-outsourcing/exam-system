@@ -39,7 +39,7 @@ namespace ExamSystem.controls.examresult {
             tb_manifestation.Width = w * 0.3;
 
             for (int i = 0; i < question.Options.Count; ++i) {
-                TextBlock tb = new TextBlock() { Text = question.Options[i].Description, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.Black, FontSize = 25, Margin = new Thickness(0, 0, 0, 20) };
+                TextBlock tb = new TextBlock() { Text = question.Options[i].Description, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.Black, FontSize = 22, Margin = new Thickness(0, 0, 0, 20) };
                 tb.Width = w * 0.6;
                 sp_options.Children.Add(tb);
             }

@@ -8,7 +8,7 @@
             <Setter Property="Height" Value="60" />
             <Setter Property="Background" Value="Blue" />
             <Setter Property="FontFamily" Value="宋体" />
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="resources/img/button.png" />
@@ -57,13 +57,13 @@
         </Style>
 
         <Style TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Foreground" Value="White" />
         </Style>
 
         <Style TargetType="{x:Type PasswordBox}">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
@@ -177,20 +177,20 @@
         </Style>
 
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Foreground" Value="White" />
         </Style>
 
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontFamily" Value="宋体" />
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <DockPanel LastChildFill="True">
                             <TextBlock DockPanel.Dock="Right"
-                                       Foreground="Red" FontSize="22" FontWeight="Bold"
+                                       Foreground="Red" FontSize="20" FontWeight="Bold"
                                        Text="{Binding ElementName=adornerPlaceholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
                                        VerticalAlignment="Center">
                             </TextBlock>

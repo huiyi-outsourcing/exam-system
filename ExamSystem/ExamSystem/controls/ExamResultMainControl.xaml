@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="562" d:DesignWidth="1280">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ControlTemplate x:Key="ListBoxControlTemplate" TargetType="ListBoxItem">
             <CheckBox IsChecked="{Binding Path=IsSelected,
@@ -14,7 +13,7 @@
         </ControlTemplate>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="0 120 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
             <RowDefinition />
@@ -27,11 +26,11 @@
         </StackPanel>
         
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button Content="标准处置对照" FontSize="25" Click="Button_Click_1" Margin="0 70 0 0" Width="220" Height="50" Focusable="False" />
+            <Button Content="标准处置对照" FontSize="25" Click="Button_Click_1" Margin="0 70 0 0" Width="180" Height="50" Focusable="False" />
             <!--
             <TextBlock Text="继续训练" Foreground="Red" FontSize="30" Margin="0 20 0 0" MouseLeftButtonDown="continue_training"/>
             -->
-            <Button Content="结束训练" FontSize="25" Margin="60 70 0 0" Click="Button_Click_2" Width="220" Height="50" Focusable="False" />
+            <Button Content="结束训练" FontSize="25" Margin="60 70 0 0" Click="Button_Click_2" Width="180" Height="50" Focusable="False" />
         </StackPanel>
     </Grid>
 </UserControl>

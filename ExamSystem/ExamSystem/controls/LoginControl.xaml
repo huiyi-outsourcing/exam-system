@@ -6,35 +6,35 @@
              xmlns:validations="clr-namespace:ExamSystem.utils.validations"
              xmlns:viewmodels="clr-namespace:ExamSystem.controls.viewmodel"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="1280">
+             d:DesignHeight="540" d:DesignWidth="1280">
     <Grid>
         <StackPanel VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 30 0 0">
                 <Label Content="用 户 名：" Margin="40 0 0 0"/>
                 <TextBox x:Name="tb_name" Width="400">
                 </TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 25 0 0">
                 <Label Content="保障卡号：" Margin="40 0 0 0"/>
                 <TextBox Name="tb_securitycode" Width="400" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="2 0 0 0">
-                <TextBlock Text="专业技术职称：" Margin="0 0 0 20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 25 0 0">
+                <TextBlock Text="专业技术职称：" Margin="0 0 0 0"/>
                 <RadioButton Name="rb_doctor" Content="军医" GroupName="occupation" IsChecked="True" Margin="10 0 10 0" />
                 <RadioButton Name="rb_nurse" Content="护士" GroupName="occupation" Margin="10 0 0 0" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5 0 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 25 0 0">
                 <TextBlock Text="组    别：" Margin="40 0 0 20" />
                 <RadioButton Name="rb_ssz" Content="手术室(组)" GroupName="category" IsChecked="True" Margin="10 0 10 0" />
                 <RadioButton Name="rb_zsz" Content="抗休克室(组)" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_qsz" Content="伤病员室(组)" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_flz" Content="分类组" GroupName="category" Margin="10 0 0 0" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="155 0 0 20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="140 25 0 20">
                 <RadioButton Name="rb_hxwqz" Content="化学武器伤伤病员室(组)" GroupName="category" Margin="10 0 0 0" />
                 <RadioButton Name="rb_hwqz" Content="核武器伤伤病员室(组)" GroupName="category" Margin="10 0 0 0" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="155 40 0 20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="140 60 0 20">
                 <Button Content="登陆" Name="login" Click="login_Click"></Button>
                 <!--
                 <Button Content="注册" Name="register" Margin="0 0 10 0" Click="register_Click"></Button>

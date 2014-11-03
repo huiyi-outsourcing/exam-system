@@ -7,22 +7,23 @@
     </Window.Background>
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="72*" />
         </Grid.RowDefinitions>
 
         <!-- static layout -->
         <Grid Grid.Row="1" Name="body">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0 170 0 0">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0 25 0 0">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="resources/img/作战军事行动.png" Width="180" Margin="50" MouseLeftButtonDown="enterArmy" />
                     <Image Source="resources/img/非战争军事伤.png" Width="180" Margin="50" MouseLeftButtonDown="enterLocal"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="请根据卫勤分队任务选择训练类别" FontSize="32" FontFamily="宋体" />
+                    <TextBlock Text="请根据卫勤分队任务选择训练类别" FontSize="28" FontFamily="宋体" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 30 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 70 0 0">
                 <Button Name="btn_return" Click="btn_return_Click" Content="返回" Margin="1000 20 20 20" />
                 <Button Name="btn_exit" Click="exit_Click" Content="退出" Margin="20 20 0 20" />
             </StackPanel>

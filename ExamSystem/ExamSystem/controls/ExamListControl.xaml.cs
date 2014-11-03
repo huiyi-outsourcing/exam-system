@@ -40,8 +40,9 @@ namespace ExamSystem.controls {
             get { return exam; }
             set { exam = value; }
         }
-        private SolidColorBrush DarkYellow;
-        private SolidColorBrush Blue;
+
+        private ImageBrush BlueButton;
+        private ImageBrush GrayButton;
         #endregion
 
         public ExamListControl() {
@@ -53,8 +54,20 @@ namespace ExamSystem.controls {
             this.user = user;
             this.category = category;
             exam = new Exam(user, category, reason);
-            Blue = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#548DD3"));
-            DarkYellow = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A5A5A5")); 
+
+
+            BitmapImage Blue = new BitmapImage();
+            Blue.BeginInit();
+            Blue.UriSource = new Uri("resources/img/blue_button.png", UriKind.Relative);
+            Blue.EndInit();
+            BlueButton = new ImageBrush(Blue);
+
+            BitmapImage Gray = new BitmapImage();
+            Gray.BeginInit();
+            Gray.UriSource = new Uri("resources/img/gray_button.png", UriKind.Relative);
+            Gray.EndInit();
+            GrayButton = new ImageBrush(Gray);
+
             initLayout();
         }
 
@@ -62,12 +75,11 @@ namespace ExamSystem.controls {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { Width = 60, Height = 60, Background = Blue };
-                border.Effect = new DropShadowEffect() { Color = (Color)ColorConverter.ConvertFromString("#AFFFFF"), BlurRadius = 32, ShadowDepth = 0, Opacity = 1 };
+                Border border = new Border() { Width = 80, Height = 80, Background = BlueButton };
 
-                TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
+                TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, FontSize = 25 };
                 border.Child = tb;
-                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(0, 2, 0, 2) };
+                ListBoxItem item = new ListBoxItem();
                 item.Content = border;
                 item.Tag = q;
 
@@ -91,9 +103,9 @@ namespace ExamSystem.controls {
                 Question q = item.Tag as Question;
 
                 if (q.SelectedOptions.Count > 0) {
-                    border.Background = DarkYellow;
+                    border.Background = GrayButton;
                 } else {
-                    border.Background = Blue;
+                    border.Background = BlueButton;
                 }
             }
         }

@@ -12,11 +12,11 @@
 
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
+                <RowDefinition Height="100" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Name="tb_index" Grid.Row="0" HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" FontSize="25" Margin="20 5 20 5"/>
+            <TextBlock Name="tb_index" Grid.Row="0" HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" FontSize="25" Margin="20 55 20 5"/>
 
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 10 20 10">
@@ -35,15 +35,15 @@
                 <RowDefinition />
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
-            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Margin="10">
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Margin="10 50 10 10">
                 <StackPanel Name="sp_options" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
                     
                 </StackPanel>
             </ScrollViewer>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
                 <Button Name="btn_return" Click="btn_return_Click" Content="确定"  Margin="60 0 0 0" />
-                <Border BorderBrush="Blue" BorderThickness="2" Margin="30 0 0 0" Background="White">
+                <Border BorderBrush="Blue" BorderThickness="2" Margin="200 0 50 0" Background="White" HorizontalAlignment="Right">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBlock Name="tb_selected" Foreground="Red" FontSize="22" Margin="30 5 30 0" />
                         <TextBlock Name="tb_correct" Foreground="Red" FontSize="22" Margin="30 5 30 5" />

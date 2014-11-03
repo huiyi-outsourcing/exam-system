@@ -7,15 +7,9 @@
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="33*" />
-            <RowDefinition Height="52*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <Image Source="resources/img/标题.png" 
-               Width="800"/>
-        </StackPanel>
 
         <Grid Name="body" Grid.Row="1">
             

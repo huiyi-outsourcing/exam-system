@@ -23,8 +23,8 @@ namespace ExamSystem.controls.examresult {
     public partial class ExamResultListControl : UserControl {
         private User user = null;
         private bool[] visited;
-        SolidColorBrush Grey = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#BDBDBD"));
-        SolidColorBrush Red = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000"));
+        private ImageBrush GrayButton;
+        private ImageBrush RedButton;
 
         public User User {
             get { return user; }
@@ -45,6 +45,18 @@ namespace ExamSystem.controls.examresult {
             for (int i = 0; i < visited.Length; ++i)
                 visited[i] = false;
 
+            BitmapImage Gray = new BitmapImage();
+            Gray.BeginInit();
+            Gray.UriSource = new Uri("resources/img/gray_button.png", UriKind.Relative);
+            Gray.EndInit();
+            GrayButton = new ImageBrush(Gray);
+
+            BitmapImage Red = new BitmapImage();
+            Red.BeginInit();
+            Red.UriSource = new Uri("resources/img/red_button.png", UriKind.Relative);
+            Red.EndInit();
+            RedButton = new ImageBrush(Red);
+
             initLayout();
         }
 
@@ -52,12 +64,11 @@ namespace ExamSystem.controls.examresult {
             // init clinical case list
             for (int i = 0; i < exam.Questions.Count; ++i) {
                 Question q = exam.Questions.ElementAt(i);
-                Border border = new Border() { CornerRadius = new CornerRadius(5), Width = 60, Height = 60, Background = q.IsCorrect() ? Brushes.LightGray : Red};
-                border.Effect = new DropShadowEffect() { Color = Colors.Black, BlurRadius = 16, ShadowDepth = 0, Opacity = 1 };
+                Border border = new Border() { Width = 80, Height = 80, Background = q.IsCorrect() ? GrayButton : RedButton };
 
                 TextBlock tb = new TextBlock() { Text = (i + 1).ToString(), HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black };
                 border.Child = tb;
-                ListBoxItem item = new ListBoxItem() { Margin = new Thickness(0, 2, 0, 2) };
+                ListBoxItem item = new ListBoxItem();
                 item.Content = border;
                 item.Tag = q;
 
@@ -85,7 +96,7 @@ namespace ExamSystem.controls.examresult {
 
                 if (q.IsCorrect()) continue;
                 if (visited[i]) {
-                    border.Background = Brushes.LightGray;
+                    border.Background = GrayButton;
                 }
             }
         }
