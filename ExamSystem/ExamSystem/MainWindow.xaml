@@ -8,8 +8,8 @@
     </Window.Background>
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="80*" />
+            <RowDefinition Height="19*" />
+            <RowDefinition Height="81*" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1" Name="body"></Grid>

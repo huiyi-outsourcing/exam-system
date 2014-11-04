@@ -45,8 +45,14 @@
                 <Button Name="btn_return" Click="btn_return_Click" Content="确定"  Margin="60 0 0 0" />
                 <Border BorderBrush="Blue" BorderThickness="2" Margin="200 0 50 0" Background="White" HorizontalAlignment="Right">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <TextBlock Name="tb_selected" Foreground="Red" FontSize="22" Margin="30 5 30 0" />
-                        <TextBlock Name="tb_correct" Foreground="Red" FontSize="22" Margin="30 5 30 5" />
+                        <StackPanel Orientation="Horizontal" Margin="30 5 30 0" HorizontalAlignment="Left">
+                            <TextBlock Text="您选择的答案为：" Foreground="Black" FontSize="22" />
+                            <TextBlock Name="tb_selected" Foreground="Red" FontSize="22" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="30 5 30 0" HorizontalAlignment="Left">
+                            <TextBlock Text="正确答案为：    " Foreground="Black" FontSize="22" />
+                            <TextBlock Name="tb_correct" Foreground="Red" FontSize="22" />
+                        </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>

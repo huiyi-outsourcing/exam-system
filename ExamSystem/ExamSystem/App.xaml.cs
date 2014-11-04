@@ -31,15 +31,6 @@ namespace ExamSystem {
                 Application.Current.Shutdown();
                 return;
             }
-
-            // Check database connection
-            try {
-                PersistenceHelper.OpenSession();
-            } catch (Exception) {
-                MessageBox.Show("无法连接数据库，请检查网络连接或联系管理员。");
-                return;
-            }
-
             /*
             entities.User user = PersistenceHelper.RetrieveAll<entities.User>()[0];
 
@@ -62,6 +53,17 @@ namespace ExamSystem {
                 controls.AuthControl auth = new controls.AuthControl();
                 window.setBody(auth);
                 window.Show();
+            }
+
+            // Check database connection
+            try
+            {
+                PersistenceHelper.OpenSession();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("无法连接数据库，请检查网络连接或联系管理员。");
+                return;
             }
 
             //entities.User user = PersistenceHelper.RetrieveAll<entities.User>()[0];

@@ -44,7 +44,7 @@ namespace ExamSystem.controls.examresult {
                 sp_options.Children.Add(tb);
             }
 
-            String selected = "您选择的答案为：";
+            String selected = string.Empty;
             for (int i = 0; i < question.SelectedOptions.Count; ++i) { 
                 char tmp = (char)(question.SelectedOptions.ElementAt(i) + 'A');
                 selected += tmp + " ";
@@ -52,7 +52,7 @@ namespace ExamSystem.controls.examresult {
 
             tb_selected.Text = selected;
 
-            String correct = "正确答案为：    ";
+            String correct = string.Empty;
             for (int i = 0; i < question.Options.Count; ++i) {
                 if (question.Options[i].Correct) {
                     char tmp = (char)(i + 'A');
