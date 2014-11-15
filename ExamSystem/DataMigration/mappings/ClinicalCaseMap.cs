@@ -10,8 +10,8 @@ namespace ExamSystem.mappings {
     public class ClinicalCaseMap : ClassMap<ClinicalCase> {
         public ClinicalCaseMap() {
             Id(x => x.Id);
-            Map(x => x.Description);
-            Map(x => x.Manifestation);
+            Map(x => x.Description).Length(500);
+            Map(x => x.Manifestation).Length(500);
             Map(x => x.Reason);
             References(x => x.InjuredDegree);
             HasManyToMany(x => x.Categories).Cascade.All();

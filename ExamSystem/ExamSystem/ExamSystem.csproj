@@ -321,7 +321,7 @@
     <Content Include="resources\img\main_background2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="resources\img\答案对话框.png">
+    <Content Include="resources\img\AnswerImage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="resources\img\提示对话框.png">

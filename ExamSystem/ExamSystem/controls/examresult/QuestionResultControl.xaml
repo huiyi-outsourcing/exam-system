@@ -33,7 +33,7 @@
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="150" />
             </Grid.RowDefinitions>
             <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderBrush="Transparent" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Margin="10 50 10 10">
                 <StackPanel Name="sp_options" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -41,20 +41,21 @@
                 </StackPanel>
             </ScrollViewer>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <Button Name="btn_return" Click="btn_return_Click" Content="确定"  Margin="60 0 0 0" />
-                <Border BorderBrush="Blue" BorderThickness="2" Margin="200 0 50 0" Background="White" HorizontalAlignment="Right">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="30 5 30 0" HorizontalAlignment="Left">
-                            <TextBlock Text="您选择的答案为：" Foreground="Black" FontSize="22" />
-                            <TextBlock Name="tb_selected" Foreground="Red" FontSize="22" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="30 5 30 0" HorizontalAlignment="Left">
-                            <TextBlock Text="正确答案为：    " Foreground="Black" FontSize="22" />
-                            <TextBlock Name="tb_correct" Foreground="Red" FontSize="22" />
-                        </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="200 0 0 0" Height="100">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="../../resources/img/AnswerImage.png" />
+                    </StackPanel.Background>
+                    <StackPanel Orientation="Horizontal" Margin="40 25 30 0" HorizontalAlignment="Left">
+                        <TextBlock Text="您选择的答案为：" Foreground="Black" FontSize="22" />
+                        <TextBlock Name="tb_selected" Foreground="Red" FontSize="22" />
                     </StackPanel>
-                </Border>
+                    <StackPanel Orientation="Horizontal" Margin="40 5 30 0" HorizontalAlignment="Left">
+                        <TextBlock Text="正确答案为：    " Foreground="Black" FontSize="22" />
+                        <TextBlock Name="tb_correct" Foreground="Red" FontSize="22" />
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
